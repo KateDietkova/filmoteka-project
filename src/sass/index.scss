@@ -1,2 +1,11 @@
 @import './common';
-@import './example';
+@import './utils/placeholder';
+@import './utils/variables';
+@import './layouts/header';
+@import './layouts/logo';
+@import './layouts/library-header';
+@import './layouts/gallery';
+@import './layouts/footer';
+
+@import './modals/modal-film';
+@import './modals/modal-team';
