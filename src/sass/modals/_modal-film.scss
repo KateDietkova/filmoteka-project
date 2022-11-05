@@ -112,12 +112,12 @@
     font-family: var(--font-general);
     font-weight: 500;
     font-size: 20px;
-    line-height: (23 / 20);
+    line-height: calc(23 / 20);
     color: var(--primary-darktext-color);
 
     @include minMedia($desk) {
             font-size: 30px;
-            line-height: (35 / 30);
+            line-height: calc(35 / 30);
         }
 }
 
@@ -126,7 +126,7 @@
     font-family: var(--font-general);
     font-weight: 500;
     font-size: 12px;
-    line-height: (16 / 12);
+    line-height: calc(16 / 12);
     color: var(--primary-darktext-color);
     border-spacing: 0 4px;
 }
@@ -144,11 +144,23 @@
         }
 }
 
+.modal-film__value-vote, .modal-film__value-votes {
+    display: inline-block;
+    text-align: center;
+    align-items: center;
+    width: 36px;
+    height: 16px;
+    border-radius: 5px;
+    line-height: calc(14 / 12);
+}
+
 .modal-film__value-vote {
     color: var(--primary-lighttext-color);
     background-color: #FF6B01;
-    border-radius: 5px;
-    padding: 1px 10px;
+}
+
+.modal-film__value-votes {
+    background-color: #F7F7F7;
 }
 
 .modal-film__article {
@@ -156,14 +168,14 @@
     font-family: var(--font-general);
     font-weight: 500;
     font-size: 12px;
-    line-height: (20 / 12);
+    line-height: calc(20 / 12);
     color: var(--primary-darktext-color);
 
     &-title {
         margin-bottom: 8px;
         font-size: 12px;
         font-weight: 500;
-        line-height: (16 / 12);
+        line-height: calc(16 / 12);
     }
 }
 
@@ -185,7 +197,7 @@
     font-family: var(--font-general);
     font-weight: 500;
     font-size: 12px;
-    line-height: (16 / 12);
+    line-height: calc(16 / 12);
 
     @include minMedia($tab) {
         width: 125px;
