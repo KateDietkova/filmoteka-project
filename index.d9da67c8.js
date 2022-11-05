@@ -1,0 +1,2 @@
+$2338c8cd734f85a6$export$aaedbcfc86e6cb5e=(e,r)=>{try{"string"==typeof r?localStorage.setItem(e,r):localStorage.setItem(e,JSON.stringify(r))}catch(e){console.error(e)}},$2338c8cd734f85a6$export$e4c9b9bae9539063=e=>{try{return JSON.parse(localStorage.getItem(e))}catch(e){console.error(e)}},$2338c8cd734f85a6$export$a3e6e3b94afefd97=e=>{try{localStorage.removeItem(e)}catch(e){console.error(e)}};
+//# sourceMappingURL=index.d9da67c8.js.map
