@@ -1,0 +1,20 @@
+.container {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include maxMedia($preTab) {
+    max-width: 480px;
+  }
+
+  @include minMedia($tab) {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  @include minMedia($desk) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
