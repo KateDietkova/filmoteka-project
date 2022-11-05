@@ -1,25 +1,23 @@
-
 @mixin minMedia($startBreakpoint) {
-    @media screen and (min-width: $startBreakpoint) {
-        @content;
-    }
+  @media screen and (min-width: $startBreakpoint) {
+    @content;
+  }
 }
 
 @mixin maxMedia($finishBreakpoint) {
-    @media screen and (max-width: $finishBreakpoint) {
-        @content;
-    }
+  @media screen and (max-width: $finishBreakpoint) {
+    @content;
+  }
 }
 
 @mixin rangeMedia($startBreakpoint, $finishBreakpoint) {
-    @media screen and (min-width: $startBreakpoint) and (max-width: $finishBreakpoint) {
-        @content;
-    }
+  @media screen and (min-width: $startBreakpoint) and (max-width: $finishBreakpoint) {
+    @content;
+  }
 }
 
-
 @mixin centeredFlex($type: flex, $align: center, $just: center) {
-    display: $type;
-    align-items: $align;
-    justify-content: $just;
+  display: $type;
+  align-items: $align;
+  justify-content: $just;
 }

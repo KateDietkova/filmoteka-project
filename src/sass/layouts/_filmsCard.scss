@@ -1,10 +1,10 @@
-.films-card-container {
-  margin: 0 auto;
+a {
+  text-decoration: none;
 }
-
-@media screen and(min-width: 320px) and (max-width: 767.9px) {
+@include maxMedia($tab) {
   .films-card-container {
     width: 320px;
+    margin: 0 auto;
   }
   .films-card {
     width: 280px;
@@ -19,36 +19,32 @@
 
   .film-description-wrapper {
     display: flex;
-    color: var(--second-text-decoration-color);
     align-items: center;
   }
   .film-description-title {
-    font-family: var(--main-font);
+    font-family: var(--font-general);
     font-weight: 500;
     font-size: 12px;
     line-height: 1.16;
     text-transform: uppercase;
-    color: var(--text-decoration-color);
+    color: var(--primary-darktext-color);
   }
   .film-description-items {
-    font-family: var(--main-font);
+    font-family: var(--font-general);
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
-    color: var(--second-text-decoration-color);
+    color: var(--primary-accent-color);
   }
   .reaction {
     margin-right: 3px;
     margin-left: 3px;
     width: 0.8px;
     height: 13px;
-    background: var(--second-text-decoration-color);
+    background: var(--primary-accent-color);
   }
 }
-@media screen and(min-width: 768px) and (max-width: 1199.9px) {
-  .films-card-container {
-    width: 768px;
-  }
+@include rangeMedia($preTab, $desk) {
   .films-card {
     width: 336px;
     height: 495px;
@@ -61,37 +57,33 @@
     padding-top: 8px;
   }
   .film-description-title {
-    font-family: var(--main-font);
+    font-family: var(--font-general);
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
     text-transform: uppercase;
-    color: var(--text-decoration-color);
+    color: var(--primary-darktext-color);
   }
   .film-description-wrapper {
     display: flex;
-    color: var(--second-text-decoration-color);
     align-items: center;
   }
   .film-description-items {
-    font-family: var(--main-font);
+    font-family: var(--font-general);
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
-    color: var(--second-text-decoration-color);
+    color: var(--primary-accent-color);
   }
   .reaction {
     margin-right: 3px;
     margin-left: 3px;
     width: 0.8px;
     height: 13px;
-    background: var(--second-text-decoration-color);
+    background: var(--primary-accent-color);
   }
 }
-@media screen and (min-width: 1200px) {
-  .films-container {
-    width: 1200;
-  }
+@include minMedia($preDesk) {
   .films-card {
     width: 395px;
     height: 634px;
@@ -104,24 +96,23 @@
     padding-top: 12px;
   }
   .film-description-title {
-    font-family: var(--main-font);
+    font-family: var(--font-general);
     font-weight: 500;
     font-size: 20px;
     line-height: 1.2;
     text-transform: uppercase;
-    color: var(--text-decoration-color);
+    color: var(--primary-darktext-color);
   }
   .film-description-items {
-    font-family: var(--main-font);
+    font-family: var(--font-general);
     font-weight: 500;
     font-size: 20px;
     line-height: 1.2;
-    color: var(--second-text-decoration-color);
+    color: var(--primary-accent-color);
   }
   .film-description-wrapper {
     align-items: center;
     display: flex;
-    color: var(--second-text-decoration-color);
   }
 
   .reaction {
@@ -129,6 +120,6 @@
     margin-left: 5px;
     width: 1.5px;
     height: 21px;
-    background: var(--second-text-decoration-color);
+    background: var(--primary-accent-color);
   }
 }

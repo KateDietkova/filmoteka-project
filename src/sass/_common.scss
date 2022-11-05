@@ -1,25 +1,5 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
-:root {
-  --main-font: 'Roboto', sans-serif;
-  --text-decoration-color: #000000;
-  --second-text-decoration-color: #ff6b08;
-}
-* {
-  box-sizing: border-box;
-}
-p {
-  margin: 0;
-}
-ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
 
-a {
-  color: #000 !important;
-  text-decoration: none;
-}
 h1,
 h2,
 h3,
