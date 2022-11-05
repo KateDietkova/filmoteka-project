@@ -1,17 +1,17 @@
 import modalFilmMarkupTpl from '../templates/modalFilmMarkup.hbs';
 
 const refs = {
-  //   galleryEl: document.querySelector('.gallery'),
+  //   element: document.querySelector('.element'),
   modal: document.querySelector('[data-modal]'),
   closeModalBtn: document.querySelector('[data-modal-close]'),
   modalContainer: document.querySelector('.modal-container'),
 };
 
-// refs.galleryEl.addEventListener('click', onClickShowModal);
+// refs.element.addEventListener('click', onClickShowModal);
 function onClickShowModal(event) {
   event.preventDefault();
-  // if (!event.target.classList.contains('имя-класса-карточки') ) {
-  //     //прописать условие, когда кликнули не туда
+  // if (event.target === event.currentTarget) {
+  //     //или прописать другое условие, когда кликнули не туда и модалка не открывается
   //     return;
   //   };
   showModal(event);
