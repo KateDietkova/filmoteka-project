@@ -1,0 +1,35 @@
+//Finish breakpoints 
+$desk: 1280px;
+$tab: 768px;
+$mob: 320px;
+
+//Start breakpoints
+$preDesk: 1279px;
+$preTab: 767px;
+$preMob: 319px;
+
+
+@mixin minMedia($startBreakpoint) {
+    @media screen and (min-width: $startBreakpoint) {
+        @content;
+    }
+}
+
+@mixin maxMedia($finishBreakpoint) {
+    @media screen and (max-width: $finishBreakpoint) {
+        @content;
+    }
+}
+
+@mixin rangeMedia($startBreakpoint, $finishBreakpoint) {
+    @media screen and (min-width: $startBreakpoint) and (max-width: $finishBreakpoint) {
+        @content;
+    }
+}
+
+
+@mixin centeredFlex($type: flex, $align: center, $just: center) {
+    display: $type;
+    align-items: $align;
+    justify-content: $just;
+}
