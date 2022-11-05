@@ -29,3 +29,22 @@ img {
     clip-path: inset(50%);
     margin: -1px;
 }
+a,
+a:visited {
+    text-decoration: none;
+    color: var(--primary-accent-color);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border: 0;
+}
+
+.list {
+    list-style: none;
+}
+button {
+    cursor: pointer;
+}

@@ -1,0 +1,45 @@
+<header class="header__library">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <a href="./index.html" class="header-logo__list">
+        <svg class="header-logo__icon" width="24" heigth="24">
+          <use href="./images/svg/symbol-defs.svg#icon-film-icon"></use>
+        </svg>
+        <span class="header-logo-text__link">Filmoteka</span>
+      </a>
+      <nav class="header-navigation">
+        <ul class="list header-list">
+          <li class="header-list__item">
+            <button
+              id="home"
+              class="header-list__button home__btn"
+              type="button"
+              onclick="window.location.href = './index.html';"
+            >
+              Home
+            </button>
+          </li>
+          <li class="header-list__item">
+            <button
+              id="library"
+              class="header-list__button current library__btn"
+              type="button"
+              onclick="window.location.href = './library.html';"
+            >
+              My Library
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="library-button__list">
+      <button id="watched" class="library-btn watched-btn active" type="button">
+        Watched
+      </button>
+      <button id="queue" class="library-btn queue-btn" type="button">
+        Queue
+      </button>
+    </div>
+  </div>
+</header>
