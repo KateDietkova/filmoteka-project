@@ -1,0 +1,32 @@
+.footer {
+  background-color: #f7f7f7;
+}
+.copyright {
+  padding-top: 30px;
+  padding-bottom: 28px;
+  text-align: center;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #545454;
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+.footer_heart {
+  display: inline;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.mob-fix {
+  @media screen and (max-width: 767px) {
+    display: block;
+    margin-top: 10px;
+  }
+}
+.team-link {
+  color: #545454;
+}
