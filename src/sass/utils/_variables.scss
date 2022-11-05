@@ -3,9 +3,8 @@
   --font-general: Roboto, sans-serif;
 
   // Accent color
-  --primary-accent-color: #FF6B08;
-  --secondary-accent-color: #FF001B;
-
+  --primary-accent-color: #ff6b08;
+  --secondary-accent-color: #ff001b;
 
   //Text colors
   --primary-lighttext-color: #fff;
@@ -14,6 +13,16 @@
 
   --copyright-text-color: #545454;
 
-// Effects
+  // Effects
   --main-effect: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  //Finish breakpoints
+  $desk: 1280px;
+  $tab: 768px;
+  $mob: 320px;
+
+  //Start breakpoints
+  $preDesk: 1279px;
+  $preTab: 767px;
+  $preMob: 319px;
 }
