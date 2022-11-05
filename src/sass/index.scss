@@ -1,7 +1,8 @@
 @import './common';
+@import './utils/variables';
+@import './utils/breakpoints';
 @import './utils/placeholder';
 @import './utils/mixin';
-@import './utils/variables';
 @import './layouts/header';
 @import './layouts/logo';
 @import './layouts/library-header';
