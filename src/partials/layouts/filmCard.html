@@ -1,61 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Films Card</title>
-    <link
-      rel=" stylesheet "
-      href="/node_modules/modern-normalize/modern-normalize.css"
-    />
-    <link rel="stylesheet" href="./sass/index.scss" />
-  </head>
-  <body>
-    <div class="films-card-container">
-      <div class="films-card">
-        <a href="#" class="link">
-          <picture>
-            <source
-              srcset="
-                ./images/filmsPoster/card1MOB@1x.jpg 1x,
-                ./images/filmsPoster/card1MOB@2x.jpg 2x
-              "
-              media="(max-width: 767px)"
-            />
-            <source
-              srcset="
-                ./images/filmsPoster/card1PC@1x.jpg 1x,
-                ./images/filmsPoster/card1PC@2x.jpg 2x
-              "
-              media="(min-width: 1280px)"
-            />
-            <source
-              srcset="
-                ./images/filmsPoster/card1TB@1x.jpg 1x,
-                ./images/filmsPoster/card1TB@2x.jpg 2x
-              "
-              media="(min-width: 768px)"
-            />
+<div class="films-card-container">
+  <div class="films-card">
+    <a href="#" class="link">
+      <picture>
+        <source
+          srcset="
+            ./images/filmsPoster/card1MOB@1x.jpg 1x,
+            ./images/filmsPoster/card1MOB@2x.jpg 2x
+          "
+          media="(max-width: 767px)"
+        />
+        <source
+          srcset="
+            ./images/filmsPoster/card1PC@1x.jpg 1x,
+            ./images/filmsPoster/card1PC@2x.jpg 2x
+          "
+          media="(min-width: 1280px)"
+        />
+        <source
+          srcset="
+            ./images/filmsPoster/card1TB@1x.jpg 1x,
+            ./images/filmsPoster/card1TB@2x.jpg 2x
+          "
+          media="(min-width: 768px)"
+        />
 
-            <img
-              class="projects-list__img"
-              src="./images/filmsPoster/card1MOB@1x.jpg"
-              alt="GREYHOUND"
-            />
-          </picture>
-          <div class="film-item-wrapper">
-            <p class="film-description-title">GREYHOUND</p>
-            <div class="film-description-wrapper">
-              <p class="film-description-items">Drama, Action</p>
-              <span class="reaction"></span>
-              <p class="film-description-items">2020</p>
-            </div>
-          </div>
-        </a>
+        <img
+          class="projects-list__img"
+          src="./images/filmsPoster/card1MOB@1x.jpg"
+          alt="GREYHOUND"
+        />
+      </picture>
+      <div class="film-item-wrapper">
+        <p class="film-description-title">GREYHOUND</p>
+        <div class="film-description-wrapper">
+          <p class="film-description-items">Drama, Action</p>
+          <span class="reaction"></span>
+          <p class="film-description-items">2020</p>
+        </div>
       </div>
-    </div>
-    <div class="sentinel"></div>
-    <!-- <script type="module" src="./index.js"></script> -->
-  </body>
-</html>
+    </a>
+  </div>
+</div>
