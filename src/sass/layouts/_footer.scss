@@ -5,15 +5,13 @@
   padding-top: 30px;
   padding-bottom: 28px;
   text-align: center;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
+  font-family: var(--font-general);
   font-size: 14px;
-  line-height: 16px;
-  color: #545454;
-  @media screen and (min-width: 768px) {
+  line-height: 1.14;
+  color: var(--copyright-text-color);
+  @include minMedia(768px) {
     font-size: 16px;
-    line-height: 19px;
+    line-height: 1.18px;
   }
 }
 .footer_heart {
@@ -22,11 +20,11 @@
   margin-right: 10px;
 }
 .mob-fix {
-  @media screen and (max-width: 767px) {
+  @include maxMedia(767px) {
     display: block;
     margin-top: 10px;
   }
 }
 .team-link {
-  color: #545454;
+  color: var(--copyright-text-color);
 }
