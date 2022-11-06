@@ -29,7 +29,9 @@
         position: relative;
     }
 }
-    @media screen and (min-width: 320px){
+@media (min-device-pixel-ratio: 2) and (min-width: 320px),
+(min-resolution: 192dpi) and (min-width: 320px),
+(min-resolution: 2dppx) and (min-width: 320px) {
 .header {
     width: 100%;
     height: 230px;
@@ -41,12 +43,11 @@
     height: 230px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url(/src/images/header_libr/header-libr-mob-2x.jpg);
-
-        }
+}
 }
     }
         
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 769px) {
       .header {
           padding-top: 40px;
           width: 100%;
@@ -63,9 +64,9 @@
           }
         }
     }
- @media (min-device-pixel-ratio: 2) and (min-width: 768px),
- (min-resolution: 192dpi) and (min-width: 768px),
- (min-resolution: 2dppx) and (min-width: 768px) {
+ @media (min-device-pixel-ratio: 2) and (min-width: 769px),
+ (min-resolution: 192dpi) and (min-width: 769px),
+ (min-resolution: 2dppx) and (min-width: 769px) {
     .header {
         width: 100%;
         height: 219px;
@@ -81,7 +82,25 @@
         }
     }
  }
- @media screen and (min-width: 1024px) {
+ @media screen and (min-width: 1280px){
+    .header {
+    width: 100%;
+    height: 216px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(/src/images/header/header-desk-1x.jpg);
+    
+    &__library {
+    width: 100%;
+    height: 216px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(/src/images/header_libr/header-libr-desk-1x.jpg);
+    }
+}
+}
+
+ @media (min-device-pixel-ratio: 2) and (min-width: 1280px),
+  (min-resolution: 192dpi) and (min-width: 1280px),
+  (min-resolution: 2dppx) and (min-width: 1280px) {
     .header{
     width: 100%;
     height: 216px;
@@ -241,12 +260,11 @@ display: none;
     }
 
 .search-form::placeholder {
-    font-weight: 400;
     font-size: 14px;
     line-height: 1.14;
     display: flex;
     align-items: center;
-    color: #FFFFFF;
+    color: var(--primary-lighttext-color);
 }
 
 .input__icon {
@@ -286,7 +304,8 @@ display: none;
     font-size: 12px;
     line-height: 1.33;
     width: 130px;
-    height: 44px;
+    // height: 44px;
+    padding: 12px 36px;
     border-radius: 5px;
     background-color: transparent;
     color: var(--primary-lighttext-color);
@@ -296,11 +315,13 @@ display: none;
 
   @media screen and (min-width: 768px) {
       width: 152px;
+      padding: 13px 57px;
   }
 
   @media screen and (min-width: 1280px) {
       width: 148px;
-      height: 42px;
+    //   height: 42px;
+    padding: 13px 41px 11px 41px;
   }
 }
  .library-btn:hover,
