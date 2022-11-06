@@ -12,7 +12,13 @@
     padding-top: 46px;
     margin: 0 auto;
     position: relative;
-
+    @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        & {
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(/src/images/header/header-mob-2x.jpg);
+            }}
     &__library{
         background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
             url(/src/images/header_libr/header-libr-mob-1x.jpg);
@@ -27,25 +33,16 @@
         padding-top: 46px;
         margin: 0 auto;
         position: relative;
+        @media (min-device-pixel-ratio: 2),
+            (min-resolution: 192dpi),
+            (min-resolution: 2dppx) {
+        &__library {
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(/src/images/header_libr/header-libr-mob-2x.jpg);
     }
 }
-@media (min-device-pixel-ratio: 2) and (min-width: 320px),
-(min-resolution: 192dpi) and (min-width: 320px),
-(min-resolution: 2dppx) and (min-width: 320px) {
-.header {
-    width: 100%;
-    height: 230px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-    url(/src/images/header/header-mob-2x.jpg);
-   
-&__library{
-    width: 100%;
-    height: 230px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-    url(/src/images/header_libr/header-libr-mob-2x.jpg);
-}
-}
     }
+}
         
   @media screen and (min-width: 769px) {
       .header {
@@ -54,65 +51,59 @@
           height: 219px;
           background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
               url(/src/images/header/header-tab-1x.jpg);
-
-          &__library {
-              padding-top: 40px;
-              width: 100%;
-              height: 219px;
-              background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-                  url(/src/images/header_libr/header-libr-tab-1x.jpg);
-          }
-        }
-    }
- @media (min-device-pixel-ratio: 2) and (min-width: 769px),
- (min-resolution: 192dpi) and (min-width: 769px),
- (min-resolution: 2dppx) and (min-width: 769px) {
-    .header {
+            @media (min-device-pixel-ratio: 2),
+                (min-resolution: 192dpi),
+                (min-resolution: 2dppx) {
+                    & {
+                        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+                            url(/src/images/header/header-tab-2x.jpg);
+                    }}
+    &__library {
+        padding-top: 40px;
         width: 100%;
         height: 219px;
         background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url(/src/images/header/header-tab-2x.jpg);
-
-    &__library {
-    width: 100%;
-    height: 219px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url(/src/images/header_libr/header-libr-tab-2x.jpg);
-
+            url(/src/images/header_libr/header-libr-tab-1x.jpg);
+        @media (min-device-pixel-ratio: 2),
+            (min-resolution: 192dpi),
+            (min-resolution: 2dppx) {
+            &__library {
+                background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+                    url(/src/images/header_libr/header-libr-tab-2x.jpg);
+          }
         }
     }
- }
+}
+  }
  @media screen and (min-width: 1280px){
     .header {
     width: 100%;
     height: 216px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url(/src/images/header/header-desk-1x.jpg);
-    
+    @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+    &{
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(/src/images/header/header-desk-2x.jpg);
+}
+}
     &__library {
     width: 100%;
     height: 216px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url(/src/images/header_libr/header-libr-desk-1x.jpg);
-    }
-}
-}
-
- @media (min-device-pixel-ratio: 2) and (min-width: 1280px),
-  (min-resolution: 192dpi) and (min-width: 1280px),
-  (min-resolution: 2dppx) and (min-width: 1280px) {
-    .header{
-    width: 100%;
-    height: 216px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url(/src/images/header/header-desk-2x.jpg);
+    @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
     &__library {
-        width: 100%;
-        height: 216px;
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url(/src/images/header_libr/header-libr-desk-2x.jpg);
-        }
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(/src/images/header_libr/header-libr-desk-2x.jpg);
+}
     }
+}
+}
  }
 .link {
     text-decoration: none;
