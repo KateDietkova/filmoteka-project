@@ -1,0 +1,39 @@
+.movie-gallery {
+  padding-top: 20px;
+  @include minMedia($tab) {
+    padding-top: 60px;
+  }
+}
+.movie-list {
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  max-width: 280px;
+  justify-content: center;
+  grid-gap: 20px;
+  grid-auto-rows: auto;
+
+  @include minMedia($tab) {
+    margin-bottom: 60px;
+    max-width: 700px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 32px;
+  }
+
+  @include minMedia($desk) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 32px 16px;
+    max-width: 1200px;
+  }
+}
+
+.library-img-wrapper {
+  @include centeredFlex;
+  padding-top: 20px;
+}
+
+.movie-error-wrapper {
+  @include centeredFlex;
+  padding-top: 20px;
+}
