@@ -33,14 +33,14 @@ function galleryMarkup(movies, allGenres) {
                     <div class="film-item-wrapper">
                         <p class="film-description-title">${title}</p>
                         <div class="film-description-wrapper">
-                        <p class="film-description-items">${getGenres(
-                          genre_ids,
-                          allGenres
-                        )}</p>
-                        <p class="film-description-items">${getDate(release_date)}</p>
+                            <p class="film-description-items">${getGenres(
+                                genre_ids,
+                                allGenres
+                            )}</p>
+                            <p class="film-description-items">${getDate(release_date)}</p>
+                        </div>
                     </div>
-                </div>
-            </div>`;
+                </div>`;
     })
     .join('');
 }
