@@ -75,7 +75,7 @@
     }
 }
   }
- @media screen and (min-width: 1280px){
+    @include minMedia($desk) {
     .header {
     width: 100%;
     height: 216px;
@@ -115,22 +115,23 @@
     margin: 0 auto;
     width: 100%;
 
- @media screen and (min-width: 320px) {
+    @include minMedia($mob) {
       width: 320px;
     }
 
-    @media screen and (min-width: 768px) {
+    @include minMedia($tab){
         width: 768px;
         padding-left: 32px;
         padding-right: 32px;
     }
 
-    @media screen and (min-width: 1280px) {
+    @include minMedia($desk){
         width: 1280px;
     } 
 }
 
 .header-list {
+    @extend %list;
     display: flex;
     gap: 39px;
     margin-right: 32px;
@@ -193,16 +194,16 @@ transition: var(--main-effect);
     justify-content: space-between;
     align-items: center;
     margin-bottom: 62px;
-    @media screen and (min-width: 768px) {
+    @include minMedia($tab) {
     margin-bottom: 41px;
 }
 }
 
 .header-logo-text__link {
-display: none;
+    display: none;
 
-    @media screen and (min-width: 768px){
-        display: block;
+    @include minMedia($tab){
+    display: block;
     font-weight: 500;
     font-size: 30px;
     line-height: 1.17;
@@ -218,6 +219,7 @@ display: none;
 }
 
 .header-logo__list {
+    @extend %list;
     align-items: center;
     display: flex;
     height: 35px;
@@ -241,14 +243,13 @@ display: none;
     display: block;
     margin: 0 auto;
     box-sizing: border-box;
-    @media screen and (min-width: 768px){
+    @include minMedia($tab){
         width: 336px;
-    };
-    @media screen and (min-width: 1280px){
+    }
+    @include minMedia($desk){
         width: 394px;
-    }
-        
-    }
+    }     
+}
 
 .search-form::placeholder {
     font-size: 14px;
@@ -278,14 +279,15 @@ display: none;
 }
 
 .library-button__list {
+    @extend %list;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
-    @media screen and (min-width: 768px) {
+    @include minMedia($tab){
     gap: 32px;
     }
-    @media screen and (min-width: 1280px) {
+    @include minMedia($desk){
     gap: 16px;
 }
 }
@@ -295,7 +297,6 @@ display: none;
     font-size: 12px;
     line-height: 1.33;
     width: 130px;
-    // height: 44px;
     padding: 12px 36px;
     border-radius: 5px;
     background-color: transparent;
@@ -304,14 +305,13 @@ display: none;
     border-radius: 5px;
     border: 1px solid var(--primary-lighttext-color);
 
-  @media screen and (min-width: 768px) {
-      width: 152px;
-      padding: 13px 57px;
+    @include minMedia($tab) {
+    width: 152px;
+    padding: 13px 57px;
   }
 
-  @media screen and (min-width: 1280px) {
-      width: 148px;
-    //   height: 42px;
+    @include minMedia($desk){
+    width: 148px;
     padding: 13px 41px 11px 41px;
   }
 }
