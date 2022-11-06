@@ -24,6 +24,7 @@
     "loading-visualization": "^1.2.14",
     "lodash.debounce": "^4.0.8",
     "modern-normalize": "^1.1.0",
+    "movie-trailer": "^1.0.4",
     "notiflix": "^3.2.5"
   },
   "devDependencies": {

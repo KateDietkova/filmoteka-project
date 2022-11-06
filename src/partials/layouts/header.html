@@ -1,0 +1,50 @@
+<header class="header">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <a href="./index.html" class="header-logo__list">
+        <svg class="header-logo__icon" width="24" heigth="24">
+          <use href="./images/svg/icons.svg#logo-film"></use>
+        </svg>
+        <span class="header-logo-text__link">Filmoteka</span>
+      </a>
+      <nav class="header-navigation">
+        <ul class="list header-list">
+          <li class="header-list__item">
+            <button
+              id="home"
+              class="header-list__button current home__btn"
+              type="button"
+              onclick="window.location.href = './index.html';"
+            >
+              Home
+            </button>
+          </li>
+          <li class="header-list__item">
+            <button
+              id="library"
+              class="header-list__button library__btn"
+              type="button"
+              onclick="window.location.href = './library.html';"
+            >
+              My Library
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <form class="search-form">
+      <input
+        class="header-input"
+        type="text"
+        name="searchQuery"
+        autocomplete="off"
+        placeholder="Movie search"
+      />
+      <button class="button-search" type="submit">
+        <svg class="input__icon" width="12" height="12">
+          <use href="./images/svg/icons.svg#icon-search-icon"></use>
+        </svg>
+      </button>
+    </form>
+</header>

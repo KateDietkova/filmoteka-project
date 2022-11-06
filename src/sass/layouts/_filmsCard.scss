@@ -1,0 +1,140 @@
+
+.projects-list__img {
+    border-radius: 5px;
+  }
+
+@include maxMedia($preTab) {
+  .films-card {
+    width: 280px;
+  }
+  .film-item-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+  }
+
+  .film-description-wrapper {
+    display: flex;
+    align-items: center;
+
+  }
+  .film-description-title {
+    font-family: var(--font-general);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.16;
+    text-transform: uppercase;
+    color: var(--primary-darktext-color);
+    margin-bottom: 2px;
+  }
+  .film-description-items {
+    font-family: var(--font-general);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    color: var(--primary-accent-color);
+  }
+  .film-description-items:last-child {
+    margin-left: 8px;
+    position: relative;
+  }
+  .film-description-items:last-child::before {
+    display: inline-block;
+    position: absolute;
+    right: 30px;
+    content: '';
+    width: 0.8px;
+    height: 100%;
+    background: var(--primary-accent-color);
+  }
+}
+@include rangeMedia($tab, $preDesk) {
+  .films-card {
+    width: 336px;
+  }
+  .film-item-wrapper {
+    flex-direction: column;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 8px;
+  }
+  .film-description-title {
+    font-family: var(--font-general);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    text-transform: uppercase;
+    color: var(--primary-darktext-color);
+    margin-bottom: 3px;
+  }
+  .film-description-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  .film-description-items {
+    font-family: var(--font-general);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    color: var(--primary-accent-color);
+  }
+
+  .film-description-items:last-child {
+    margin-left: 10px;
+    position: relative;
+  }
+  .film-description-items:last-child::before {
+    display: inline-block;
+    position: absolute;
+    right: 32px;
+    content: '';
+    width: 0.8px;
+    height: 100%;
+    background: var(--primary-accent-color);
+  }
+}
+@include minMedia($desk) {
+  .films-card {
+    width: 395px;
+  }
+  .film-item-wrapper {
+    flex-direction: column;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 12px;
+  }
+  .film-description-title {
+    font-family: var(--font-general);
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: var(--primary-darktext-color);
+    margin-bottom: 3px;
+  }
+  .film-description-items {
+    font-family: var(--font-general);
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    color: var(--primary-accent-color);
+  }
+  .film-description-wrapper {
+    align-items: center;
+    display: flex;
+  }
+
+  .film-description-items:last-child {
+    margin-left: 14px;
+    position: relative;
+  }
+  .film-description-items:last-child::before {
+    display: inline-block;
+    position: absolute;
+    right: 52px;
+    content: '';
+    width: 1.5px;
+    height: 100%;
+    background: var(--primary-accent-color);
+  }
+}
