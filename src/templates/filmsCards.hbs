@@ -1,0 +1,18 @@
+{{#each this}}
+<a href='{{backdrop_path}}' class="link">
+            <img
+              class="projects-list__img"
+                src='{{poster_path}}'
+                alt='{{original_title}}'
+            />
+          </picture>
+          <div class="film-item-wrapper">
+            <p class="film-description-title">{{title}}</p>
+            <div class="film-description-wrapper">
+              <p class="film-description-items">{{genres}}</p>
+              <span class="reaction"></span>
+              <p class="film-description-items">{{release_date}}</p>
+            </div>
+          </div>
+        </a>
+{{/each}}
