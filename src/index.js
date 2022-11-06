@@ -1,4 +1,3 @@
-
 import './js/getTrendFilm';
 import './js/getGenres';
 import './js/getFilmByKeywords';
