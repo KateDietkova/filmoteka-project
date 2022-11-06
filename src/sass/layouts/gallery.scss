@@ -1,5 +1,5 @@
 .movie-list {
-  margin-top: 20px;
+  padding-top: 20px;
   margin-bottom: 40px;
   margin-left: auto;
   margin-right: auto;
@@ -10,7 +10,7 @@
   grid-auto-rows: auto;
 
   @include minMedia($tab) {
-    margin-top: 60px;
+    padding-top: 60px;
     margin-bottom: 60px;
     max-width: 700px;
     grid-template-columns: repeat(2, 1fr);
