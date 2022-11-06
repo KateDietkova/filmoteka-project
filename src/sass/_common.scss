@@ -7,58 +7,58 @@ h4,
 h5,
 h6,
 p {
-    margin: 0;
+  margin: 0;
 }
 
 img {
-    display: block;
-    max-width: 100%;
-    height: auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-
 .visually-hidden {
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    border: 0;
-    padding: 0;
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    margin: -1px;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
 }
 
 a,
 a:visited {
-    text-decoration: none;
-    color: var(--primary-accent-color);
+  text-decoration: none;
+  color: var(--primary-accent-color);
 }
 
 * {
-    padding: 0;
-    margin: 0;
-    border: 0;
-    border: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border: 0;
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
+}
 
 .container {
-    width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin: 0 auto;
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
 
-    @include minMedia($tab) {
-        width: 768px;
-        padding-left: 32px;
-        padding-right: 32px;
-    }
+  @include minMedia($tab) {
+    width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
 
-    @include minMedia($desk) {
-        width: 1280px;
-    }
+  @include minMedia($desk) {
+    width: 1280px;
+  }
 }
