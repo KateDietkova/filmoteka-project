@@ -1,5 +1,5 @@
 const gallery = document.querySelector('.movie-list');
-let genre;
+// let genre;
 
 async function getMovie() {
   const movies = await fetch(
@@ -34,10 +34,12 @@ function galleryMarkup(movies, allGenres) {
                         <p class="film-description-title">${title}</p>
                         <div class="film-description-wrapper">
                             <p class="film-description-items">${getGenres(
-                                genre_ids,
-                                allGenres
+                              genre_ids,
+                              allGenres
                             )}</p>
-                            <p class="film-description-items">${getDate(release_date)}</p>
+                            <p class="film-description-items">${getDate(
+                              release_date
+                            )}</p>
                         </div>
                     </div>
                 </div>`;
@@ -50,14 +52,15 @@ function getGenres(genresMovie, allGenres) {
   const filterGenres = allGenres.filter(genre =>
     genresMovie.includes(genre.id)
   );
-  const genresName = filterGenres
-    .map(genre => {
-      return genre.name;
-    })
-    .join(', ');
+  const genresName = filterGenres.map(genre => {
+    return genre.name;
+  });
+  if (genresName.length > 2) {
+    return `${genresName.slice(0, 2).join(', ')}, Other`;
+  }
   console.log(genresName);
 
-  return genresName;
+  return genresName.join(', ');
 }
 
 function getDate(date) {
