@@ -1,2 +1,0 @@
-$0aa9cd13c14a6e1e$export$aaedbcfc86e6cb5e=function(e,t){try{"string"==typeof t?localStorage.setItem(e,t):localStorage.setItem(e,JSON.stringify(t))}catch(e){console.error(e)}},$0aa9cd13c14a6e1e$export$e4c9b9bae9539063=function(e){try{return JSON.parse(localStorage.getItem(e))}catch(e){console.error(e)}},$0aa9cd13c14a6e1e$export$a3e6e3b94afefd97=function(e){try{localStorage.removeItem(e)}catch(e){console.error(e)}};
-//# sourceMappingURL=index.3bd35b19.js.map
