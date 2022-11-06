@@ -37,7 +37,7 @@ function galleryMarkup(movies, allGenres) {
                           genre_ids,
                           allGenres
                         )}</p>
-                        <p class="film-description-items">${release_date}</p>
+                        <p class="film-description-items">${getDate(release_date)}</p>
                     </div>
                 </div>
             </div>`;
@@ -58,6 +58,11 @@ function getGenres(genresMovie, allGenres) {
   console.log(genresName);
 
   return genresName;
+}
+
+function getDate(date) {
+  const year = date.split('-')[0];
+  return year;
 }
 
 async function getAllGenres() {
