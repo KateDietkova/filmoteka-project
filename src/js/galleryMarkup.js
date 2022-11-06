@@ -23,18 +23,22 @@ render().then(({ movies, allGenres }) => {
 
 function galleryMarkup(movies, allGenres) {
   return movies
-    .map(({ poster_path, title, genre_ids }) => {
-      return `<div class="photo-card">
-                    <img class="searchImage" src="https://image.tmdb.org/t/p/w200/${poster_path}" alt="${title}" loading="lazy" />
-                    <div class="info">
-                    <p class="info-item">
-                        <b>Genres</b>
-                        ${getGenres(genre_ids, allGenres)}
-                    </p>
-                    <p class="info-item">
-                        <b>Title</b>
-                        ${title}
-                    </p>
+    .map(({ poster_path, title, genre_ids, release_date }) => {
+      return `<div class="films-card">
+                    <img
+                        class="projects-list__img"
+                        src='https://image.tmdb.org/t/p/w500/${poster_path}'
+                        alt='${title}'
+                    />
+                    <div class="film-item-wrapper">
+                        <p class="film-description-title">${title}</p>
+                        <div class="film-description-wrapper">
+                        <p class="film-description-items">${getGenres(
+                          genre_ids,
+                          allGenres
+                        )}</p>
+                        <p class="film-description-items">${release_date}</p>
+                    </div>
                 </div>
             </div>`;
     })
