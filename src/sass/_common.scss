@@ -31,33 +31,33 @@ img {
 
 a,
 a:visited {
-    text-decoration: none;
-    color: var(--primary-accent-color);
+  text-decoration: none;
+  color: var(--primary-accent-color);
 }
 
 * {
-    padding: 0;
-    margin: 0;
-    border: 0;
-    border: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border: 0;
 }
 
 button {
-    cursor: pointer;
-
+  cursor: pointer;
+}
 .container {
-    width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin: 0 auto;
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
 
-    @include minMedia($tab) {
-        width: 768px;
-        padding-left: 32px;
-        padding-right: 32px;
-    }
+  @include minMedia($tab) {
+    width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
 
-    @include minMedia($desk) {
-        width: 1280px;
-    }
+  @include minMedia($desk) {
+    width: 1280px;
+  }
 }
