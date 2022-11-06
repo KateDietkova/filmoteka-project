@@ -2,14 +2,9 @@ a {
   text-decoration: none;
 }
 @include maxMedia($tab) {
-  .films-card-container {
-    width: 320px;
-    margin: 0 auto;
-  }
   .films-card {
     width: 280px;
     height: 443px;
-    margin: 0 auto;
   }
   .film-item-wrapper {
     display: flex;
@@ -53,7 +48,6 @@ a {
   .films-card {
     width: 336px;
     height: 495px;
-    margin: 0 auto;
   }
   .film-item-wrapper {
     flex-direction: column;
@@ -98,7 +92,6 @@ a {
   .films-card {
     width: 395px;
     height: 634px;
-    margin: 0 auto;
   }
   .film-item-wrapper {
     flex-direction: column;
