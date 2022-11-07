@@ -1,17 +1,27 @@
-
 .projects-list__img {
-    border-radius: 5px;
+  border-radius: 5px;
+  width: 280px;
+  height: 402px;
+  @include minMedia($tab) {
+    width: 336px;
+    height: 455px;
   }
-  .films-card {
-    cursor: pointer;
-    transform: scale(1);
-    transition: transform var(--main-effect);
+  @include minMedia($desk) {
+    width: 395px;
+    height: 574px;
   }
+}
 
-  .films-card:hover,
-  .films-card:focus {
-    transform: scale(1.05);
-  }
+.films-card {
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform var(--main-effect);
+}
+
+.films-card:hover,
+.films-card:focus {
+  transform: scale(1.05);
+}
 
 @include maxMedia($preTab) {
   .films-card {
@@ -26,7 +36,6 @@
   .film-description-wrapper {
     display: flex;
     align-items: center;
-
   }
   .film-description-title {
     font-family: var(--font-general);
