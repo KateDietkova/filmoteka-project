@@ -12,20 +12,12 @@
   }
 }
 
-.films-card {
-  cursor: pointer;
-  transform: scale(1);
-  transition: transform var(--main-effect);
-}
-
-.films-card:hover,
-.films-card:focus {
-  transform: scale(1.05);
-}
-
 @include maxMedia($preTab) {
   .films-card {
     width: 280px;
+    cursor: pointer;
+    transform: scale(1);
+    transition: transform var(--main-effect);
   }
   .film-item-wrapper {
     display: flex;
@@ -57,6 +49,9 @@
 @include rangeMedia($tab, $preDesk) {
   .films-card {
     width: 336px;
+    cursor: pointer;
+    transform: scale(1);
+    transition: transform var(--main-effect);
   }
   .film-item-wrapper {
     flex-direction: column;
@@ -88,6 +83,8 @@
 @include minMedia($desk) {
   .films-card {
     width: 395px;
+    cursor: pointer;
+    transform: scale(1);
   }
   .film-item-wrapper {
     flex-direction: column;
@@ -115,4 +112,10 @@
     align-items: center;
     display: flex;
   }
+}
+
+.films-card:hover,
+.films-card:focus {
+  transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(1.05);
 }

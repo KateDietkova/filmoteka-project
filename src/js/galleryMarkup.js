@@ -5,7 +5,7 @@ Loading.pulse('Loading...', {
   svgColor: '#FF6B08',
 });
 
-const gallery = document.querySelector('.movie-list');
+const gallery = document.querySelector('.js-trend-film');
 
 async function getMoviesWithAllGenres() {
     const movies = await getMovie();
