@@ -1,5 +1,9 @@
 import { getMovie } from './getTrendFilm';
 import { getAllGenres, getGenres } from './getGenres';
+import Loading from './loader.js';
+Loading.pulse('Loading...', {
+  svgColor: '#FF6B08',
+});
 
 const gallery = document.querySelector('.movie-list');
 
@@ -9,7 +13,7 @@ async function getMoviesWithAllGenres() {
   const allGenres = await getAllGenres();
   return { movies, allGenres };
 }
-
+Loading.pulse();
 addMoviesToGallery();
 
 function galleryMarkup(movies, allGenres) {
@@ -41,6 +45,11 @@ function getDate(date) {
 }
 
 async function addMoviesToGallery() {
-  const { movies, allGenres } = await getMoviesWithAllGenres();
-  gallery.innerHTML = galleryMarkup(movies, allGenres);
+    try {
+        Loading.remove();
+        const { movies, allGenres } = await getMoviesWithAllGenres();
+        gallery.innerHTML = galleryMarkup(movies, allGenres);
+    } catch (error) {
+        return;
+    }
 }
