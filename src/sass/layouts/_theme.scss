@@ -1,0 +1,11 @@
+.darkTheme {
+    --primary-lighttext-color: #000;
+    --primary-darktext-color: #fff;
+    --copyright-text-color: #fff;
+    --footer-background-color: #000;
+    background-image: radial-gradient(circle at bottom, #565555 10%, #000000 100%);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}

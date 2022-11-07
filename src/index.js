@@ -3,3 +3,4 @@ import './js/getGenres';
 import './js/getFilmByKeywords';
 import './js/modalFilmMarkup';
 import './js/localStorage';
+import './js/theme';
