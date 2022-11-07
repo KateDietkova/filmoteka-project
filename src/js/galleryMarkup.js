@@ -23,7 +23,9 @@ function galleryMarkup(movies, allGenres) {
                     <img
                         class="projects-list__img"
                         src='https://image.tmdb.org/t/p/w500/${poster_path}'
-                        alt='${title}'
+                        alt='${title}
+                        width=395
+                        height=634'
                     />
                     <div class="film-item-wrapper">
                         <p class="film-description-title">${title}</p>
