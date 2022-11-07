@@ -4,7 +4,8 @@ import { getAllGenres, getGenres } from './getGenres';
 const gallery = document.querySelector('.movie-list');
 
 async function getMoviesWithAllGenres() {
-  const movies = await getMovie();
+    const movies = await getMovie();
+    console.log(movies);
   const allGenres = await getAllGenres();
   return { movies, allGenres };
 }
@@ -13,8 +14,8 @@ addMoviesToGallery();
 
 function galleryMarkup(movies, allGenres) {
   return movies
-    .map(({ poster_path, title, genre_ids, release_date }) => {
-      return `<div class="films-card">
+    .map(({ poster_path, title, genre_ids, release_date, id }) => {
+      return `<div class="films-card" data-id=${id}>
                     <img
                         class="projects-list__img"
                         src='https://image.tmdb.org/t/p/w500/${poster_path}'
@@ -26,10 +27,7 @@ function galleryMarkup(movies, allGenres) {
                             <p class="film-description-items">${getGenres(
                               genre_ids,
                               allGenres
-                            )}</p>
-                            <p class="film-description-items">${getDate(
-                              release_date
-                            )}</p>
+                            )} | ${getDate(release_date)}</p>
                         </div>
                     </div>
                 </div>`;
