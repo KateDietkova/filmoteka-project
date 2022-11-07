@@ -1,23 +1,25 @@
 import modalFilmMarkupTpl from '../templates/modalFilmMarkup.hbs';
 
 const refs = {
-  //   element: document.querySelector('.element'),
+  movieList: document.querySelector('.movie-list'),
   modal: document.querySelector('[data-modal]'),
   closeModalBtn: document.querySelector('[data-modal-close]'),
   modalContainer: document.querySelector('.modal-container'),
 };
 
-// refs.element.addEventListener('click', onClickShowModal);
+refs.movieList.addEventListener('click', onClickShowModal);
+
 function onClickShowModal(event) {
   event.preventDefault();
-  // if (event.target === event.currentTarget) {
-  //     //или прописать другое условие, когда кликнули не туда и модалка не открывается
-  //     return;
-  //   };
+  if (event.target === event.currentTarget) {
+    return;
+  }
+
   showModal(event);
 }
 
 function showModal(event) {
+  refs.modalContainer.innerHTML = '';
   // сохранить данные из карточки в объект
   // const { src, title, vote, votes, и т.д. } = event.target;
   const dataObj = {};
@@ -56,12 +58,12 @@ function onBackdropClick(event) {
 
 // Навешивает и убирает класс is-hidden
 function toggleModalClass() {
-  refs.modal.classList.toggle('is-hidden');
+  refs.modal.classList.toggle('visually-hidden');
 }
 
 // Навешивает слушателей на закрытие
 function addListeners() {
-  if (!refs.modal.classList.contains('is-hidden')) {
+  if (!refs.modal.classList.contains('visually-hidden')) {
     refs.closeModalBtn.addEventListener('click', onBtnClick);
     window.addEventListener('keydown', onKeyDown);
     refs.modal.addEventListener('click', onBackdropClick);
@@ -70,7 +72,7 @@ function addListeners() {
 
 // Снимает слушателей на закрытие
 function removeListeners() {
-  if (refs.modal.classList.contains('is-hidden')) {
+  if (refs.modal.classList.contains('visually-hidden')) {
     refs.closeModalBtn.removeEventListener('click', onBtnClick);
     window.removeEventListener('keydown', onKeyDown);
     refs.modal.removeEventListener('click', onBackdropClick);
