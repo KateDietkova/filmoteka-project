@@ -133,8 +133,12 @@
 .header-list {
     @extend %list;
     display: flex;
-    gap: 39px;
-    margin-right: 32px;
+    gap: 20px;
+    // margin-right: 32px;
+
+    @include minMedia($tab){
+        gap: 39px;
+    }
 
 }
 
@@ -153,7 +157,7 @@
     background-color: inherit;
     position: relative;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 10px;
     line-height: 1.17;
     align-items: center;
     text-align: center;
@@ -164,6 +168,9 @@
 color: var(--header-hover-color);
 transition: var(--main-effect);
     }
+        @include minMedia($tab){
+            font-size: 12px;
+        }
 }
 
 .header-input {
@@ -330,7 +337,7 @@ transition: var(--main-effect);
 // }
 .darktheme__button {
     position: relative;
-    font-size: 30px;
+    font-size: 20px;
     padding: 0;
     background-color: transparent;
     width: 30px;
@@ -340,6 +347,9 @@ transition: var(--main-effect);
         transform: rotate(-20deg) scale(1.25);
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         transition: 0.4s;
+    }
+        @include minMedia($tab) {
+            font-size: 30px;
     }
 }
 // .darktheme__icon {
