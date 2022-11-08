@@ -58,12 +58,12 @@ function onBackdropClick(event) {
 
 // Навешивает и убирает класс is-hidden
 function toggleModalClass() {
-  refs.modal.classList.toggle('visually-hidden');
+  refs.modal.classList.toggle('is-hidden');
 }
 
 // Навешивает слушателей на закрытие
 function addListeners() {
-  if (!refs.modal.classList.contains('visually-hidden')) {
+  if (!refs.modal.classList.contains('is-hidden')) {
     refs.closeModalBtn.addEventListener('click', onBtnClick);
     window.addEventListener('keydown', onKeyDown);
     refs.modal.addEventListener('click', onBackdropClick);
@@ -72,7 +72,7 @@ function addListeners() {
 
 // Снимает слушателей на закрытие
 function removeListeners() {
-  if (refs.modal.classList.contains('visually-hidden')) {
+  if (refs.modal.classList.contains('is-hidden')) {
     refs.closeModalBtn.removeEventListener('click', onBtnClick);
     window.removeEventListener('keydown', onKeyDown);
     refs.modal.removeEventListener('click', onBackdropClick);

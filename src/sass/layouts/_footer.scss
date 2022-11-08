@@ -18,6 +18,7 @@
   display: inline;
   margin-left: 10px;
   margin-right: 10px;
+  animation: heartbeat 1s infinite;
 }
 .mob-fix {
   @include maxMedia(767px) {
@@ -27,4 +28,30 @@
 }
 .team-link {
   color: var(--copyright-text-color);
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+
+  20% {
+    transform: scale(1.25);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+
+  60% {
+    transform: scale(1.25);
+  }
+
+  80% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }

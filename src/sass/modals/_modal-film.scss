@@ -13,7 +13,19 @@
     background-color: rgba(0, 0, 0, 0.25);
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
     transition: opacity var(--main-effect), visibility var(--main-effect);
+
+    @include minMedia($desk) {
+    align-items: center;
+    }
+}
+
+.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: all var(--main-effect);
 }
 
 .modal-film__modal {
@@ -42,6 +54,10 @@
 
     background-color: #fff;
 
+    .darkTheme & {
+        background-color: #1a1a1a;
+    }
+
     .modal-film__backdrop.is-hidden & {
         opacity: 0;
         visibility: hidden;
@@ -66,11 +82,14 @@
 
     transition: transform var(--main-effect), color var(--main-effect), border-color var(--main-effect);
 
+    .darkTheme & {
+        color: #fff;
+    }
+
     &:hover,
     &:focus {
-        transform: rotate(180deg);
-        translate: 1px 1px;
-                color: #FF6B01;
+        transform: rotate(180deg) translate(2px, 2px);
+        color: #FF6B01;
     }
 }
 
@@ -152,11 +171,12 @@
 }
 
 .modal-film__value-vote {
-    color: var(--primary-lighttext-color);
+    color: #fff;
     background-color: #FF6B01;
 }
 
 .modal-film__value-votes {
+    color: #000;
     background-color: #F7F7F7;
 }
 
@@ -197,9 +217,13 @@
     
     background-color: var(--primary-lighttext-color);
     color: var(--primary-darktext-color);
-    border: 1px solid #000;
+    border: 1px solid var(--primary-darktext-color);
     border-radius: 5px;
     transition: all var(--main-effect);
+
+    .darkTheme & {
+        background-color: #1a1a1a;
+    }
 
     @include minMedia($tab) {
         width: 125px;
@@ -217,7 +241,7 @@
 
     &:focus-within {
         background-color: #FF6B01;
-        color: var(--primary-lighttext-color);
+        color: #fff;
         border-color: #FF6B01
     }
 
