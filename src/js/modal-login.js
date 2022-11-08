@@ -4,19 +4,23 @@ const openModalBtn = document.querySelector('[data-modal-open]');
 console.log(openModalBtn);
 const modal = document.querySelector('[data-loginmodal]');
 console.log(modal);
-const modalForm = document.querySelector('.modal__form');
+const form = document.querySelector(".register-form");
 
 
 openModalBtn.addEventListener('click', toggleModal);
 closeModalBtn.addEventListener('click', toggleModal);
-modalForm.addEventListener('submit', onFormSubmit);
+
 
 
 function toggleModal() {
   modal.classList.toggle('is-hidden');
 }
 
-function onFormSubmit(event) {
+form.addEventListener("submit", (event) => {
   event.preventDefault();
+  const {
+    elements: { username, password }
+  } = event.currentTarget;
+  console.log(username.value, password.value);
+});
 
-}
