@@ -17,7 +17,7 @@
     width: 280px;
     cursor: pointer;
     transform: scale(1);
-    transition: transform var(--main-effect);
+    transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   .film-item-wrapper {
     display: flex;
@@ -51,7 +51,7 @@
     width: 336px;
     cursor: pointer;
     transform: scale(1);
-    transition: transform var(--main-effect);
+    transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   .film-item-wrapper {
     flex-direction: column;
@@ -85,6 +85,7 @@
     width: 395px;
     cursor: pointer;
     transform: scale(1);
+    transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   .film-item-wrapper {
     flex-direction: column;
