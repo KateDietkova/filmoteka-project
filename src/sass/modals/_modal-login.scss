@@ -77,12 +77,16 @@
 .modal__title {
     font-weight: 700;
     font-size: 40px;
-    line-height: 1.15;
+    line-height: calc(30 / 20);
     text-align: center;
     letter-spacing: 0.1em;
     color: var(--primary-lighttext-color);
     text-align: center;
     margin-bottom: 50px;
+}
+
+.modal_login__label {
+    text-align: left;
 }
 
 .modal__input {
@@ -137,7 +141,7 @@
     display: block;
     margin: 0 auto;
     margin-top: 30px;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
 }
 
@@ -147,6 +151,22 @@
 }
 
 
+
 .modal__input-wrap {
     position: relative;
+}
+
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-form input {
+    margin-bottom: 16px;
+    padding: 8px 12px;
+}
+
+.register-form button {
+    padding: 12px;
 }
