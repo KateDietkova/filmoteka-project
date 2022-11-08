@@ -16,7 +16,7 @@ async function getMoviesWithAllGenres() {
 Loading.pulse();
 addMoviesToGallery();
 
-function galleryMarkup(movies, allGenres) {
+export function galleryMarkup(movies, allGenres) {
   return movies
     .map(({ poster_path, title, genre_ids, release_date, id }) => {
       return `<div class="films-card" data-id=${id}>
@@ -53,3 +53,4 @@ async function addMoviesToGallery() {
         return;
     }
 }
+
