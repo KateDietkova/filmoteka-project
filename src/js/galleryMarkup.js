@@ -1,5 +1,6 @@
 import { getMovie } from './getTrendFilm';
 import { getAllGenres, getGenres } from './getGenres';
+import { getPosterFilm } from './getPosterFilm';
 import Loading from './loader.js';
 Loading.pulse('Loading...', {
   svgColor: '#FF6B08',
@@ -16,13 +17,13 @@ async function getMoviesWithAllGenres() {
 Loading.pulse();
 addMoviesToGallery();
 
-function galleryMarkup(movies, allGenres) {
+export function galleryMarkup(movies, allGenres) {
   return movies
     .map(({ poster_path, title, genre_ids, release_date, id }) => {
       return `<div class="films-card" data-id=${id}>
                     <img
                         class="projects-list__img"
-                        src='https://image.tmdb.org/t/p/w500/${poster_path}'
+                        src='${getPosterFilm(poster_path)}'
                         alt='${title}'
                     />
                     <div class="film-item-wrapper">
@@ -53,3 +54,4 @@ async function addMoviesToGallery() {
         return;
     }
 }
+
