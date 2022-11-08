@@ -1,9 +1,6 @@
 import axios from "axios";
 import Notiflix from "notiflix";
 import { getFilmByKeywords } from "./fetchFunction";
-import { galleryMarkup } from "./galleryMarkup";
-import { getMovie } from './getTrendFilm';
-import { getAllGenres, getGenres } from './getGenres';
 
 export async function getFilmByKeywords(queryVal, pageNum){
     
@@ -17,17 +14,16 @@ export async function getFilmByKeywords(queryVal, pageNum){
           page: `${pageNum}`,
         },
       })
-    
       .then(res => {
-        
         if (!res.data.total_results) {
+          throw new Error();
+        }
+
+        return res.data.results;
+      }).catch(error => {
           Notiflix.Notify.failure(
             'Sorry, there are no movies matching your search query. Please try again.'
           );
-        }
-    
-        return res.data.results;
-
       });
 };
 

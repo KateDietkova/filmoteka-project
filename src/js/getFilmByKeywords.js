@@ -29,11 +29,6 @@ function onSubmitForm(evt) {
   Loading.pulse();
   queryVal = evt.currentTarget.elements.searchQuery.value;
 
-  //  if(!queryVal){
-  //      return Notiflix.Notify.warning(
-  //     'Field cannot be empty.'//    Sorry, there are no movies matching your search query. Please try again.'
-  //      );
-  //      }
   pageNum = 1;
   addMoviesToGallery(queryVal);
 }
@@ -58,4 +53,3 @@ async function addMoviesToGallery(queryVal) {
     return;
   }
 }
-//   refs.cardFilm.insertAdjacentHTML('beforeend', galleryMarkup);
