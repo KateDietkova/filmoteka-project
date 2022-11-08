@@ -16,7 +16,6 @@ export function getGenres(genresMovie, allGenres) {
   return genresName.join(', ');
 }
 
-
 function filterGenreList(genresMovie, allGenres) {
   const filterGenres = allGenres.filter(genre =>
     genresMovie.includes(genre.id)
