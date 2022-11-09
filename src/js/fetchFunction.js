@@ -1,6 +1,5 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
-import { getFilmByKeywords } from './fetchFunction';
 
 const movieErrorWrapper = document.querySelector('.movie-error-wrapper');
 
