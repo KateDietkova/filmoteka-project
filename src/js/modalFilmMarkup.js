@@ -14,17 +14,46 @@ function onClickShowModal(event) {
   if (event.target === event.currentTarget) {
     return;
   }
-
   showModal(event);
 }
 
-function showModal(event) {
+async function showModal(event) {
   refs.modalContainer.innerHTML = '';
+  const filmId = event.target.closest('div[data-id]').dataset.id;
+  // getFilmInfoById(filmId);
+  // console.log(getFilmInfoById(filmId));
+
+  const {
+    backdrop_path,
+    poster_path,
+    genres,
+    original_title,
+    overview,
+    popularity,
+    title,
+    vote_average,
+    vote_count,
+  } = await getFilmInfoById(filmId);
+  const genresName = genres.map(({ name }) => name).join(', ');
+  const slicePopularity = parseFloat(popularity.toFixed(1));
+  // console.log(slicePopularity);
+  // console.log(genresName);
   // сохранить данные из карточки в объект
-  // const { src, title, vote, votes, и т.д. } = event.target;
-  const dataObj = {};
+  const dataObj = {
+    backdrop_path,
+    genresName,
+    poster_path,
+    original_title,
+    overview,
+    slicePopularity,
+    title,
+    vote_average,
+    vote_count,
+  };
+
   // отобразить модалку
   toggleModalClass();
+
   // отрисовать разметку модалки
   refs.modalContainer.insertAdjacentHTML(
     'afterbegin',
@@ -32,6 +61,14 @@ function showModal(event) {
   );
   // навесить слушателей на закрытие
   addListeners();
+}
+
+async function getFilmInfoById(filmId) {
+  const url = `https://api.themoviedb.org/3/movie/${filmId}?api_key=579a7483bae7d6a5a25eb4c1ddded2cf&language=en-US`;
+
+  const getInfo = await fetch(url);
+  const parseInfo = await getInfo.json();
+  return parseInfo;
 }
 
 function onBtnClick(event) {
