@@ -20,7 +20,7 @@ addMoviesToGallery();
 export function galleryMarkup(movies, allGenres) {
   return movies
     .map(({ poster_path, title, genre_ids, release_date, id }) => {
-      return `<div class="films-card" data-id=${id}>
+      return `<li class="films-card" data-id=${id}>
                     <img
                         class="projects-list__img"
                         src='${getPosterFilm(poster_path)}'
@@ -35,7 +35,7 @@ export function galleryMarkup(movies, allGenres) {
                             )} | ${getDate(release_date)}</p>
                         </div>
                     </div>
-                </div>`;
+                </li>`;
     })
     .join('');
 }
