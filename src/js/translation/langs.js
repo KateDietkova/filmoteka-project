@@ -109,9 +109,9 @@ export const translations = {
   },
   developed: {
     en: 'Developed with',
-    ua: 'Розроблено',
+    ua: 'Розроблено з',
     de: 'Entwickelt mit',
-    ru: 'Разработано',
+    ru: 'Разработано с',
   },
   by: {
     en: 'by',
