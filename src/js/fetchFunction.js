@@ -4,7 +4,7 @@ import Notiflix from 'notiflix';
 const movieErrorWrapper = document.querySelector('.movie-error-wrapper');
 
 export async function getFilmByKeywords(queryVal, pageNum) {
-  const url = `https://api.themoviedb.org/3/search/movie/`;
+  const url = `https://api.themoviedb.org/3/search/movie`;
 
   return await axios
     .get(url, {
