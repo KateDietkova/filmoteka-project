@@ -141,12 +141,9 @@ function addListeners() {
 // Снимает слушателей на закрытие
 function removeListeners() {
   if (refs.modal.classList.contains('is-hidden')) {
-    if (refs.modal.classList.contains('visually-hidden')) {
-      scrollController.enabledScroll();
-
-      refs.closeModalBtn.removeEventListener('click', onBtnClick);
-      window.removeEventListener('keydown', onKeyDown);
-      refs.modal.removeEventListener('click', onBackdropClick);
-    }
+    refs.closeModalBtn.removeEventListener('click', onBtnClick);
+    window.removeEventListener('keydown', onKeyDown);
+    scrollController.enabledScroll();
+    refs.modal.removeEventListener('click', onBackdropClick);
   }
 }
