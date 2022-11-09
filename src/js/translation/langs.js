@@ -1,4 +1,4 @@
-export const langsArr = {
+export const translations = {
   home: {
     en: 'Home',
     ua: 'Головна',
@@ -17,6 +17,12 @@ export const langsArr = {
     de: 'Einloggen',
     ru: 'Войти',
   },
+  signin: {
+    en: 'Sign in',
+    ua: 'Зареєструватись',
+    de: 'Anmelden',
+    ru: 'Зарегистрироваться',
+  },
   logout: {
     en: 'Log out',
     ua: 'Вийти',
@@ -24,10 +30,10 @@ export const langsArr = {
     ru: 'Выйти',
   },
   search: {
-    en: 'Search',
-    ua: 'Пошук',
-    de: 'Suchen',
-    ru: 'Поиск',
+    en: 'Movie search',
+    ua: 'Шукати фільм',
+    de: 'Film suchen',
+    ru: 'Искать фильм',
   },
   addwatched: {
     en: 'Add to Watched',
@@ -64,12 +70,6 @@ export const langsArr = {
     ua: 'Видалити з черги',
     de: 'Aus Warteschlange entfernen',
     ru: 'Удалить из очереди',
-  },
-  moviesearch: {
-    en: 'Movie search',
-    ua: 'Шукати фільм',
-    de: 'Film suchen',
-    ru: 'Искать фильм',
   },
   votes: {
     en: 'Vote / Votes',
