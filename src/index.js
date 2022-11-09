@@ -7,3 +7,4 @@ import './js/modal-team/modal-team';
 import './js/localStorage';
 import './js/theme';
 import './js/modal-login';
+import './js/scroll-up';
