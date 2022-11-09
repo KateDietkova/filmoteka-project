@@ -7,6 +7,33 @@ const refs = {
   modalContainer: document.querySelector('.modal-container'),
 };
 
+const scrollController = {
+  scrollPosition: 0,
+  disabledScroll() {
+    //отримуємо позицію скролу
+    scrollController.scrollPosition = window.scrollY;
+    // фіксуємо скролл на поточній позиції
+    document.body.style.cssText = `
+      overflow: hidden;
+      position: fixed;
+    
+      top: -${scrollController.scrollPosition}px;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+ 
+      padding-right: ${window.innerWidth - document.body.offsetWidth}px
+    `;
+    // вираховуємо ширину скроллу
+    document.documentElement.style.scrollBehavior = 'unset';
+  },
+  enabledScroll() {
+    document.body.style.cssText = '';
+    window.scroll({ top: scrollController.scrollPosition });
+    document.documentElement.style.scrollBehavior = '';
+  },
+};
+
 refs.movieList.addEventListener('click', onClickShowModal);
 
 function onClickShowModal(event) {
@@ -20,6 +47,7 @@ function onClickShowModal(event) {
 
 function showModal(event) {
   refs.modalContainer.innerHTML = '';
+
   // сохранить данные из карточки в объект
   // const { src, title, vote, votes, и т.д. } = event.target;
   const dataObj = {};
@@ -30,6 +58,7 @@ function showModal(event) {
     'afterbegin',
     modalFilmMarkupTpl(dataObj)
   );
+  scrollController.disabledScroll();
   // навесить слушателей на закрытие
   addListeners();
 }
@@ -73,6 +102,7 @@ function addListeners() {
 // Снимает слушателей на закрытие
 function removeListeners() {
   if (refs.modal.classList.contains('visually-hidden')) {
+    scrollController.enabledScroll();
     refs.closeModalBtn.removeEventListener('click', onBtnClick);
     window.removeEventListener('keydown', onKeyDown);
     refs.modal.removeEventListener('click', onBackdropClick);
