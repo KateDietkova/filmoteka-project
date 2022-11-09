@@ -15,7 +15,7 @@
           <li class="header-list__item">
             <button
               id="home"
-              class="header-list__button home__btn"
+              class="header-list__button home__btn lng-home"
               type="button"
               onclick="window.location.href = './index.html';"
             >
@@ -25,7 +25,7 @@
           <li class="header-list__item">
             <button
               id="library"
-              class="header-list__button current library__btn"
+              class="header-list__button current library__btn lng-library"
               type="button"
               onclick="window.location.href = './library.html';"
             >
@@ -36,7 +36,7 @@
           <li class="header-list__item">
             <button
               id="logout"
-              class="header-list__button logout__btn"
+              class="header-list__button logout__btn lng-logout"
               type="button"
             >
               Log out
@@ -54,10 +54,14 @@
     </div>
 
     <div class="library-button__list">
-      <button id="watched" class="library-btn watched-btn active" type="button">
+      <button
+        id="watched"
+        class="library-btn watched-btn active lng-watched"
+        type="button"
+      >
         Watched
       </button>
-      <button id="queue" class="library-btn queue-btn" type="button">
+      <button id="queue" class="library-btn queue-btn lng-queue" type="button">
         Queue
       </button>
     </div>
