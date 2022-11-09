@@ -36,6 +36,7 @@ async function showModal(event) {
   } = await getFilmInfoById(filmId);
   const genresName = genres.map(({ name }) => name).join(', ');
   const slicePopularity = parseFloat(popularity.toFixed(1));
+  const sliceVoteAverage = parseFloat(vote_average.toFixed(1));
   // console.log(slicePopularity);
   // console.log(genresName);
   // сохранить данные из карточки в объект
@@ -47,7 +48,7 @@ async function showModal(event) {
     overview,
     slicePopularity,
     title,
-    vote_average,
+    sliceVoteAverage,
     vote_count,
   };
 
