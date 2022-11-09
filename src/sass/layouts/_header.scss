@@ -164,13 +164,16 @@
     text-transform: uppercase;
     color: var(--header-white-color);
     border: inherit;
-    &:hover {
-color: var(--header-hover-color);
-transition: var(--main-effect);
-    }
+    transition: color var(--main-effect);
+
         @include minMedia($tab){
             font-size: 12px;
         }
+
+          &:hover,
+          &:focus {
+              color: #FF6B01;
+          }
 }
 
 .header-input {
@@ -186,7 +189,6 @@ transition: var(--main-effect);
     &:hover,
     &:focus {
         border-bottom: 1px solid var(--primary-accent-color);
-        transition: var(--main-effect);
         box-shadow: 0px 4px 4px rgba(245, 124, 50, 0.12), 0px 4px 4px rgba(245, 124, 50, 0.12),
         1px 4px 6px rgba(245, 124, 50, 0.12);
     }
@@ -217,13 +219,22 @@ transition: var(--main-effect);
     font-size: 30px;
     line-height: 1.17;
     color: var(--header-white-color);
+    transition: var(--main-effect);
     }
 }
-.header-logo__list:hover .header-logo__icon{
-    stroke: var(--primary-accent-color);
-    transition: var(--main-effect);
-    
+
+.header-logo__list {
+transition: var(--main-effect);
+
+&:hover .header-logo__icon {
+        stroke: var(--primary-accent-color);
 }
+
+&:hover .header-logo-text__link {
+    color: var(--primary-accent-color);
+
+}}
+
 .header-navigation {
     display: flex;
 }
@@ -240,9 +251,10 @@ transition: var(--main-effect);
 .header-logo__icon {
     margin-right: 12px;
     stroke: var(--header-white-color);
+    transition: var(--main-effect);
+    
     &:hover {
         stroke: var(--primary-accent-color);
-        transition: var(--main-effect);
     }
 }
 
@@ -276,10 +288,10 @@ transition: var(--main-effect);
     border: none;
     stroke: var(--header-white-color);
     cursor: pointer;
+    transition: stroke var(--main-effect);
     &:hover,
     &:focus {
         stroke: var(--primary-accent-color);
-        transition: stroke var(--main-effect);
     }
 }
 
@@ -324,17 +336,25 @@ transition: var(--main-effect);
     width: 148px;
     padding: 13px 41px 11px 41px;
   }
-}
- .library-btn:hover,
- .library-btn:focus {
+  transition: var(--main-effect);
+
+&:hover {
+    box-shadow: 0 0px 30px rgb(255, 107, 1, .5);
     border-color: var(--primary-accent-color);
-    transition: var(--main-effect);
-    background: var(--primary-accent-color);
-    
+    color: var(--primary-accent-color);
 }
+
+&:focus-within {
+    background-color: var(--primary-accent-color);
+    color: var(--primary-lighttext-color);
+    border-color: var(--primary-accent-color)
+}
+}
+
 // .active {
 //     background: var(--primary-accent-color);
 // }
+
 .darktheme__button {
     position: relative;
     font-size: 20px;
@@ -342,11 +362,10 @@ transition: var(--main-effect);
     background-color: transparent;
     width: 30px;
     height: 30px;
-    transition: var(--main-effect);
+    transition: transform var(--main-effect);
+    
     &:hover {
         transform: rotate(-20deg) scale(1.25);
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition: 0.4s;
     }
         @include minMedia($tab) {
             font-size: 30px;
