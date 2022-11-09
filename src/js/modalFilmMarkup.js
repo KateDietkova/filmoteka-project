@@ -19,7 +19,7 @@ function onClickShowModal(event) {
 
 async function showModal(event) {
   refs.modalContainer.innerHTML = '';
-  const filmId = event.target.closest('div[data-id]').dataset.id;
+  const filmId = event.target.closest('li[data-id]').dataset.id;
   // getFilmInfoById(filmId);
   // console.log(getFilmInfoById(filmId));
 

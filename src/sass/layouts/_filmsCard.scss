@@ -12,6 +12,10 @@
   }
 }
 
+.films-card {
+    @extend %list;
+}
+
 @include maxMedia($preTab) {
   .films-card {
     width: 280px;
