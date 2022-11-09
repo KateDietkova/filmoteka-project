@@ -1,10 +1,12 @@
 import modalFilmMarkupTpl from '../templates/modalFilmMarkup.hbs';
+import WatchTrailer from './movie-trailer';
 
 const refs = {
   movieList: document.querySelector('.movie-list'),
   modal: document.querySelector('[data-modal]'),
   closeModalBtn: document.querySelector('[data-modal-close]'),
   modalContainer: document.querySelector('.modal-container'),
+  trailerBtn: document.querySelector('.js-trailer-btn'),
 };
 
 refs.movieList.addEventListener('click', onClickShowModal);
@@ -33,6 +35,7 @@ async function showModal(event) {
     title,
     vote_average,
     vote_count,
+    id,
   } = await getFilmInfoById(filmId);
   const genresName = genres.map(({ name }) => name).join(', ');
   const slicePopularity = parseFloat(popularity.toFixed(1));
@@ -50,6 +53,7 @@ async function showModal(event) {
     title,
     sliceVoteAverage,
     vote_count,
+    id,
   };
 
   // отобразить модалку
@@ -115,4 +119,14 @@ function removeListeners() {
     window.removeEventListener('keydown', onKeyDown);
     refs.modal.removeEventListener('click', onBackdropClick);
   }
+}
+//trailer//
+
+refs.trailerBtn.addEventListener('click', getMovieTrailer);
+  
+function getMovieTrailer(e) {
+    const id = e.target.dataset.id;
+  const name = e.target.dataset.name;
+  new WatchTrailer(id, name).showTrailer();
+
 }

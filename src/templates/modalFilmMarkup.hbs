@@ -1,3 +1,5 @@
+<div class="modal-film__img">
+    <div class="modal-film__wrapper">
 <img
   href='/src/images/films/noposter.jpg'
   src='https://image.tmdb.org/t/p/w500{{poster_path}}'
@@ -6,7 +8,15 @@
   width='240'
   height='357'
 />
+</div>
 
+<div class='modal__trailer-wrapper'>
+    <button class='modal__trailer-btn js-trailer-btn' type='button' data-id={{id}} data-name={{original_title}}>
+        watch trailer
+    </button>
+</div>
+
+</div>
 <div class='card-container'>
   <h2 class='modal-film__title'>A FISTFUL OF LEAD</h2>
 
