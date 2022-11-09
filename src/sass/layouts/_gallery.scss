@@ -8,6 +8,7 @@
 .movie-list {
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 40px;
   display: grid;
   max-width: 280px;
   justify-content: center;
@@ -15,6 +16,7 @@
   grid-auto-rows: auto;
 
   @include minMedia($tab) {
+    margin-bottom: 60px;
     max-width: 700px;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 32px;
