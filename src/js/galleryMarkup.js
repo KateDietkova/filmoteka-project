@@ -1,8 +1,7 @@
 import { getMovie, instance } from './getTrendFilm';
 import { getAllGenres, getGenres } from './getGenres';
 import { getPosterFilm } from './getPosterFilm';
-// import Pagination from 'tui-pagination';
-import { options, container } from './pagination';
+import { scrollToTop } from './scroll-up';
 
 import Loading from './loader.js';
 Loading.pulse('Loading...', {
@@ -25,12 +24,11 @@ async function getMoviesWithAllGenres(pageNum) {
 Loading.pulse();
 
 addMoviesToGallery(pageNum);
-// instance = new Pagination(container, options);
 instance.on('afterMove', onClickPage);
-
 
 function onClickPage(eventData) {
   addMoviesToGallery(eventData.page);
+  scrollToTop();
 }
 
 export function galleryMarkup(movies, allGenres) {

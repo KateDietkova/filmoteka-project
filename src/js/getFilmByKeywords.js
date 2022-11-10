@@ -4,6 +4,7 @@ import { galleryMarkup } from './galleryMarkup';
 import { getAllGenres } from './getGenres';
 import Loading from './loader.js';
 import { instanceSearch } from './fetchFunction';
+import { scrollToTop } from './scroll-up';
 
 const refs = {
   searchForm: document.querySelector('.search-form'),
@@ -38,6 +39,7 @@ instanceSearch.on('afterMove', onClickPageSearch);
 
 function onClickPageSearch(eventData) {
   addMoviesToGallery(queryVal, eventData.page);
+  scrollToTop();
 }
 
 function clearForm() {
