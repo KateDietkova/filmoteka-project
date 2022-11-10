@@ -21,9 +21,8 @@ function onClickShowModal(event) {
 
 async function showModal(event) {
   refs.modalContainer.innerHTML = '';
-  const filmId = event.target.closest('div[data-id]').dataset.id;
-  // console.log(getFilmInfoById(filmId));
-  // console.log(getFilmInfoById(filmId));
+  const filmId = event.target.closest('li[data-id]').dataset.id;
+  // getFilmInfoById(filmId);
 
   const {
     backdrop_path,
