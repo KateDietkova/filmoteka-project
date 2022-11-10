@@ -11,6 +11,7 @@ function onLoad() {
   getLangFromStorage();
   changePathname();
   translateTexts();
+  translatePlaceholder();
 }
 
 function getLangFromStorage() {
@@ -26,8 +27,6 @@ function onChangeTranslate() {
   updateStorage();
   changePathname();
   location.reload();
-  translateTexts();
-  translatePlaceholder();
 }
 
 function translateTexts() {
@@ -37,13 +36,13 @@ function translateTexts() {
       elem.innerHTML = translations[key][lang];
     }
   }
-  translatePlaceholder();
 }
 
 function translatePlaceholder() {
-  console.log(document.querySelector('.header-input'));
-  const headerInput = document.querySelector('.header-input');
-  headerInput.placeholder = translations.search[lang];
+  if (document.querySelector('.header-input')) {
+    const headerInput = document.querySelector('.header-input');
+    headerInput.placeholder = translations.search[lang];
+  }
 }
 
 function updateStorage() {
