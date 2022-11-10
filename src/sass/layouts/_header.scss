@@ -139,7 +139,6 @@
     @include minMedia($tab){
         gap: 39px;
     }
-
 }
 
 .header-list__button.current::after {
@@ -337,8 +336,9 @@ transition: var(--main-effect);
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
-    width: 130px;
-    padding: 12px 36px;
+    text-align: center;
+    min-width: 130px;
+    padding: 12px;
     border-radius: 5px;
     background-color: transparent;
     color: var(--header-white-color);
@@ -347,13 +347,13 @@ transition: var(--main-effect);
     border: 1px solid var(--header-white-color);
 
     @include minMedia($tab) {
-    width: 152px;
-    padding: 13px 57px;
+    min-width: 152px;
+    padding: 13px;
   }
 
     @include minMedia($desk){
-    width: 148px;
-    padding: 13px 41px 11px 41px;
+    min-width: 148px;
+    padding: 13px 0 11px 0;
   }
   transition: var(--main-effect);
 
