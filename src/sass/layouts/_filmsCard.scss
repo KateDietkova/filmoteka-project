@@ -1,5 +1,6 @@
 .projects-list__img {
   border-radius: 5px;
+  object-fit: cover;
   width: 280px;
   height: 402px;
   @include minMedia($tab) {
