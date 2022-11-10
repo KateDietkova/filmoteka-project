@@ -10,6 +10,13 @@ const refs = {
   modalContainer: document.querySelector('.modal-container'),
 };
 
+let dataObj = {};
+const STORAGE_KEY_WATCHED = 'watched-films';
+const STORAGE_KEY_QUEUE = 'queue-films'
+const watchedFilms = [];
+const queueFilms = [];
+
+
 refs.movieList.addEventListener('click', onClickShowModal);
 
 function onClickShowModal(event) {
@@ -40,7 +47,7 @@ async function showModal(event) {
   const slicePopularity = parseFloat(popularity.toFixed(1));
   const sliceVoteAverage = parseFloat(vote_average.toFixed(1));
 
-  const dataObj = {
+  dataObj = {
     backdrop_path,
     genresName,
     poster_path,
@@ -68,6 +75,24 @@ async function showModal(event) {
 
   // навесить слушателей на закрытие
   addListeners();
+
+  const addToWatchedBtn = document.querySelector('.modal-film__button-watched');
+  const addToQueueBtn = document.querySelector('.modal-film__button-queue');
+
+  addToWatchedBtn.addEventListener('click', onAddToWatched);
+  addToQueueBtn.addEventListener('click', onAddToQueue);
+}
+
+function onAddToWatched() {
+  console.log(dataObj);
+  watchedFilms.push(dataObj);
+  localStorage.setItem(STORAGE_KEY_WATCHED, JSON.stringify(watchedFilms));
+}
+
+function onAddToQueue() {
+  console.log(dataObj);
+  queueFilms.push(dataObj);
+  localStorage.setItem(STORAGE_KEY_QUEUE, JSON.stringify(queueFilms));
 }
 
 function onBtnClick(event) {
