@@ -1,26 +1,43 @@
 import { getMovie } from './getTrendFilm';
 import { getAllGenres, getGenres } from './getGenres';
 import { getPosterFilm } from './getPosterFilm';
+import Pagination from 'tui-pagination';
+import { options, container } from './pagination';
+
 import Loading from './loader.js';
 Loading.pulse('Loading...', {
   svgColor: '#FF6B08',
 });
 
+let pageNum = 1;
+let instance;
+
 const gallery = document.querySelector('.js-trend-film');
 
-async function getMoviesWithAllGenres() {
-    const movies = await getMovie();
-    console.log(movies);
+// const paginnationBox = document.querySelector('.tui-pagination');
+
+async function getMoviesWithAllGenres(pageNum) {
+  const { movies, responseInfo } = await getMovie(pageNum);
+  options.page = responseInfo.page;
+  options.totalItems = responseInfo.total_results;
+  console.log(movies);
   const allGenres = await getAllGenres();
   return { movies, allGenres };
 }
 Loading.pulse();
-addMoviesToGallery();
+addMoviesToGallery(pageNum);
+instance = new Pagination(container, options);
+instance.on('afterMove', onClickPage);
+
+
+function onClickPage(eventData) {
+  addMoviesToGallery(eventData.page);
+}
 
 export function galleryMarkup(movies, allGenres) {
   return movies
     .map(({ poster_path, title, genre_ids, release_date, id }) => {
-      return `<div class="films-card" data-id=${id}>
+      return `<li class="films-card" data-id=${id}>
                     <img
                         class="projects-list__img"
                         src='${getPosterFilm(poster_path)}'
@@ -35,7 +52,7 @@ export function galleryMarkup(movies, allGenres) {
                             )} | ${getDate(release_date)}</p>
                         </div>
                     </div>
-                </div>`;
+                </li>`;
     })
     .join('');
 }
@@ -45,13 +62,13 @@ function getDate(date) {
   return year;
 }
 
-async function addMoviesToGallery() {
-    try {
-        Loading.remove();
-        const { movies, allGenres } = await getMoviesWithAllGenres();
-        gallery.innerHTML = galleryMarkup(movies, allGenres);
-    } catch (error) {
-        return;
-    }
+async function addMoviesToGallery(pageNum) {
+  try {
+    Loading.remove();
+    const { movies, allGenres } = await getMoviesWithAllGenres(pageNum);
+    gallery.innerHTML = galleryMarkup(movies, allGenres);
+  } catch (error) {
+    console.log('Error', error);
+    return;
+  }
 }
-

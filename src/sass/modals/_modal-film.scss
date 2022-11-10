@@ -100,6 +100,7 @@
 }
 
 .modal-container {
+    
     @include minMedia($tab) {
         display: flex;
         }
@@ -107,17 +108,21 @@
 
 .modal-film__poster {
     margin-bottom: 20px;
-    height: 100%;
+    width: 240px;
+    height: 357px;
     border-radius: 5px;
+    object-fit: cover;
 
     @include minMedia($tab) {
         width: 264px;
+        height: 374px;
         margin-bottom: 0;
         margin-right: 67px;
     }
 
     @include minMedia($desk) {
         width: 375px;
+        height: 478px;
         margin-right: 16px;
     }
 }

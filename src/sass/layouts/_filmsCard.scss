@@ -1,5 +1,6 @@
 .projects-list__img {
   border-radius: 5px;
+  object-fit: cover;
   width: 280px;
   height: 402px;
   @include minMedia($tab) {
@@ -10,6 +11,10 @@
     width: 395px;
     height: 574px;
   }
+}
+
+.films-card {
+    @extend %list;
 }
 
 @include maxMedia($preTab) {
