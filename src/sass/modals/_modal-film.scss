@@ -152,24 +152,20 @@
 }
 
 .modal-film__feature {
-    padding: 0 40px 0 0;
+    width: 108px;
     color: #8C8C8C;
 
     @include minMedia($desk) {
-        padding-right: 85px;
+        width: 152px;
     }
-
-    &-value {
-            padding: 0;
-        }
 }
 
 .modal-film__value-vote, .modal-film__value-votes {
     display: inline-block;
-    padding-top: 1px;
+    padding: 1px 4px 0;
     text-align: center;
     align-items: center;
-    width: 36px;
+    min-width: 36px;
     height: 16px;
     border-radius: 5px;
     line-height: calc(14 / 12);
@@ -212,7 +208,7 @@
 
 .modal-film__button {
     @include centeredFlex;
-    width: 110px;
+    min-width: 110px;
 
     font-family: var(--font-general);
     text-transform: uppercase;
@@ -231,11 +227,11 @@
     }
 
     @include minMedia($tab) {
-        width: 125px;
+        min-width: 125px;
     }
 
     @include minMedia($desk) {
-        width: 136px;
+        min-width: 136px;
     }
 
     &:hover {
