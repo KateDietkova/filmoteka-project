@@ -1,6 +1,7 @@
 import modalFilmMarkupTpl from '../templates/modalFilmMarkup.hbs';
 import { getPosterFilm } from './getPosterFilm';
 import { getFilmInfoById } from './getFilmInfoById';
+import { translateTexts } from './translation/translate';
 
 const refs = {
   movieList: document.querySelector('.movie-list'),
@@ -62,6 +63,9 @@ async function showModal(event) {
     'afterbegin',
     modalFilmMarkupTpl(dataObj)
   );
+
+  translateTexts();
+
   // навесить слушателей на закрытие
   addListeners();
 }
