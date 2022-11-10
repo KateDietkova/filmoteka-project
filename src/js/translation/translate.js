@@ -25,6 +25,7 @@ function getLangFromStorage() {
 function onChangeTranslate() {
   updateStorage();
   changePathname();
+  location.reload();
   translateTexts();
   translatePlaceholder();
 }
@@ -36,6 +37,7 @@ function translateTexts() {
       elem.innerHTML = translations[key][lang];
     }
   }
+  translatePlaceholder();
 }
 
 function translatePlaceholder() {
