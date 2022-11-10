@@ -1,4 +1,5 @@
 export const container = document.getElementById('tui-pagination-container');
+export const containerSearch = document.getElementById('tui-pagination-container-search');
 
 export let options = {
   totalItems: 500,
