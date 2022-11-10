@@ -11,8 +11,8 @@ const refs = {
 };
 
 let dataObj = {};
-const STORAGE_KEY_WATCHED = 'watched-films';
-const STORAGE_KEY_QUEUE = 'queue-films'
+export const STORAGE_KEY_WATCHED = 'watched-films';
+export const STORAGE_KEY_QUEUE = 'queue-films'
 const watchedFilms = [];
 const queueFilms = [];
 
