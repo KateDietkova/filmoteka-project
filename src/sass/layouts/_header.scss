@@ -201,12 +201,31 @@
 }
 
 .header-wrapper {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 62px;
     @include minMedia($tab) {
     margin-bottom: 41px;
+}
+}
+
+.switch-lang {
+    position: absolute;
+    top: 50px;
+    
+    background-color: transparent;
+    color: white;
+    
+    @include minMedia($tab) {
+        top: 75px;
+        left: 0;
+    }
+
+
+&:active, &:focus {
+    background-color: #000;
 }
 }
 
@@ -371,6 +390,7 @@ transition: var(--main-effect);
             font-size: 30px;
     }
 }
+
 // .darktheme__icon {
 //     width: 30px;
 //     height: 30px;
