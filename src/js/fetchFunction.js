@@ -1,6 +1,8 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
+import { lang, getLangFromStorage } from './translation/translate';
 
+lang = getLangFromStorage();
 const movieErrorWrapper = document.querySelector('.movie-error-wrapper');
 
 export async function getFilmByKeywords(queryVal, pageNum) {
@@ -12,6 +14,7 @@ export async function getFilmByKeywords(queryVal, pageNum) {
         api_key: '579a7483bae7d6a5a25eb4c1ddded2cf',
         query: `${queryVal}`,
         page: `${pageNum}`,
+        language: `${lang}`,
       },
     })
     .then(res => {
@@ -21,7 +24,7 @@ export async function getFilmByKeywords(queryVal, pageNum) {
       if (!movieErrorWrapper.classList.contains('visually-hidden')) {
         movieErrorWrapper.classList.add('visually-hidden');
       }
-        return res.data.results;
+      return res.data.results;
     })
     .catch(error => {
       movieErrorWrapper.classList.remove('visually-hidden');

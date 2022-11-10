@@ -36,12 +36,14 @@ function onSubmitForm(evt) {
 function clearForm() {
   refs.cardFilm.innerHTML = '';
 }
+
 async function getMovieWithAllGenres(queryVal) {
   const movieInfo = await getFilmByKeywords(queryVal, pageNum);
   console.log(movieInfo);
   const allGenres = await getAllGenres();
   return { movieInfo, allGenres };
 }
+
 async function addMoviesToGallery(queryVal) {
   try {
     Loading.remove();
