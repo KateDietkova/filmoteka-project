@@ -1,0 +1,46 @@
+.scroll-up-button {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+
+  transition: transform var(--main-effect), opacity var(--main-effect),
+    visibility var(--main-effect);
+
+  &:hover {
+    border-color: var(--primary-accent-color);
+    background-color: var(--footer-background-color);
+  }
+
+  &:hover .up-arrow {
+    fill: #000000;
+  }
+
+  @include minMedia($tab) {
+    bottom: 100px;
+    right: 60px;
+    border: 3px solid var(--primary-darktext-color);
+  }
+
+  @include minMedia($desk) {
+    // bottom: 100px;
+    right: 40px;
+    border: 4px solid var(--primary-darktext-color);
+  }
+}
+
+.up-arrow {
+  fill: var(--primary-accent-color);
+}
+
+.to-top-button.is-hidden {
+  transform: translateY(200%);
+}
