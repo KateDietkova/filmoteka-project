@@ -1,6 +1,11 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
 import { lang, getLangFromStorage } from './translation/translate';
+import Pagination from 'tui-pagination';
+import { containerSearch } from './pagination';
+import { options, container } from './pagination';
+
+export let instanceSearch = new Pagination(containerSearch, options);
 
 lang = getLangFromStorage();
 const movieErrorWrapper = document.querySelector('.movie-error-wrapper');
@@ -24,6 +29,11 @@ export async function getFilmByKeywords(queryVal, pageNum) {
       if (!movieErrorWrapper.classList.contains('visually-hidden')) {
         movieErrorWrapper.classList.add('visually-hidden');
       }
+      const searchInfo = res.data;
+
+      activeSearchPagination();
+      instanceSearch.setTotalItems(searchInfo.total_results);
+      console.log(res.data);
       return res.data.results;
     })
     .catch(error => {
@@ -32,4 +42,12 @@ export async function getFilmByKeywords(queryVal, pageNum) {
         'Sorry, there are no movies matching your search query. Please try again.'
       );
     });
+}
+
+function activeSearchPagination() {
+  if (containerSearch.classList.contains('visually-hidden')) {
+    container.classList.add('visually-hidden');
+    containerSearch.classList.remove('visually-hidden')
+  }
+  return;
 }

@@ -1,8 +1,7 @@
-import { getMovie } from './getTrendFilm';
+import { getMovie, instance } from './getTrendFilm';
 import { getAllGenres, getGenres } from './getGenres';
 import { getPosterFilm } from './getPosterFilm';
-import Pagination from 'tui-pagination';
-import { options, container } from './pagination';
+import { scrollToTop } from './scroll-up';
 
 import Loading from './loader.js';
 Loading.pulse('Loading...', {
@@ -10,7 +9,7 @@ Loading.pulse('Loading...', {
 });
 
 let pageNum = 1;
-let instance;
+// let instance;
 
 const gallery = document.querySelector('.js-trend-film');
 
@@ -18,20 +17,18 @@ const gallery = document.querySelector('.js-trend-film');
 
 async function getMoviesWithAllGenres(pageNum) {
   const { movies, responseInfo } = await getMovie(pageNum);
-  options.page = responseInfo.page;
-  options.totalItems = responseInfo.total_results;
   console.log(movies);
   const allGenres = await getAllGenres();
   return { movies, allGenres };
 }
 Loading.pulse();
-addMoviesToGallery(pageNum);
-instance = new Pagination(container, options);
-instance.on('afterMove', onClickPage);
 
+addMoviesToGallery(pageNum);
+instance.on('afterMove', onClickPage);
 
 function onClickPage(eventData) {
   addMoviesToGallery(eventData.page);
+  scrollToTop();
 }
 
 export function galleryMarkup(movies, allGenres) {
