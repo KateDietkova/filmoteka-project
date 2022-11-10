@@ -27,7 +27,8 @@
               id="library"
               class="header-list__button current library__btn"
               type="button"
-              onclick="window.location.href = './library.html';"
+              onclick="window.location.href = './library.html';
+              "
             >
               My Library
             </button>
@@ -46,11 +47,19 @@
       </nav>
     </div>
 
-    <div class="library-button__list">
-      <button id="watched" class="library-btn watched-btn active" type="button">
+    <div class="library-button__list is-hidden-header">
+      <button
+        id="watched"
+        class="library-btn watched-btn active modal-btn-watched"
+        type="button"
+      >
         Watched
       </button>
-      <button id="queue" class="library-btn queue-btn" type="button">
+      <button
+        id="queue"
+        class="library-btn queue-btn modal-btn-queue"
+        type="button"
+      >
         Queue
       </button>
     </div>

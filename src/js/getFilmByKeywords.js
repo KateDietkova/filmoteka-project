@@ -13,43 +13,46 @@ const refs = {
 
 let queryVal = '';
 let pageNum = 1;
+try {
+  refs.searchForm.addEventListener('submit', onSubmitForm);
 
-refs.searchForm.addEventListener('submit', onSubmitForm);
+  function onSubmitForm(evt) {
+    evt.preventDefault();
+    clearForm();
+    if (evt.currentTarget.elements.searchQuery.value.trim() === '') {
+      return Notiflix.Notify.warning('Field cannot be emply');
+    }
 
-function onSubmitForm(evt) {
-  evt.preventDefault();
-  clearForm();
-  if (evt.currentTarget.elements.searchQuery.value.trim() === '') {
-    return Notiflix.Notify.warning('Field cannot be emply');
+    Loading.pulse('Loading...', {
+      svgColor: '#FF6B08',
+    });
+    Loading.pulse();
+    queryVal = evt.currentTarget.elements.searchQuery.value;
+
+    pageNum = 1;
+    addMoviesToGallery(queryVal);
   }
 
-  Loading.pulse('Loading...', {
-    svgColor: '#FF6B08',
-  });
-  Loading.pulse();
-  queryVal = evt.currentTarget.elements.searchQuery.value;
-
-  pageNum = 1;
-  addMoviesToGallery(queryVal);
-}
-
-function clearForm() {
-  refs.cardFilm.innerHTML = '';
-}
-async function getMovieWithAllGenres(queryVal) {
-  const movieInfo = await getFilmByKeywords(queryVal, pageNum);
-  console.log(movieInfo);
-  const allGenres = await getAllGenres();
-  return { movieInfo, allGenres };
-}
-async function addMoviesToGallery(queryVal) {
-  try {
-    Loading.remove();
-    const { movieInfo, allGenres } = await getMovieWithAllGenres(queryVal);
+  function clearForm() {
+    refs.cardFilm.innerHTML = '';
+  }
+  async function getMovieWithAllGenres(queryVal) {
+    const movieInfo = await getFilmByKeywords(queryVal, pageNum);
     console.log(movieInfo);
-    refs.cardFilm.innerHTML = galleryMarkup(movieInfo, allGenres);
-  } catch (error) {
-    console.log('Some error:', error);
-    return;
+    const allGenres = await getAllGenres();
+    return { movieInfo, allGenres };
   }
+  async function addMoviesToGallery(queryVal) {
+    try {
+      Loading.remove();
+      const { movieInfo, allGenres } = await getMovieWithAllGenres(queryVal);
+      console.log(movieInfo);
+      refs.cardFilm.innerHTML = galleryMarkup(movieInfo, allGenres);
+    } catch (error) {
+      console.log('Some error:', error);
+      return;
+    }
+  }
+} catch (error) {
+  return;
 }

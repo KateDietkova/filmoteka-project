@@ -64,7 +64,7 @@ async function showModal(event) {
   addListeners();
 }
 
-async function getFilmInfoById(filmId) {
+export async function getFilmInfoById(filmId) {
   const url = `https://api.themoviedb.org/3/movie/${filmId}?api_key=579a7483bae7d6a5a25eb4c1ddded2cf&language=en-US`;
 
   const getInfo = await fetch(url);
