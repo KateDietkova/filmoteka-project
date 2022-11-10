@@ -6,10 +6,10 @@ export const translations = {
     ru: 'Главная',
   },
   library: {
-    en: 'Library',
-    uk: 'Бібліотека',
-    de: 'Bibliothek',
-    ru: 'Библиотека',
+    en: 'My Library',
+    uk: 'Моя бібліотека',
+    de: 'Meine Bibliothek',
+    ru: 'Моя библиотека',
   },
   login: {
     en: 'Log in',
