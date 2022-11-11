@@ -370,9 +370,9 @@ transition: var(--main-effect);
 }
 }
 
-// .active {
-//     background: var(--primary-accent-color);
-// }
+.library-btn.active {
+    background: var(--primary-accent-color);
+}
 
 .darktheme__button {
     position: relative;
