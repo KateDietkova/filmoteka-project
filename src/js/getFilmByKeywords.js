@@ -3,6 +3,8 @@ import { getFilmByKeywords } from './fetchFunction';
 import { galleryMarkup } from './galleryMarkup';
 import { getAllGenres } from './getGenres';
 import Loading from './loader.js';
+import { instanceSearch } from './fetchFunction';
+import { scrollToTop } from './scroll-up';
 
 const refs = {
   searchForm: document.querySelector('.search-form'),
@@ -14,7 +16,13 @@ const refs = {
 let queryVal = '';
 let pageNum = 1;
 
-refs.searchForm.addEventListener('submit', onSubmitForm);
+function addListenerToSearchForm() {
+  if (refs.searchForm) {
+    refs.searchForm.addEventListener('submit', onSubmitForm);
+  }
+}
+
+addListenerToSearchForm();
 
 function onSubmitForm(evt) {
   evt.preventDefault();
@@ -30,22 +38,34 @@ function onSubmitForm(evt) {
   queryVal = evt.currentTarget.elements.searchQuery.value;
 
   pageNum = 1;
-  addMoviesToGallery(queryVal);
+  addMoviesToGallery(queryVal, pageNum);
+}
+
+instanceSearch.on('afterMove', onClickPageSearch);
+
+function onClickPageSearch(eventData) {
+  addMoviesToGallery(queryVal, eventData.page);
+  scrollToTop();
 }
 
 function clearForm() {
   refs.cardFilm.innerHTML = '';
 }
-async function getMovieWithAllGenres(queryVal) {
-  const movieInfo = await getFilmByKeywords(queryVal, pageNum);
+
+async function getMovieWithAllGenres(queryVal, page) {
+  const movieInfo = await getFilmByKeywords(queryVal, page);
   console.log(movieInfo);
   const allGenres = await getAllGenres();
   return { movieInfo, allGenres };
 }
-async function addMoviesToGallery(queryVal) {
+
+async function addMoviesToGallery(queryVal, page) {
   try {
     Loading.remove();
-    const { movieInfo, allGenres } = await getMovieWithAllGenres(queryVal);
+    const { movieInfo, allGenres } = await getMovieWithAllGenres(
+      queryVal,
+      page
+    );
     console.log(movieInfo);
     refs.cardFilm.innerHTML = galleryMarkup(movieInfo, allGenres);
   } catch (error) {

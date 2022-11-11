@@ -1,4 +1,8 @@
 import modalFilmMarkupTpl from '../templates/modalFilmMarkup.hbs';
+import { getPosterFilm } from './getPosterFilm';
+import { getFilmInfoById } from './getFilmInfoById';
+import { translateTexts } from './translation/translate';
+import { getDate } from './galleryMarkup';
 
 const refs = {
   movieList: document.querySelector('.movie-list'),
@@ -6,6 +10,7 @@ const refs = {
   closeModalBtn: document.querySelector('[data-modal-close]'),
   modalContainer: document.querySelector('.modal-container'),
 };
+
 
 const scrollController = {
   scrollPosition: 0,
@@ -34,6 +39,15 @@ const scrollController = {
   },
 };
 
+let dataObj = {};
+export const STORAGE_KEY_WATCHED = 'watched-films';
+export const STORAGE_KEY_QUEUE = 'queue-films';
+let watchedFilms = [];
+let queueFilms = [];
+let addToWatchedBtn;
+let addToQueueBtn;
+
+
 refs.movieList.addEventListener('click', onClickShowModal);
 
 function onClickShowModal(event) {
@@ -46,10 +60,7 @@ function onClickShowModal(event) {
 
 async function showModal(event) {
   refs.modalContainer.innerHTML = '';
-
-  const filmId = event.target.closest('div[data-id]').dataset.id;
-  // getFilmInfoById(filmId);
-  // console.log(getFilmInfoById(filmId));
+  const filmId = event.target.closest('li[data-id]').dataset.id;
 
   const {
     backdrop_path,
@@ -61,15 +72,17 @@ async function showModal(event) {
     title,
     vote_average,
     vote_count,
+    release_date,
   } = await getFilmInfoById(filmId);
+
   const genresName = genres.map(({ name }) => name).join(', ');
   const slicePopularity = parseFloat(popularity.toFixed(1));
   const sliceVoteAverage = parseFloat(vote_average.toFixed(1));
-  // console.log(slicePopularity);
-  // console.log(genresName);
+  const releaseDate = getDate(release_date);
+  console.log(genresName);
 
-  // сохранить данные из карточки в объект
-  const dataObj = {
+  dataObj = {
+    filmId,
     backdrop_path,
     genresName,
     poster_path,
@@ -79,7 +92,11 @@ async function showModal(event) {
     title,
     sliceVoteAverage,
     vote_count,
+    releaseDate,
   };
+
+  // проверить, есть ли постер, и если нет, поставить заглушку
+  dataObj.poster_path = getPosterFilm(dataObj.poster_path);
 
   // отобразить модалку
   toggleModalClass();
@@ -89,17 +106,97 @@ async function showModal(event) {
     'afterbegin',
     modalFilmMarkupTpl(dataObj)
   );
+
   scrollController.disabledScroll();
+
+  translateTexts();
+
   // навесить слушателей на закрытие
   addListeners();
+
+  addToWatchedBtn = document.querySelector('.modal-film__button-watched');
+  addToQueueBtn = document.querySelector('.modal-film__button-queue');
+
+  isInSavedFilm(STORAGE_KEY_WATCHED, addToWatchedBtn);
+  isInSavedFilm(STORAGE_KEY_QUEUE, addToQueueBtn);
+
+  addToWatchedBtn.addEventListener('click', onAddToWatched);
+  addToQueueBtn.addEventListener('click', onAddToQueue);
 }
 
-async function getFilmInfoById(filmId) {
-  const url = `https://api.themoviedb.org/3/movie/${filmId}?api_key=579a7483bae7d6a5a25eb4c1ddded2cf&language=en-US`;
+function isInSavedFilm(key, button) {
+  const savedFilms = localStorage.getItem(key);
+  if (savedFilms) {
+    let findId;
+    const savedFilmsParse = JSON.parse(savedFilms);
+    savedFilmsParse.map(({ filmId }) => {
+      if (filmId === dataObj.filmId) {
+        findId = filmId;
+        return;
+      }
+      return;
+    });
+    if (findId && button.classList.contains('modal-film__button-watched')) {
+      button.textContent = 'Delete from Watched';
+    }
+    if (findId && button.classList.contains('modal-film__button-queue')) {
+      button.textContent = 'Delete from Queue';
+    }
+  }
+}
 
-  const getInfo = await fetch(url);
-  const parseInfo = await getInfo.json();
-  return parseInfo;
+function onAddToWatched() {
+  console.log(addToWatchedBtn.textContent);
+  const savedWatchedFilms = localStorage.getItem(STORAGE_KEY_WATCHED);
+  if (savedWatchedFilms) {
+    watchedFilms = JSON.parse(savedWatchedFilms);
+  }
+  if (addToWatchedBtn.textContent === 'Delete from Watched') {
+    let indexFilmObj;
+    console.log(watchedFilms);
+    watchedFilms.filter((film, index) => {
+      console.log('Compare', film.filmId, dataObj.filmId);
+      if (film.filmId === dataObj.filmId) {
+        indexFilmObj = index;
+      }
+      return film.filmId === dataObj.filmId;
+    });
+    watchedFilms.splice(indexFilmObj, 1);
+    localStorage.setItem(STORAGE_KEY_WATCHED, JSON.stringify(watchedFilms));
+    addToWatchedBtn.textContent = 'Add to Watched';
+    return;
+  }
+  addToWatchedBtn.textContent = 'Delete from Watched';
+  watchedFilms.push(dataObj);
+  localStorage.setItem(STORAGE_KEY_WATCHED, JSON.stringify(watchedFilms));
+}
+
+function onAddToQueue() {
+  console.log(dataObj);
+   const savedQueueFilms = localStorage.getItem(STORAGE_KEY_QUEUE);
+   if (savedQueueFilms) {
+     queueFilms = JSON.parse(savedQueueFilms);
+   }
+   if (addToQueueBtn.textContent === 'Delete from Queue') {
+     let indexFilmObj;
+     console.log(queueFilms);
+     queueFilms.filter((film, index) => {
+       console.log('Compare', film.filmId, dataObj.filmId);
+       if (film.filmId === dataObj.filmId) {
+         indexFilmObj = index;
+       }
+       return film.filmId === dataObj.filmId;
+     });
+     queueFilms.splice(indexFilmObj, 1);
+     localStorage.setItem(STORAGE_KEY_QUEUE, JSON.stringify(queueFilms));
+     addToQueueBtn.textContent = 'Add to Queue';
+     return;
+   }
+   addToQueueBtn.textContent = 'Delete from Queue';
+
+
+  queueFilms.push(dataObj);
+  localStorage.setItem(STORAGE_KEY_QUEUE, JSON.stringify(queueFilms));
 }
 
 function onBtnClick(event) {

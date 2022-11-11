@@ -139,7 +139,6 @@
     @include minMedia($tab){
         gap: 39px;
     }
-
 }
 
 .header-list__button.current::after {
@@ -201,12 +200,31 @@
 }
 
 .header-wrapper {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 62px;
     @include minMedia($tab) {
     margin-bottom: 41px;
+}
+}
+
+.switch-lang {
+    position: absolute;
+    top: 50px;
+    
+    background-color: transparent;
+    color: white;
+    
+    @include minMedia($tab) {
+        top: 75px;
+        left: 0;
+    }
+
+
+&:active, &:focus {
+    background-color: #000;
 }
 }
 
@@ -318,8 +336,9 @@ transition: var(--main-effect);
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
-    width: 130px;
-    padding: 12px 36px;
+    text-align: center;
+    min-width: 130px;
+    padding: 12px;
     border-radius: 5px;
     background-color: transparent;
     color: var(--header-white-color);
@@ -328,13 +347,13 @@ transition: var(--main-effect);
     border: 1px solid var(--header-white-color);
 
     @include minMedia($tab) {
-    width: 152px;
-    padding: 13px 57px;
+    min-width: 152px;
+    padding: 13px;
   }
 
     @include minMedia($desk){
-    width: 148px;
-    padding: 13px 41px 11px 41px;
+    min-width: 148px;
+    padding: 13px 0 11px 0;
   }
   transition: var(--main-effect);
 
@@ -351,9 +370,9 @@ transition: var(--main-effect);
 }
 }
 
-// .active {
-//     background: var(--primary-accent-color);
-// }
+.library-btn.active {
+    background: var(--primary-accent-color);
+}
 
 .darktheme__button {
     position: relative;
@@ -371,6 +390,7 @@ transition: var(--main-effect);
             font-size: 30px;
     }
 }
+
 // .darktheme__icon {
 //     width: 30px;
 //     height: 30px;

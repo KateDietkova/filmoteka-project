@@ -1,0 +1,58 @@
+.pagination-box {
+  display: flex;
+  justify-content: center;
+}
+
+.page-pagination.tui-page-btn,
+.tui-next-is-ellip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 5px;
+
+  font-family: var(--font-general);
+  font-weight: 500;
+  font-size: 12px;
+  width: 40px;
+  height: 40px;
+  color: var(--primary-darktext-color);
+}
+
+.selected-page.tui-is-selected {
+  @extend .page-pagination;
+  background-color: var(--primary-accent-color);
+  color: var(--primary-lighttext-color);
+}
+
+.selected-page.tui-is-selected:hover {
+  background-color: var(--primary-accent-color);
+}
+
+.tui-prev-is-ellip.page-pagination,
+.tui-next-is-ellip.page-pagination {
+  display: flex;
+  align-items: center;
+}
+
+.move-btn.page-pagination {
+  background-color: #f7f7f7;
+}
+
+.tui-ico-prev.move-btn-arrow,
+.tui-ico-next.move-btn-arrow {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+}
+
+.tui-ico-prev.move-btn-arrow {
+    background-image: url('../images/svg/arrow-left.svg');
+}
+
+.tui-ico-next.move-btn-arrow {
+    background-image: url('../images/svg/arrow-right.svg');
+}
