@@ -1,8 +1,9 @@
 import { getLangFromStorage } from './translation/translate';
 import { translations } from './translation/langs';
 
+let lang;
 export async function getAllGenres() {
-  let lang = getLangFromStorage();
+  lang = getLangFromStorage();
   const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=579a7483bae7d6a5a25eb4c1ddded2cf&language=${lang}`;
   const genresResponse = await fetch(url);
   localStorage.setItem('lastFetch', url);
