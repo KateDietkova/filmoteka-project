@@ -13,10 +13,13 @@ const refs = {
 
 let dataObj = {};
 export const STORAGE_KEY_WATCHED = 'watched-films';
-export const STORAGE_KEY_QUEUE = 'queue-films'
-const watchedFilms = [];
-const queueFilms = [];
-
+export const STORAGE_KEY_QUEUE = 'queue-films';
+let watchedFilms = [];
+let queueFilms = [];
+let addToWatchedBtn;
+let addToQueueBtn;
+let textWatchedBtn;
+let textQueueBtn;
 
 refs.movieList.addEventListener('click', onClickShowModal);
 
@@ -82,15 +85,55 @@ async function showModal(event) {
   // навесить слушателей на закрытие
   addListeners();
 
-  const addToWatchedBtn = document.querySelector('.modal-film__button-watched');
-  const addToQueueBtn = document.querySelector('.modal-film__button-queue');
+  addToWatchedBtn = document.querySelector('.modal-film__button-watched');
+  addToQueueBtn = document.querySelector('.modal-film__button-queue');
+
+  isInSavedFilmWatched();
 
   addToWatchedBtn.addEventListener('click', onAddToWatched);
   addToQueueBtn.addEventListener('click', onAddToQueue);
 }
 
+function isInSavedFilmWatched() {
+  const savedWatchedFilms = localStorage.getItem(STORAGE_KEY_WATCHED);
+  if (savedWatchedFilms) {
+    let findId;
+    const watchedFilmsParse = JSON.parse(savedWatchedFilms);
+    watchedFilmsParse.map(({ filmId }) => {
+      if (filmId === dataObj.filmId) {
+        findId = filmId;
+        return;
+      }
+      return;
+    });
+    if (findId) {
+      addToWatchedBtn.textContent = 'Delete from Watched';
+    }
+  }
+}
+
 function onAddToWatched() {
-  console.log(dataObj);
+  console.log(addToWatchedBtn.textContent);
+  const savedWatchedFilms = localStorage.getItem(STORAGE_KEY_WATCHED);
+  if (savedWatchedFilms) {
+    watchedFilms = JSON.parse(savedWatchedFilms);
+  }
+  if (addToWatchedBtn.textContent === 'Delete from Watched') {
+    let indexFilmObj;
+    console.log(watchedFilms);
+    watchedFilms.filter((film, index) => {
+      console.log('Compare', film.filmId, dataObj.filmId);
+      if (film.filmId === dataObj.filmId) {
+        indexFilmObj = index;
+      }
+      return film.filmId === dataObj.filmId;
+    });
+    watchedFilms.splice(indexFilmObj, 1);
+    localStorage.setItem(STORAGE_KEY_WATCHED, JSON.stringify(watchedFilms));
+    addToWatchedBtn.textContent = 'Add to Watched';
+    return;
+  }
+  addToWatchedBtn.textContent = 'Delete from Watched';
   watchedFilms.push(dataObj);
   localStorage.setItem(STORAGE_KEY_WATCHED, JSON.stringify(watchedFilms));
 }
