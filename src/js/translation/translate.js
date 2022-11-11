@@ -18,11 +18,10 @@ function getLangFromStorage() {
   if (localStorage.getItem('lang')) {
     lang = localStorage.getItem('lang');
     select.value = lang;
-    return lang;
   } else {
     lang = select.value;
-    return lang;
   }
+  return lang;
 }
 
 function onChangeTranslate() {
