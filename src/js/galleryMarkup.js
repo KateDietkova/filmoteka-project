@@ -54,7 +54,7 @@ export function galleryMarkup(movies, allGenres) {
     .join('');
 }
 
-function getDate(date) {
+export function getDate(date) {
   const year = date.split('-')[0];
   return year;
 }

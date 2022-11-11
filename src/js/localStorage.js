@@ -1,9 +1,11 @@
 import { STORAGE_KEY_WATCHED, STORAGE_KEY_QUEUE } from './modalFilmMarkup';
-import { galleryMarkup } from './galleryMarkup';
+import { getPosterFilm } from './getPosterFilm';
+
 
 const refs = {
   watchedFilmsLibraryBtn: document.querySelector('.watched-btn'),
   queueFilmsLibraryBtn: document.querySelector('.queue-btn'),
+  libraryGallery: document.querySelector('.js-library'),
 };
 let getWatchedFilmsArr;
 let getQueueFilmsArr;
@@ -16,6 +18,7 @@ function onGetFromLocalStorageWatchedFilms() {
   if (getWatchedFilmsArr) {
     const parseGetWatchedFilms = JSON.parse(getWatchedFilmsArr);
     console.log(parseGetWatchedFilms);
+    addLibraryGallery(parseGetWatchedFilms);
   }
 }
 
@@ -25,6 +28,7 @@ function onGetFromLocalStorageQueueFilms() {
   if (getQueueFilmsArr) {
     const parseGetQueueFilms = JSON.parse(getQueueFilmsArr);
     console.log(parseGetQueueFilms);
+    addLibraryGallery(parseGetQueueFilms);
   }
 }
 
@@ -41,32 +45,34 @@ function addListenerToLibraryBtn() {
   }
 }
 
-// addToStorage = (key, value) => {
-//   try {
-//     if (typeof value === 'string') {
-//       localStorage.setItem(key, value);
-//     } else {
-//       localStorage.setItem(key, JSON.stringify(value));
-//     }
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
+function libraryMarkup(dataFilm) {
+  return dataFilm.map(
+    ({
+      filmId,
+      genresName,
+      poster_path,
+      title,
+      sliceVoteAverage,
+      releaseDate,
+    }) => {
+      return `<li class="films-card" data-id=${filmId}>
+              <img
+                  class="projects-list__img"
+                  src='${getPosterFilm(poster_path)}'
+                  alt='${title}'
+              />
+              <div class="film-item-wrapper">
+                <p class="film-description-title">${title}</p>
+                <div class="film-description-wrapper">
+                  <p class="film-description-items">
+                  ${genresName} | ${releaseDate}</p>
+                </div>
+              </div>
+            </li>`
+    }
+  ).join('');
+}
 
-// getFromStorage = key => {
-//   try {
-//     return JSON.parse(localStorage.getItem(key));
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
-
-// removeFromStorage = key => {
-//   try {
-//     localStorage.removeItem(key);
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
-
-// export { addToStorage, getFromStorage, removeFromStorage };
+function addLibraryGallery(dataFilm) {
+  refs.libraryGallery.innerHTML = libraryMarkup(dataFilm);
+}

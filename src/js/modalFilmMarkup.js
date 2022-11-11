@@ -2,6 +2,7 @@ import modalFilmMarkupTpl from '../templates/modalFilmMarkup.hbs';
 import { getPosterFilm } from './getPosterFilm';
 import { getFilmInfoById } from './getFilmInfoById';
 import { translateTexts } from './translation/translate';
+import { getDate } from './galleryMarkup';
 
 const refs = {
   movieList: document.querySelector('.movie-list'),
@@ -41,13 +42,17 @@ async function showModal(event) {
     title,
     vote_average,
     vote_count,
+    release_date,
   } = await getFilmInfoById(filmId);
 
   const genresName = genres.map(({ name }) => name).join(', ');
   const slicePopularity = parseFloat(popularity.toFixed(1));
   const sliceVoteAverage = parseFloat(vote_average.toFixed(1));
+  const releaseDate = getDate(release_date);
+  console.log(genresName);
 
   dataObj = {
+    filmId,
     backdrop_path,
     genresName,
     poster_path,
@@ -57,6 +62,7 @@ async function showModal(event) {
     title,
     sliceVoteAverage,
     vote_count,
+    releaseDate,
   };
 
   // проверить, есть ли постер, и если нет, поставить заглушку

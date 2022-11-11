@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
-import { lang, getLangFromStorage } from './translation/translate';
+import { getLangFromStorage } from './translation/translate';
 import Pagination from 'tui-pagination';
 import { containerSearch } from './pagination';
 import { options, container } from './pagination';
