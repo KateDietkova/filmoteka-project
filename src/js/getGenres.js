@@ -1,4 +1,4 @@
-import { lang, getLangFromStorage } from './translation/translate';
+import { getLangFromStorage } from './translation/translate';
 import { translations } from './translation/langs';
 
 export async function getAllGenres() {
