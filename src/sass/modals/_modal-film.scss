@@ -253,7 +253,6 @@
     @include minMedia($tab) {
         min-width: 125px;
     }
-  }
 
     @include minMedia($desk) {
         min-width: 136px;
@@ -288,5 +287,5 @@
         padding: 13px 7px 11px 7px;
       }
     }
-  }
 }
+
