@@ -69,7 +69,9 @@ function libraryMarkup(dataFilm) {
                 <p class="film-description-title">${title}</p>
                 <div class="film-description-wrapper">
                   <p class="film-description-items">
-                  ${genresName} | ${releaseDate}</p>
+                    ${genresName} | ${releaseDate}
+                    <span class="modal-film__value-vote">${sliceVoteAverage}</span>
+                  </p>
                 </div>
               </div>
             </li>`;
@@ -89,7 +91,7 @@ function removeBtnActiveClass() {
 }
 
 function showLibraryImgNotFound(imgWrapper) {
-  if (imgWrapper) {
+  if (imgWrapper && refs.libraryGallery) {
     refs.libraryGallery.innerHTML = '';
     imgWrapper.classList.remove('visually-hidden');
   }
