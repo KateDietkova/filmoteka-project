@@ -2,6 +2,7 @@ import modalFilmMarkupTpl from '../templates/modalFilmMarkup.hbs';
 import { getPosterFilm } from './getPosterFilm';
 import { getFilmInfoById } from './getFilmInfoById';
 import { translateTexts } from './translation/translate';
+import { getDate } from './galleryMarkup';
 
 const refs = {
   movieList: document.querySelector('.movie-list'),
@@ -9,6 +10,13 @@ const refs = {
   closeModalBtn: document.querySelector('[data-modal-close]'),
   modalContainer: document.querySelector('.modal-container'),
 };
+
+let dataObj = {};
+export const STORAGE_KEY_WATCHED = 'watched-films';
+export const STORAGE_KEY_QUEUE = 'queue-films'
+const watchedFilms = [];
+const queueFilms = [];
+
 
 refs.movieList.addEventListener('click', onClickShowModal);
 
@@ -34,13 +42,17 @@ async function showModal(event) {
     title,
     vote_average,
     vote_count,
+    release_date,
   } = await getFilmInfoById(filmId);
 
   const genresName = genres.map(({ name }) => name).join(', ');
   const slicePopularity = parseFloat(popularity.toFixed(1));
   const sliceVoteAverage = parseFloat(vote_average.toFixed(1));
+  const releaseDate = getDate(release_date);
+  console.log(genresName);
 
-  const dataObj = {
+  dataObj = {
+    filmId,
     backdrop_path,
     genresName,
     poster_path,
@@ -50,6 +62,7 @@ async function showModal(event) {
     title,
     sliceVoteAverage,
     vote_count,
+    releaseDate,
   };
 
   // проверить, есть ли постер, и если нет, поставить заглушку
@@ -68,6 +81,24 @@ async function showModal(event) {
 
   // навесить слушателей на закрытие
   addListeners();
+
+  const addToWatchedBtn = document.querySelector('.modal-film__button-watched');
+  const addToQueueBtn = document.querySelector('.modal-film__button-queue');
+
+  addToWatchedBtn.addEventListener('click', onAddToWatched);
+  addToQueueBtn.addEventListener('click', onAddToQueue);
+}
+
+function onAddToWatched() {
+  console.log(dataObj);
+  watchedFilms.push(dataObj);
+  localStorage.setItem(STORAGE_KEY_WATCHED, JSON.stringify(watchedFilms));
+}
+
+function onAddToQueue() {
+  console.log(dataObj);
+  queueFilms.push(dataObj);
+  localStorage.setItem(STORAGE_KEY_QUEUE, JSON.stringify(queueFilms));
 }
 
 function onBtnClick(event) {

@@ -16,7 +16,13 @@ const refs = {
 let queryVal = '';
 let pageNum = 1;
 
-refs.searchForm.addEventListener('submit', onSubmitForm);
+function addListenerToSearchForm() {
+  if (refs.searchForm) {
+    refs.searchForm.addEventListener('submit', onSubmitForm);
+  }
+}
+
+addListenerToSearchForm();
 
 function onSubmitForm(evt) {
   evt.preventDefault();

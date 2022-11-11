@@ -1,29 +1,78 @@
-addToStorage = (key, value) => {
-  try {
-    if (typeof value === 'string') {
-      localStorage.setItem(key, value);
-    } else {
-      localStorage.setItem(key, JSON.stringify(value));
+import { STORAGE_KEY_WATCHED, STORAGE_KEY_QUEUE } from './modalFilmMarkup';
+import { getPosterFilm } from './getPosterFilm';
+
+
+const refs = {
+  watchedFilmsLibraryBtn: document.querySelector('.watched-btn'),
+  queueFilmsLibraryBtn: document.querySelector('.queue-btn'),
+  libraryGallery: document.querySelector('.js-library'),
+};
+let getWatchedFilmsArr;
+let getQueueFilmsArr;
+
+addListenerToLibraryBtn();
+
+function onGetFromLocalStorageWatchedFilms() {
+  getWatchedFilmsArr = localStorage.getItem(STORAGE_KEY_WATCHED);
+
+  if (getWatchedFilmsArr) {
+    const parseGetWatchedFilms = JSON.parse(getWatchedFilmsArr);
+    console.log(parseGetWatchedFilms);
+    addLibraryGallery(parseGetWatchedFilms);
+  }
+}
+
+function onGetFromLocalStorageQueueFilms() {
+  getQueueFilmsArr = localStorage.getItem(STORAGE_KEY_QUEUE);
+
+  if (getQueueFilmsArr) {
+    const parseGetQueueFilms = JSON.parse(getQueueFilmsArr);
+    console.log(parseGetQueueFilms);
+    addLibraryGallery(parseGetQueueFilms);
+  }
+}
+
+function addListenerToLibraryBtn() {
+  if (refs.watchedFilmsLibraryBtn || refs.queueFilmsLibraryBtn) {
+    refs.watchedFilmsLibraryBtn.addEventListener(
+      'click',
+      onGetFromLocalStorageWatchedFilms
+    );
+    refs.queueFilmsLibraryBtn.addEventListener(
+      'click',
+      onGetFromLocalStorageQueueFilms
+    );
+  }
+}
+
+function libraryMarkup(dataFilm) {
+  return dataFilm.map(
+    ({
+      filmId,
+      genresName,
+      poster_path,
+      title,
+      sliceVoteAverage,
+      releaseDate,
+    }) => {
+      return `<li class="films-card" data-id=${filmId}>
+              <img
+                  class="projects-list__img"
+                  src='${getPosterFilm(poster_path)}'
+                  alt='${title}'
+              />
+              <div class="film-item-wrapper">
+                <p class="film-description-title">${title}</p>
+                <div class="film-description-wrapper">
+                  <p class="film-description-items">
+                  ${genresName} | ${releaseDate}</p>
+                </div>
+              </div>
+            </li>`
     }
-  } catch (error) {
-    console.error(error);
-  }
-};
+  ).join('');
+}
 
-getFromStorage = key => {
-  try {
-    return JSON.parse(localStorage.getItem(key));
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-removeFromStorage = key => {
-  try {
-    localStorage.removeItem(key);
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-export { addToStorage, getFromStorage, removeFromStorage };
+function addLibraryGallery(dataFilm) {
+  refs.libraryGallery.innerHTML = libraryMarkup(dataFilm);
+}

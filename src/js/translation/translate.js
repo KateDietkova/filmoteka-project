@@ -1,6 +1,6 @@
 import { translations } from './langs';
 
-let lang = '';
+let lang;
 
 window.addEventListener('load', onLoad);
 

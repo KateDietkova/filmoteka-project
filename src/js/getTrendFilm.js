@@ -1,4 +1,4 @@
-import { lang, getLangFromStorage } from './translation/translate';
+import { getLangFromStorage } from './translation/translate';
 import Pagination from 'tui-pagination';
 import { options, container } from './pagination';
 
