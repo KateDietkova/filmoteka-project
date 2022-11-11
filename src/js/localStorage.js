@@ -10,6 +10,7 @@ let getWatchedFilmsArr;
 let getQueueFilmsArr;
 
 addListenerToLibraryBtn();
+onGetFromLocalStorageWatchedFilms();
 
 function onGetFromLocalStorageWatchedFilms() {
   getWatchedFilmsArr = localStorage.getItem(STORAGE_KEY_WATCHED);
@@ -22,6 +23,7 @@ function onGetFromLocalStorageWatchedFilms() {
 }
 
 function onGetFromLocalStorageQueueFilms() {
+  removeBtnActiveClass();
   getQueueFilmsArr = localStorage.getItem(STORAGE_KEY_QUEUE);
 
   if (getQueueFilmsArr) {
@@ -78,4 +80,9 @@ function addLibraryGallery(dataFilm) {
   if (refs.libraryGallery) {
     refs.libraryGallery.innerHTML = libraryMarkup(dataFilm);
   }
+}
+
+
+function removeBtnActiveClass() {
+  refs.watchedFilmsLibraryBtn.classList.remove('active');
 }
