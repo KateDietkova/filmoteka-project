@@ -5,6 +5,7 @@ const refs = {
   watchedFilmsLibraryBtn: document.querySelector('.watched-btn'),
   queueFilmsLibraryBtn: document.querySelector('.queue-btn'),
   libraryGallery: document.querySelector('.js-library'),
+  libraryImgWrapper: document.querySelector('.library-img-wrapper'),
 };
 let getWatchedFilmsArr;
 let getQueueFilmsArr;
@@ -13,23 +14,24 @@ addListenerToLibraryBtn();
 onGetFromLocalStorageWatchedFilms();
 
 function onGetFromLocalStorageWatchedFilms() {
+  hideLibraryImgNotFound();
   getWatchedFilmsArr = localStorage.getItem(STORAGE_KEY_WATCHED);
 
   if (getWatchedFilmsArr) {
     const parseGetWatchedFilms = JSON.parse(getWatchedFilmsArr);
-    console.log(parseGetWatchedFilms);
-    addLibraryGallery(parseGetWatchedFilms);
+    getFilms(parseGetWatchedFilms);
   }
+
 }
 
 function onGetFromLocalStorageQueueFilms() {
+  hideLibraryImgNotFound();
   removeBtnActiveClass();
   getQueueFilmsArr = localStorage.getItem(STORAGE_KEY_QUEUE);
 
   if (getQueueFilmsArr) {
     const parseGetQueueFilms = JSON.parse(getQueueFilmsArr);
-    console.log(parseGetQueueFilms);
-    addLibraryGallery(parseGetQueueFilms);
+    getFilms(parseGetQueueFilms);
   }
 }
 
@@ -82,7 +84,29 @@ function addLibraryGallery(dataFilm) {
   }
 }
 
-
 function removeBtnActiveClass() {
   refs.watchedFilmsLibraryBtn.classList.remove('active');
+}
+
+function showLibraryImgNotFound(imgWrapper) {
+  if (imgWrapper) {
+    refs.libraryGallery.innerHTML = '';
+    imgWrapper.classList.remove('visually-hidden');
+  }
+}
+
+function getFilms(savedMovies) {
+  if (savedMovies.length) {
+    console.log(savedMovies);
+
+    addLibraryGallery(savedMovies);
+    return;
+  }
+  showLibraryImgNotFound(refs.libraryImgWrapper);
+}
+
+function hideLibraryImgNotFound() {
+  if (!refs.libraryImgWrapper.classList.contains('visually-hidden')) {
+    refs.libraryImgWrapper.classList.add('visually-hidden');
+  }
 }
