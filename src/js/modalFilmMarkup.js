@@ -18,8 +18,6 @@ let watchedFilms = [];
 let queueFilms = [];
 let addToWatchedBtn;
 let addToQueueBtn;
-let textWatchedBtn;
-let textQueueBtn;
 
 refs.movieList.addEventListener('click', onClickShowModal);
 
@@ -88,26 +86,30 @@ async function showModal(event) {
   addToWatchedBtn = document.querySelector('.modal-film__button-watched');
   addToQueueBtn = document.querySelector('.modal-film__button-queue');
 
-  isInSavedFilmWatched();
+  isInSavedFilm(STORAGE_KEY_WATCHED, addToWatchedBtn);
+  isInSavedFilm(STORAGE_KEY_QUEUE, addToQueueBtn);
 
   addToWatchedBtn.addEventListener('click', onAddToWatched);
   addToQueueBtn.addEventListener('click', onAddToQueue);
 }
 
-function isInSavedFilmWatched() {
-  const savedWatchedFilms = localStorage.getItem(STORAGE_KEY_WATCHED);
-  if (savedWatchedFilms) {
+function isInSavedFilm(key, button) {
+  const savedFilms = localStorage.getItem(key);
+  if (savedFilms) {
     let findId;
-    const watchedFilmsParse = JSON.parse(savedWatchedFilms);
-    watchedFilmsParse.map(({ filmId }) => {
+    const savedFilmsParse = JSON.parse(savedFilms);
+    savedFilmsParse.map(({ filmId }) => {
       if (filmId === dataObj.filmId) {
         findId = filmId;
         return;
       }
       return;
     });
-    if (findId) {
-      addToWatchedBtn.textContent = 'Delete from Watched';
+    if (findId && button.classList.contains('modal-film__button-watched')) {
+      button.textContent = 'Delete from Watched';
+    }
+    if (findId && button.classList.contains('modal-film__button-queue')) {
+      button.textContent = 'Delete from Queue';
     }
   }
 }
@@ -140,6 +142,28 @@ function onAddToWatched() {
 
 function onAddToQueue() {
   console.log(dataObj);
+   const savedQueueFilms = localStorage.getItem(STORAGE_KEY_QUEUE);
+   if (savedQueueFilms) {
+     queueFilms = JSON.parse(savedQueueFilms);
+   }
+   if (addToQueueBtn.textContent === 'Delete from Queue') {
+     let indexFilmObj;
+     console.log(queueFilms);
+     queueFilms.filter((film, index) => {
+       console.log('Compare', film.filmId, dataObj.filmId);
+       if (film.filmId === dataObj.filmId) {
+         indexFilmObj = index;
+       }
+       return film.filmId === dataObj.filmId;
+     });
+     queueFilms.splice(indexFilmObj, 1);
+     localStorage.setItem(STORAGE_KEY_QUEUE, JSON.stringify(queueFilms));
+     addToQueueBtn.textContent = 'Add to Queue';
+     return;
+   }
+   addToQueueBtn.textContent = 'Delete from Queue';
+
+
   queueFilms.push(dataObj);
   localStorage.setItem(STORAGE_KEY_QUEUE, JSON.stringify(queueFilms));
 }
