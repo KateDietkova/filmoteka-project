@@ -1,7 +1,6 @@
 import { STORAGE_KEY_WATCHED, STORAGE_KEY_QUEUE } from './modalFilmMarkup';
 import { getPosterFilm } from './getPosterFilm';
 
-
 const refs = {
   watchedFilmsLibraryBtn: document.querySelector('.watched-btn'),
   queueFilmsLibraryBtn: document.querySelector('.queue-btn'),
@@ -46,16 +45,17 @@ function addListenerToLibraryBtn() {
 }
 
 function libraryMarkup(dataFilm) {
-  return dataFilm.map(
-    ({
-      filmId,
-      genresName,
-      poster_path,
-      title,
-      sliceVoteAverage,
-      releaseDate,
-    }) => {
-      return `<li class="films-card" data-id=${filmId}>
+  return dataFilm
+    .map(
+      ({
+        filmId,
+        genresName,
+        poster_path,
+        title,
+        sliceVoteAverage,
+        releaseDate,
+      }) => {
+        return `<li class="films-card" data-id=${filmId}>
               <img
                   class="projects-list__img"
                   src='${getPosterFilm(poster_path)}'
@@ -68,11 +68,14 @@ function libraryMarkup(dataFilm) {
                   ${genresName} | ${releaseDate}</p>
                 </div>
               </div>
-            </li>`
-    }
-  ).join('');
+            </li>`;
+      }
+    )
+    .join('');
 }
 
 function addLibraryGallery(dataFilm) {
-  refs.libraryGallery.innerHTML = libraryMarkup(dataFilm);
+  if (refs.libraryGallery) {
+    refs.libraryGallery.innerHTML = libraryMarkup(dataFilm);
+  }
 }
