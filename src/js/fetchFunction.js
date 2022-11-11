@@ -7,7 +7,7 @@ import { options, container } from './pagination';
 
 export let instanceSearch = new Pagination(containerSearch, options);
 
-lang = getLangFromStorage();
+let lang = getLangFromStorage();
 const movieErrorWrapper = document.querySelector('.movie-error-wrapper');
 
 export async function getFilmByKeywords(queryVal, pageNum) {
