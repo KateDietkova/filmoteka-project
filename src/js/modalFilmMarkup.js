@@ -1,6 +1,7 @@
 import modalFilmMarkupTpl from '../templates/modalFilmMarkup.hbs';
 import WatchTrailer from './movie-trailer';
 
+
 const refs = {
   movieList: document.querySelector('.movie-list'),
   modal: document.querySelector('[data-modal]'),
@@ -22,6 +23,8 @@ function onClickShowModal(event) {
 async function showModal(event) {
   refs.modalContainer.innerHTML = '';
   const filmId = event.target.closest('div[data-id]').dataset.id;
+
+
   // getFilmInfoById(filmId);
   // console.log(getFilmInfoById(filmId));
 
@@ -66,6 +69,7 @@ async function showModal(event) {
   );
   // навесить слушателей на закрытие
   addListeners();
+
 }
 
 async function getFilmInfoById(filmId) {
@@ -109,6 +113,8 @@ function addListeners() {
     refs.closeModalBtn.addEventListener('click', onBtnClick);
     window.addEventListener('keydown', onKeyDown);
     refs.modal.addEventListener('click', onBackdropClick);
+    refs.trailerBtn.addEventListener('click', getMovieTrailer);
+
   }
 }
 
@@ -120,13 +126,12 @@ function removeListeners() {
     refs.modal.removeEventListener('click', onBackdropClick);
   }
 }
-//trailer//
+//trailer/
 
-refs.trailerBtn.addEventListener('click', getMovieTrailer);
-  
-function getMovieTrailer(e) {
-    const id = e.target.dataset.id;
+     function getMovieTrailer(e) {
+  const id = e.target.dataset.id;
   const name = e.target.dataset.name;
   new WatchTrailer(id, name).showTrailer();
 
 }
+  

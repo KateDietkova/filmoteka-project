@@ -1,8 +1,8 @@
 const movieTrailer = require('movie-trailer');
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
+import { getTrailer } from './trailer-api';
 
-const API_BASE_URL = 'https://api.themoviedb.org/3/';
 const KEY = 'api_key=579a7483bae7d6a5a25eb4c1ddded2cf';
 
 export default class WatchTrailer {
@@ -10,13 +10,13 @@ export default class WatchTrailer {
         this.trailerId = trailerId;
         this.trailerTitle = trailerTitle;
     }
+    
     async fetchTrailer() {
-        const movieId = await movieTrailer(this.trailerTitle, {
-            id: true, 
-            api_key: KEY, 
-            trailerId: this.trailerId,
-            api_base_url: API_BASE_URL,
-        })
+        const movieId = await movieTrailer(getTrailer(this.trailerId), {
+            id: true,
+            api_key: KEY,
+            trailerTitle: this.trailerTitle,
+        });
         if (movieId !== null) {
       return movieId;
     }
@@ -28,7 +28,7 @@ export default class WatchTrailer {
         }
         else {
       const trailerBtn = document.querySelector('.js-trailer-btn');
-      trailerBtn.textContent = 'Sorry, trailer is not found';
+            trailerBtn.textContent = 'Sorry, trailer is not found';
     }
     }
     
@@ -39,6 +39,7 @@ export default class WatchTrailer {
     showTrailer() {
         this.fetchTrailer().then(this.templateMovieTrailer).then(this.lightboxTrailer);
     }
+
 }
 
 
