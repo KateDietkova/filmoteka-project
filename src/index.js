@@ -11,4 +11,9 @@ import './js/modal-login';
 import './js/translation/translate';
 import './js/scroll-up';
 import './js/creatingSlider';
+<<<<<<< HEAD
 import './js/firebase';
+=======
+import './js/firebase/firebase-initialize';
+import './js/movie-trailer'
+>>>>>>> main
