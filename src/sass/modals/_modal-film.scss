@@ -191,13 +191,6 @@
   border-radius: 5px;
   opacity: 0;
   transition: opacity var(--main-effect) linear;
-  @include minMedia($tab) {
-    height: 374px;
-  }
-
-  @include minMedia($desk) {
-    height: 100%;
-  }
 }
 .modal__trailer-wrapper:hover.modal__trailer-wrapper {
   opacity: 1;
