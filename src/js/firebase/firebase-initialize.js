@@ -8,7 +8,6 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   signOut,
-  onAuthStateChanged,
 } from 'firebase/auth';
 
 const firebaseConfig = {
