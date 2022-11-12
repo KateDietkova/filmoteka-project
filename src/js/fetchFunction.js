@@ -4,6 +4,7 @@ import { getLangFromStorage } from './translation/translate';
 import Pagination from 'tui-pagination';
 import { containerSearch } from './pagination';
 import { options, container } from './pagination';
+options.totalItems = 2;
 
 export let instanceSearch = new Pagination(containerSearch, options);
 
@@ -31,8 +32,8 @@ export async function getFilmByKeywords(queryVal, pageNum) {
       }
       const searchInfo = res.data;
 
-      activeSearchPagination();
       instanceSearch.setTotalItems(searchInfo.total_results);
+      activeSearchPagination(searchInfo.total_results);
       console.log(res.data);
       return res.data.results;
     })
@@ -44,10 +45,14 @@ export async function getFilmByKeywords(queryVal, pageNum) {
     });
 }
 
-function activeSearchPagination() {
-  if (containerSearch.classList.contains('visually-hidden')) {
+function activeSearchPagination(totalItems) {
+  if (containerSearch.classList.contains('visually-hidden') && totalItems > 20) {
     container.classList.add('visually-hidden');
-    containerSearch.classList.remove('visually-hidden')
+    containerSearch.classList.remove('visually-hidden');
+  }
+  if (totalItems <= 20) {
+    container.classList.add('visually-hidden');
   }
   return;
 }
+

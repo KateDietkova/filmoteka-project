@@ -11,3 +11,5 @@ import './js/modal-login';
 import './js/translation/translate';
 import './js/scroll-up';
 import './js/creatingSlider';
+import './js/firebase/firebase-initialize';
+import './js/movie-trailer'
