@@ -10,7 +10,7 @@ const modalContainer = document.querySelector('#js-modal-team');
 modalContainer.addEventListener('click', openModal);
 
 function openModal(e) {
-  Loading.pulse();
+  Loading.pulse('Loading...', { svgColor: '#FF6B08' });
   e.preventDefault();
   try {
     Loading.remove();
