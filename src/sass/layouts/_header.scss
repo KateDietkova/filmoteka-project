@@ -458,10 +458,10 @@
   transition: transform var(--main-effect);
 
   &:hover {
-    transform: rotate(-20deg) scale(1.25);
+    transform: rotate(-20deg) scale(1.2);
   }
   @include minMedia($tab) {
-    font-size: 30px;
+    font-size: 25px;
   }
 }
 
