@@ -4,9 +4,6 @@ import { getPosterFilm } from './getPosterFilm';
 import { scrollToTop } from './scroll-up';
 
 import Loading from './loader.js';
-Loading.pulse('Loading...', {
-  svgColor: '#FF6B08',
-});
 
 let pageNum = 1;
 // let instance;
@@ -21,12 +18,17 @@ async function getMoviesWithAllGenres(pageNum) {
   const allGenres = await getAllGenres();
   return { movies, allGenres };
 }
-Loading.pulse();
+Loading.pulse('Loading...', {
+  svgColor: '#FF6B08',
+});
 
 addMoviesToGallery(pageNum);
 instance.on('afterMove', onClickPage);
 
 function onClickPage(eventData) {
+  Loading.pulse('Loading...', {
+    svgColor: '#FF6B08',
+  });
   addMoviesToGallery(eventData.page);
   scrollToTop();
 }
