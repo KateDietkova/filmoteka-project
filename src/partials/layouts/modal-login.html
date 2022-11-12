@@ -24,19 +24,22 @@
         <label for="tel"></label>
         <div class="modal__input-wrap">
           <input
-            type="tel"
+            type="password"
             name="user-tel"
-            id="tel"
+            id="password"
             class="modal__input"
             placeholder="Password"
             required="required"
           />
         </div>
       </div>
-      <button type="submit" class="button modal-login__button lng-login">
+      <button type="submit" 
+          onclick="login"
+          class="button modal-login__button lng-login btnLogin">
         Log In
       </button>
-      <button type="submit" class="button modal-login__button lng-login">
+      <button type="submit" 
+          class="button modal-login__button lng-login btnSingUp">
         Sign Up
       </button>
     </form>
