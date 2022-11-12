@@ -16,12 +16,12 @@ onGetFromLocalStorageWatchedFilms();
 function onGetFromLocalStorageWatchedFilms() {
   hideLibraryImgNotFound();
   getWatchedFilmsArr = localStorage.getItem(STORAGE_KEY_WATCHED);
-
   if (getWatchedFilmsArr) {
     const parseGetWatchedFilms = JSON.parse(getWatchedFilmsArr);
     getFilms(parseGetWatchedFilms);
+    return;
   }
-
+  showLibraryImgNotFound(refs.libraryImgWrapper);
 }
 
 function onGetFromLocalStorageQueueFilms() {
@@ -32,7 +32,9 @@ function onGetFromLocalStorageQueueFilms() {
   if (getQueueFilmsArr) {
     const parseGetQueueFilms = JSON.parse(getQueueFilmsArr);
     getFilms(parseGetQueueFilms);
+    return;
   }
+  showLibraryImgNotFound(refs.libraryImgWrapper);
 }
 
 function addListenerToLibraryBtn() {
