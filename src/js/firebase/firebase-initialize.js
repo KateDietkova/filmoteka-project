@@ -28,8 +28,6 @@ auth.languageCode = lang;
 const authBtn = document.querySelector('[data-modal-google-auth]');
 const logOutBtn = document.querySelector('[data-logout]');
 
-const welcomeTxt = translations.welcome[lang];
-
 window.addEventListener('load', onLoadCheckStat);
 
 export function onLoadCheckStat() {
@@ -53,7 +51,7 @@ export function onLoadCheckStat() {
 async function authHandler(e) {
   if (localStorage.getItem('actions') === 'logged-in') {
     signOut(auth);
-    Notify.info(`You signed out`);
+    Notify.info(translations.goodbye[lang]);
     localStorage.removeItem('actions');
     window.location.href = './index.html';
   } else {
@@ -61,7 +59,9 @@ async function authHandler(e) {
 
     try {
       signInWithPopup(auth, provider).then(res => {
-        Notify.success(`${welcomeTxt}, ${res.user.displayName}`);
+        Notify.success(
+          `${translations.welcome[lang]}, ${res.user.displayName}`
+        );
         localStorage.setItem('actions', 'logged-in');
         window.location.href = './library.html';
       });
