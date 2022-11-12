@@ -1,4 +1,5 @@
-  
+<div class="modal-film__img">
+  <div class="modal-film__wrapper">
   <img
   src='{{poster_path}}'
   alt='Film Poster'
@@ -6,6 +7,15 @@
   width='375'
   height='563'
 />
+</div>
+
+<div class='modal__trailer-wrapper'>
+  <button class='modal__trailer-btn js-trailer-btn' type='button' data-id={{id}} data-name={{original_title}}>
+    watch trailer
+  </button>
+</div>
+
+</div>
 
 <div class='card-container'>
   <h2 class='modal-film__title'>{{title}}</h2>
