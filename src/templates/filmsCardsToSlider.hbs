@@ -1,0 +1,14 @@
+{{#each this}}
+  <li class='slider-card' data-action='{{id}}'>
+    <div class='slider-thumb'>
+      <img 
+        class='slider-img'
+        src='https://image.tmdb.org/t/p/w500{{poster_path}}'
+        alt='{{title}} {{name}}'
+        data-id='{{id}}'
+        title="{{name}}"
+      />
+      <span class='rating-slider'>Rating: {{vote_average}}</span>
+    </div>
+  </li>
+{{/each}}

@@ -1,35 +1,50 @@
 import { STORAGE_KEY_WATCHED, STORAGE_KEY_QUEUE } from './modalFilmMarkup';
 import { getPosterFilm } from './getPosterFilm';
-
+import Loading from './loader.js';
 
 const refs = {
   watchedFilmsLibraryBtn: document.querySelector('.watched-btn'),
   queueFilmsLibraryBtn: document.querySelector('.queue-btn'),
   libraryGallery: document.querySelector('.js-library'),
+  libraryImgWrapper: document.querySelector('.library-img-wrapper'),
 };
 let getWatchedFilmsArr;
 let getQueueFilmsArr;
 
 addListenerToLibraryBtn();
+onGetFromLocalStorageWatchedFilms();
 
 function onGetFromLocalStorageWatchedFilms() {
-  getWatchedFilmsArr = localStorage.getItem(STORAGE_KEY_WATCHED);
+  hideLibraryImgNotFound();
+  Loading.pulse('Loading...', {
+    svgColor: '#FF6B08',
+  });
 
+  getWatchedFilmsArr = localStorage.getItem(STORAGE_KEY_WATCHED);
   if (getWatchedFilmsArr) {
     const parseGetWatchedFilms = JSON.parse(getWatchedFilmsArr);
-    console.log(parseGetWatchedFilms);
-    addLibraryGallery(parseGetWatchedFilms);
+    getFilms(parseGetWatchedFilms);
+    Loading.remove();
+    return;
   }
+  showLibraryImgNotFound(refs.libraryImgWrapper);
 }
 
 function onGetFromLocalStorageQueueFilms() {
+  hideLibraryImgNotFound();
+  removeBtnActiveClass();
+  Loading.pulse('Loading...', {
+    svgColor: '#FF6B08',
+  });
   getQueueFilmsArr = localStorage.getItem(STORAGE_KEY_QUEUE);
 
   if (getQueueFilmsArr) {
     const parseGetQueueFilms = JSON.parse(getQueueFilmsArr);
-    console.log(parseGetQueueFilms);
-    addLibraryGallery(parseGetQueueFilms);
+    getFilms(parseGetQueueFilms);
+    Loading.remove();
+    return;
   }
+  showLibraryImgNotFound(refs.libraryImgWrapper);
 }
 
 function addListenerToLibraryBtn() {
@@ -46,16 +61,17 @@ function addListenerToLibraryBtn() {
 }
 
 function libraryMarkup(dataFilm) {
-  return dataFilm.map(
-    ({
-      filmId,
-      genresName,
-      poster_path,
-      title,
-      sliceVoteAverage,
-      releaseDate,
-    }) => {
-      return `<li class="films-card" data-id=${filmId}>
+  return dataFilm
+    .map(
+      ({
+        filmId,
+        genresName,
+        poster_path,
+        title,
+        sliceVoteAverage,
+        releaseDate,
+      }) => {
+        return `<li class="films-card" data-id=${filmId}>
               <img
                   class="projects-list__img"
                   src='${getPosterFilm(poster_path)}'
@@ -65,14 +81,46 @@ function libraryMarkup(dataFilm) {
                 <p class="film-description-title">${title}</p>
                 <div class="film-description-wrapper">
                   <p class="film-description-items">
-                  ${genresName} | ${releaseDate}</p>
+                    ${genresName} | ${releaseDate}
+                    <span class="modal-film__value-vote">${sliceVoteAverage}</span>
+                  </p>
                 </div>
               </div>
-            </li>`
-    }
-  ).join('');
+            </li>`;
+      }
+    )
+    .join('');
 }
 
 function addLibraryGallery(dataFilm) {
-  refs.libraryGallery.innerHTML = libraryMarkup(dataFilm);
+  if (refs.libraryGallery) {
+    refs.libraryGallery.innerHTML = libraryMarkup(dataFilm);
+  }
+}
+
+function removeBtnActiveClass() {
+  refs.watchedFilmsLibraryBtn.classList.remove('active');
+}
+
+function showLibraryImgNotFound(imgWrapper) {
+  if (imgWrapper && refs.libraryGallery) {
+    refs.libraryGallery.innerHTML = '';
+    imgWrapper.classList.remove('visually-hidden');
+  }
+}
+
+function getFilms(savedMovies) {
+  if (savedMovies.length) {
+    console.log(savedMovies);
+
+    addLibraryGallery(savedMovies);
+    return;
+  }
+  showLibraryImgNotFound(refs.libraryImgWrapper);
+}
+
+function hideLibraryImgNotFound() {
+  if (!refs.libraryImgWrapper.classList.contains('visually-hidden')) {
+    refs.libraryImgWrapper.classList.add('visually-hidden');
+  }
 }

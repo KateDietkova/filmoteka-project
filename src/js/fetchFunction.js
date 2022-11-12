@@ -31,8 +31,9 @@ export async function getFilmByKeywords(queryVal, pageNum) {
       }
       const searchInfo = res.data;
 
-      activeSearchPagination();
       instanceSearch.setTotalItems(searchInfo.total_results);
+      activeSearchPagination(searchInfo.total_results);
+      hideSliderDuringSearch();
       console.log(res.data);
       return res.data.results;
     })
@@ -44,10 +45,20 @@ export async function getFilmByKeywords(queryVal, pageNum) {
     });
 }
 
-function activeSearchPagination() {
-  if (containerSearch.classList.contains('visually-hidden')) {
+function activeSearchPagination(totalItems) {
+  if (containerSearch.classList.contains('visually-hidden') && totalItems > 20) {
     container.classList.add('visually-hidden');
-    containerSearch.classList.remove('visually-hidden')
+    containerSearch.classList.remove('visually-hidden');
+  }
+  if (totalItems <= 20) {
+    container.classList.add('visually-hidden');
   }
   return;
+}
+
+function hideSliderDuringSearch() {
+  if (document.querySelector('.slider-wrapper')) {
+    const slider = document.querySelector('.slider-wrapper');
+    slider.classList.add('visually-hidden');
+  }
 }

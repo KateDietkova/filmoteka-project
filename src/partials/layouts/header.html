@@ -26,50 +26,40 @@
               Home
             </button>
           </li>
-          <li class="header-list__item">
+                    <li class="header-list__item visually-hidden" data-library-item>
             <button
               id="library"
               class="header-list__button library__btn lng-library"
               type="button"
               onclick="window.location.href = './library.html';"
             >
-              My Library
+              Library
             </button>
           </li>
-          <li class="header-list__item">
-
+          <li class="header-list__item" data-login-item>
             <button
               id="login"
               class="header-list__button login__btn lng-login"
-              type="button" data-modal-open>
+              type="button" data-modal-open data-login>
               Log In
             </button>
           </li>
-
-          <li class="header-list__item">
+          <li class="header-list__item visually-hidden" data-logout-item>
             <button
-              id="signin"
-              class="header-list__button signin__btn lng-signin"
-              type="button">
-              Sign In
+              id="logout"
+              class="header-list__button logout__btn lng-logout"
+              type="button"
+              data-logout
+            >
+              Log Out
             </button>
           </li>
-            <li class="header-list__item">
-                <button
-                  id="logout"
-                  class="header-list__button logout__btn lng-logout visually-hidden"
-                  type="button"
-                >
-                  Log out
-                </button>
-              </li>
         </ul>
       </nav>
       <select name="langs" id="langs" class="switch-lang">
-        <option value="en" selected>EN</option>
-        <option value="uk">UA</option>
+        <option value="uk" selected>UA</option>
+        <option value="en">EN</option>
         <option value="de">DE</option>
-        <option value="ru">RU</option>
       </select>
     </div>
 

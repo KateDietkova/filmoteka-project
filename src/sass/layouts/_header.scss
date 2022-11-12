@@ -61,6 +61,7 @@
     }
   }
 }
+
 .fixed {
   padding-top: 200px;
 }
@@ -69,6 +70,7 @@
   z-index: 2;
   transform: translateY(-200px);
 }
+
 @media screen and (min-width: 769px) {
   .header {
     padding-top: 40px;
@@ -322,13 +324,39 @@
   height: 35px;
   margin-bottom: 0;
   padding-left: 0;
+
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+  25% {
+    -webkit-transform: rotate3d(0, 0, 1, 90deg);
+    transform: rotate3d(0, 0, 1, 90deg);
+  }
+  50% {
+    -webkit-transform: rotate3d(0, 0, 1, 180deg);
+    transform: rotate3d(0, 0, 1, 180deg);
+  }
+  75% {
+    -webkit-transform: rotate3d(0, 0, 1, 270deg);
+    transform: rotate3d(0, 0, 1, 270deg);
+  }
+  100% {
+    -webkit-transform: rotate3d(0, 0, 1, 360deg);
+    transform: rotate3d(0, 0, 1, 360deg);
+  }
 }
 
 .header-logo__icon {
   margin-right: 12px;
   stroke: var(--header-white-color);
   transition: var(--main-effect);
-
+  -webkit-animation: rotate 5s normal linear infinite;
+  animation: rotate 5s normal linear infinite;
+  
   &:hover {
     stroke: var(--primary-accent-color);
   }
@@ -394,8 +422,9 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
-  width: 130px;
-  padding: 12px 36px;
+  text-align: center;
+  min-width: 130px;
+  padding: 12px;
   border-radius: 5px;
   background-color: transparent;
   color: var(--header-white-color);
@@ -404,13 +433,14 @@
   border: 1px solid var(--header-white-color);
 
   @include minMedia($tab) {
-    width: 152px;
-    padding: 13px 57px;
+    min-width: 152px;
+    padding: 13px;
   }
 
   @include minMedia($desk) {
-    width: 148px;
-    padding: 13px 41px 11px 41px;
+    min-width: 148px;
+    padding: 13px 0 11px 0;
+
   }
   transition: var(--main-effect);
 
@@ -425,11 +455,17 @@
     color: var(--primary-lighttext-color);
     border-color: var(--primary-accent-color);
   }
+
 }
 
-// .active {
-//     background: var(--primary-accent-color);
-// }
+.library-btn.active {
+  background: var(--primary-accent-color);
+  border-color: var(--primary-accent-color);
+}
+
+.library-btn.active:hover {
+  color: var(--primary-lighttext-color);
+}
 
 .darktheme__button {
   position: relative;
@@ -441,10 +477,10 @@
   transition: transform var(--main-effect);
 
   &:hover {
-    transform: rotate(-20deg) scale(1.25);
+    transform: rotate(-20deg) scale(1.2);
   }
   @include minMedia($tab) {
-    font-size: 30px;
+    font-size: 25px;
   }
 }
 

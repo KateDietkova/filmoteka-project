@@ -3,6 +3,11 @@ import { getPosterFilm } from './getPosterFilm';
 import { getFilmInfoById } from './getFilmInfoById';
 import { translateTexts } from './translation/translate';
 import { getDate } from './galleryMarkup';
+// import WatchTrailer from './movie-trailer';
+import movieTrailer from './movie-trailer';
+
+import { scrollController } from './scrollController';
+
 
 const refs = {
   movieList: document.querySelector('.movie-list'),
@@ -11,6 +16,7 @@ const refs = {
   modalContainer: document.querySelector('.modal-container'),
 };
 
+
 let dataObj = {};
 export const STORAGE_KEY_WATCHED = 'watched-films';
 export const STORAGE_KEY_QUEUE = 'queue-films';
@@ -18,6 +24,9 @@ let watchedFilms = [];
 let queueFilms = [];
 let addToWatchedBtn;
 let addToQueueBtn;
+
+let trailerBtn;
+
 
 refs.movieList.addEventListener('click', onClickShowModal);
 
@@ -44,6 +53,7 @@ async function showModal(event) {
     vote_average,
     vote_count,
     release_date,
+    id
   } = await getFilmInfoById(filmId);
 
   const genresName = genres.map(({ name }) => name).join(', ');
@@ -64,6 +74,7 @@ async function showModal(event) {
     sliceVoteAverage,
     vote_count,
     releaseDate,
+    id
   };
 
   // проверить, есть ли постер, и если нет, поставить заглушку
@@ -78,13 +89,22 @@ async function showModal(event) {
     modalFilmMarkupTpl(dataObj)
   );
 
+  scrollController.disabledScroll();
+
   translateTexts();
 
   // навесить слушателей на закрытие
   addListeners();
 
+  movieTrailer();
+
   addToWatchedBtn = document.querySelector('.modal-film__button-watched');
   addToQueueBtn = document.querySelector('.modal-film__button-queue');
+
+
+  // trailerBtn = document.querySelector('.js-trailer-btn');
+  // trailerBtn.addEventListener('click', getMovieTrailer);
+
 
   isInSavedFilm(STORAGE_KEY_WATCHED, addToWatchedBtn);
   isInSavedFilm(STORAGE_KEY_QUEUE, addToQueueBtn);
@@ -92,6 +112,8 @@ async function showModal(event) {
   addToWatchedBtn.addEventListener('click', onAddToWatched);
   addToQueueBtn.addEventListener('click', onAddToQueue);
 }
+
+
 
 function isInSavedFilm(key, button) {
   const savedFilms = localStorage.getItem(key);
@@ -209,6 +231,7 @@ function removeListeners() {
   if (refs.modal.classList.contains('is-hidden')) {
     refs.closeModalBtn.removeEventListener('click', onBtnClick);
     window.removeEventListener('keydown', onKeyDown);
+    scrollController.enabledScroll();
     refs.modal.removeEventListener('click', onBackdropClick);
   }
 }
