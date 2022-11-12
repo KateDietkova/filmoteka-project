@@ -4,7 +4,6 @@ import { getLangFromStorage } from './translation/translate';
 import Pagination from 'tui-pagination';
 import { containerSearch } from './pagination';
 import { options, container } from './pagination';
-options.totalItems = 2;
 
 export let instanceSearch = new Pagination(containerSearch, options);
 
@@ -34,6 +33,7 @@ export async function getFilmByKeywords(queryVal, pageNum) {
 
       instanceSearch.setTotalItems(searchInfo.total_results);
       activeSearchPagination(searchInfo.total_results);
+      hideSliderDuringSearch();
       console.log(res.data);
       return res.data.results;
     })
@@ -56,3 +56,9 @@ function activeSearchPagination(totalItems) {
   return;
 }
 
+function hideSliderDuringSearch() {
+  if (document.querySelector('.slider-wrapper')) {
+    const slider = document.querySelector('.slider-wrapper');
+    slider.classList.add('visually-hidden');
+  }
+}
