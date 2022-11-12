@@ -39,13 +39,11 @@ export function onLoadCheckStat() {
   const logInItem = document.querySelector('[data-login-item');
 
   if (localStorage.getItem('actions')) {
-    console.log(`logged-in`);
     logInItem.classList.add('visually-hidden');
     libraryItem.classList.remove('visually-hidden');
     logOutItem.classList.remove('visually-hidden');
     logOutBtn.addEventListener('click', authHandler);
   } else {
-    console.log(`logged-out`);
     libraryItem.classList.add('visually-hidden');
     logOutItem.classList.add('visually-hidden');
     authBtn.addEventListener('click', authHandler);
