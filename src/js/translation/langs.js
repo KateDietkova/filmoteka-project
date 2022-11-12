@@ -6,10 +6,10 @@ export const translations = {
     ru: 'Главная',
   },
   library: {
-    en: 'My Library',
-    uk: 'Моя бібліотека',
-    de: 'Meine Bibliothek',
-    ru: 'Моя библиотека',
+    en: 'Library',
+    uk: 'Бібліотека',
+    de: 'Bibliothek',
+    ru: 'Библиотека',
   },
   login: {
     en: 'Log in',
@@ -136,5 +136,17 @@ export const translations = {
     uk: 'Інше',
     de: 'Andere',
     ru: 'другое',
+  },
+  welcome: {
+    en: 'Welcome',
+    uk: 'Вітаємо',
+    de: 'Willkommen',
+    ru: 'Добро пожаловать',
+  },
+  goodbye: {
+    en: 'You signed out',
+    uk: 'Ви вийшли з аккаунту',
+    de: 'Willkommen',
+    ru: 'Sie sind ausgeloggt',
   },
 };
