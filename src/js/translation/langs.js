@@ -130,7 +130,7 @@ export const translations = {
     de: 'Sie sind ausgeloggt. Kommen Sie wieder zurück 😊',
   },
   trends: {
-    en: 'Today Trends',
+    en: `Today's Trends`,
     uk: 'Тренди дня',
     de: 'Trends des Tages',
   },
