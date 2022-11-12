@@ -121,6 +121,7 @@
   @include minMedia($tab) {
     display: flex;
   }
+
 }
 
 .modal-film__img {
@@ -280,7 +281,6 @@
   text-align: center;
   align-items: center;
   min-width: 36px;
-  height: 16px;
   border-radius: 5px;
   line-height: calc(14 / 12);
 }
@@ -293,7 +293,6 @@
 .modal-film__value-votes {
   color: #000;
   background-color: #f7f7f7;
-
 }
 
 .modal-film__value-votes {
