@@ -25,7 +25,7 @@
               Home
             </button>
           </li>
-                    <li class="header-list__item" data-library-item>
+                    <li class="header-list__item visually-hidden" data-library-item>
             <button
               id="library"
               class="header-list__button library__btn lng-library"
@@ -35,13 +35,22 @@
               Library
             </button>
           </li>
-          <li class="header-list__item">
-
+          <li class="header-list__item" data-login-item>
             <button
               id="login"
               class="header-list__button login__btn lng-login"
-              type="button" data-modal-open>
+              type="button" data-modal-open data-login>
               Log In
+            </button>
+          </li>
+          <li class="header-list__item visually-hidden" data-logout-item>
+            <button
+              id="logout"
+              class="header-list__button logout__btn lng-logout"
+              type="button"
+              data-logout
+            >
+              Log Out
             </button>
           </li>
         </ul>

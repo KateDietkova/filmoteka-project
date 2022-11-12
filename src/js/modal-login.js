@@ -1,8 +1,3 @@
-import {
-  addListenersFirebase,
-  removeListenersFirebase,
-} from './firebase/firebase-initialize';
-
 const openModalBtn = document.querySelector('[data-modal-open]');
 const modal = document.querySelector('[data-loginmodal]');
 const closeModalBtn = document.querySelector('[data-loginmodal-close]');
