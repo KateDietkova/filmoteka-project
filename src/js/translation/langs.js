@@ -77,6 +77,12 @@ export const translations = {
     de: 'Bewertung / Stimmen',
     ru: 'Рейтинг / Голосов',
   },
+  rating: {
+    en: 'Rating',
+    uk: 'Рейтинг',
+    de: 'Bewertung',
+    ru: 'Рейтинг',
+  },
   popularity: {
     en: 'Popularity',
     uk: 'Популярність',
