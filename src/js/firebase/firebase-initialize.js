@@ -1,23 +1,27 @@
-// // Import the functions you need from the SDKs you need
-// import { initializeApp } from 'firebase/app';
-// import { getAnalytics } from 'firebase/analytics';
-// import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
-// // TODO: Add SDKs for Firebase products that you want to use
-// // https://firebase.google.com/docs/web/setup#available-libraries
+import { initializeApp } from 'firebase/app';
+import { translations } from '../translation/langs';
+import { getLangFromStorage } from '../translation/translate';
+import { Notify } from 'notiflix';
 
-// // Your web app's Firebase configuration
-// // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-// const firebaseConfig = {
-//   apiKey: 'AIzaSyBb8EK851mxGzA3JgnRe22K8-nPW2Jvy5c',
-//   authDomain: 'filmoteka-439a0.firebaseapp.com',
-//   projectId: 'filmoteka-439a0',
-//   storageBucket: 'filmoteka-439a0.appspot.com',
-//   messagingSenderId: '663690222297',
-//   appId: '1:663690222297:web:612f469f9f14cb1eacbcc8',
-//   measurementId: 'G-H0TN58CLXP',
-// };
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  signOut,
+  onAuthStateChanged,
+} from 'firebase/auth';
 
-// // Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
-// const db = getFirestore(app);
+const firebaseConfig = {
+  apiKey: 'AIzaSyBgWT3X_OQeVji4QMqoYhE3xZ9-_rIXVb4',
+  authDomain: 'filmoteka-geek.firebaseapp.com',
+  projectId: 'filmoteka-geek',
+  storageBucket: 'filmoteka-geek.appspot.com',
+  messagingSenderId: '189885109540',
+  appId: '1:189885109540:web:0ce48954a2686df48c4fb1',
+};
+
+let lang = getLangFromStorage();
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+auth.languageCode = lang;
