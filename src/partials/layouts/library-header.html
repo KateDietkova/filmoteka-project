@@ -22,24 +22,35 @@
               Home
             </button>
           </li>
-          <li class="header-list__item">
+          <li class="header-list__item" data-library-item>
             <button
               id="library"
               class="header-list__button current library__btn lng-library"
               type="button"
               onclick="window.location.href = './library.html';"
             >
-              My Library
+              Library
             </button>
           </li>
-
-          <li class="header-list__item">
+          <li class="header-list__item visually-hidden" data-login-item>
+            <button
+              id="login"
+              class="header-list__button login__btn lng-login"
+              type="button"
+              data-modal-open
+              data-login
+            >
+              Log In
+            </button>
+          </li>
+          <li class="header-list__item" data-logout-item>
             <button
               id="logout"
               class="header-list__button logout__btn lng-logout"
               type="button"
+              data-logout
             >
-              Log out
+              Log Out
             </button>
           </li>
         </ul>
