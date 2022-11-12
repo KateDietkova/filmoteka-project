@@ -1,5 +1,6 @@
 import { STORAGE_KEY_WATCHED, STORAGE_KEY_QUEUE } from './modalFilmMarkup';
 import { getPosterFilm } from './getPosterFilm';
+import Loading from './loader.js';
 
 const refs = {
   watchedFilmsLibraryBtn: document.querySelector('.watched-btn'),
@@ -15,24 +16,35 @@ onGetFromLocalStorageWatchedFilms();
 
 function onGetFromLocalStorageWatchedFilms() {
   hideLibraryImgNotFound();
-  getWatchedFilmsArr = localStorage.getItem(STORAGE_KEY_WATCHED);
+  Loading.pulse('Loading...', {
+    svgColor: '#FF6B08',
+  });
 
+  getWatchedFilmsArr = localStorage.getItem(STORAGE_KEY_WATCHED);
   if (getWatchedFilmsArr) {
     const parseGetWatchedFilms = JSON.parse(getWatchedFilmsArr);
     getFilms(parseGetWatchedFilms);
+    Loading.remove();
+    return;
   }
-
+  showLibraryImgNotFound(refs.libraryImgWrapper);
 }
 
 function onGetFromLocalStorageQueueFilms() {
   hideLibraryImgNotFound();
   removeBtnActiveClass();
+  Loading.pulse('Loading...', {
+    svgColor: '#FF6B08',
+  });
   getQueueFilmsArr = localStorage.getItem(STORAGE_KEY_QUEUE);
 
   if (getQueueFilmsArr) {
     const parseGetQueueFilms = JSON.parse(getQueueFilmsArr);
     getFilms(parseGetQueueFilms);
+    Loading.remove();
+    return;
   }
+  showLibraryImgNotFound(refs.libraryImgWrapper);
 }
 
 function addListenerToLibraryBtn() {
