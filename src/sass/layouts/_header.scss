@@ -60,7 +60,14 @@
     }
   }
 }
-
+.fixed {
+  padding-top: 200px;
+}
+.header.hide {
+  position: fixed;
+  z-index: 2;
+  transform: translateY(-200px);
+}
 @media screen and (min-width: 769px) {
   .header {
     padding-top: 40px;
