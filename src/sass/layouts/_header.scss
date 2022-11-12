@@ -181,14 +181,14 @@
 }
 
 .header-list {
-    @extend %list;
-    display: flex;
-    gap: 20px;
-    // margin-right: 32px;
+  @extend %list;
+  display: flex;
+  gap: 20px;
+  // margin-right: 32px;
 
-    @include minMedia($tab){
-        gap: 39px;
-    }
+  @include minMedia($tab) {
+    gap: 39px;
+  }
 }
 
 .header-list__button.current::after {
@@ -406,26 +406,26 @@
   }
 }
 .library-btn {
-    font-family: inherit;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 1.33;
-    text-align: center;
-    min-width: 130px;
-    padding: 12px;
-    border-radius: 5px;
-    background-color: transparent;
-    color: var(--header-white-color);
-    text-transform: uppercase;
-    border-radius: 5px;
-    border: 1px solid var(--header-white-color);
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-align: center;
+  min-width: 130px;
+  padding: 12px;
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--header-white-color);
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: 1px solid var(--header-white-color);
 
-    @include minMedia($tab) {
+  @include minMedia($tab) {
     min-width: 152px;
     padding: 13px;
   }
 
-    @include minMedia($desk){
+  @include minMedia($desk) {
     min-width: 148px;
     padding: 13px 0 11px 0;
   }
@@ -445,7 +445,12 @@
 }
 
 .library-btn.active {
-    background: var(--primary-accent-color);
+  background: var(--primary-accent-color);
+  border-color: var(--primary-accent-color);
+}
+
+.library-btn.active:hover {
+  color: var(--primary-lighttext-color);
 }
 
 .darktheme__button {
