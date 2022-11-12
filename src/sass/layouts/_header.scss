@@ -1,6 +1,40 @@
 .header {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url(/src/images/header/header-mob-1x.jpg);
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.56),
+      rgba(0, 0, 0, 0.56)
+    ),
+    url(/src/images/header/header-mob-1x.jpg);
+  background-repeat: no-repeat;
+  background-color: var(--primary-darktext-color);
+  z-index: 0;
+  background-position: top;
+  background-size: cover;
+  width: 100%;
+  height: 230px;
+  padding-bottom: 97px;
+  padding-top: 46px;
+  margin: 0 auto;
+  position: relative;
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    & {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(/src/images/header/header-mob-2x.jpg);
+    }
+  }
+  &__library {
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(/src/images/header_libr/header-libr-mob-1x.jpg);
     background-repeat: no-repeat;
     background-color: var(--primary-darktext-color);
     z-index: 0;
@@ -13,121 +47,137 @@
     margin: 0 auto;
     position: relative;
     @media (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-        & {
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url(/src/images/header/header-mob-2x.jpg);
-            }}
-    &__library{
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-            url(/src/images/header_libr/header-libr-mob-1x.jpg);
-        background-repeat: no-repeat;
-        background-color: var(--primary-darktext-color);
-        z-index: 0;
-        background-position: top;
-        background-size: cover;
-        width: 100%;
-        height: 230px;
-        padding-bottom: 97px;
-        padding-top: 46px;
-        margin: 0 auto;
-        position: relative;
-        @media (min-device-pixel-ratio: 2),
-            (min-resolution: 192dpi),
-            (min-resolution: 2dppx) {
-        &__library {
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url(/src/images/header_libr/header-libr-mob-2x.jpg);
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      &__library {
+        background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.56),
+            rgba(0, 0, 0, 0.56)
+          ),
+          url(/src/images/header_libr/header-libr-mob-2x.jpg);
+      }
     }
-}
-    }
-}
-        
-  @media screen and (min-width: 769px) {
-      .header {
-          padding-top: 40px;
-          width: 100%;
-          height: 219px;
-          background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-              url(/src/images/header/header-tab-1x.jpg);
-            @media (min-device-pixel-ratio: 2),
-                (min-resolution: 192dpi),
-                (min-resolution: 2dppx) {
-                    & {
-                        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-                            url(/src/images/header/header-tab-2x.jpg);
-                    }}
-    &__library {
-        padding-top: 40px;
-        width: 100%;
-        height: 219px;
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-            url(/src/images/header_libr/header-libr-tab-1x.jpg);
-        @media (min-device-pixel-ratio: 2),
-            (min-resolution: 192dpi),
-            (min-resolution: 2dppx) {
-            &__library {
-                background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-                    url(/src/images/header_libr/header-libr-tab-2x.jpg);
-          }
-        }
-    }
-}
   }
-    @include minMedia($desk) {
-    .header {
+}
+
+@media screen and (min-width: 769px) {
+  .header {
+    padding-top: 40px;
     width: 100%;
-    height: 216px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-    url(/src/images/header/header-desk-1x.jpg);
+    height: 219px;
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(/src/images/header/header-tab-1x.jpg);
     @media (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-    &{
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-    url(/src/images/header/header-desk-2x.jpg);
-}
-}
-    &__library {
-    width: 100%;
-    height: 216px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-    url(/src/images/header_libr/header-libr-desk-1x.jpg);
-    @media (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-    &__library {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-    url(/src/images/header_libr/header-libr-desk-2x.jpg);
-}
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      & {
+        background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.56),
+            rgba(0, 0, 0, 0.56)
+          ),
+          url(/src/images/header/header-tab-2x.jpg);
+      }
     }
+    &__library {
+      padding-top: 40px;
+      width: 100%;
+      height: 219px;
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(/src/images/header_libr/header-libr-tab-1x.jpg);
+      @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        &__library {
+          background-image: linear-gradient(
+              to right,
+              rgba(0, 0, 0, 0.56),
+              rgba(0, 0, 0, 0.56)
+            ),
+            url(/src/images/header_libr/header-libr-tab-2x.jpg);
+        }
+      }
+    }
+  }
 }
+@include minMedia($desk) {
+  .header {
+    width: 100%;
+    height: 216px;
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(/src/images/header/header-desk-1x.jpg);
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      & {
+        background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.56),
+            rgba(0, 0, 0, 0.56)
+          ),
+          url(/src/images/header/header-desk-2x.jpg);
+      }
+    }
+    &__library {
+      width: 100%;
+      height: 216px;
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(/src/images/header_libr/header-libr-desk-1x.jpg);
+      @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        &__library {
+          background-image: linear-gradient(
+              to right,
+              rgba(0, 0, 0, 0.56),
+              rgba(0, 0, 0, 0.56)
+            ),
+            url(/src/images/header_libr/header-libr-desk-2x.jpg);
+        }
+      }
+    }
+  }
 }
- }
 .link {
-    text-decoration: none;
-    display: none;
+  text-decoration: none;
+  display: none;
 }
 .header-container {
-    padding-left: 20px;
-    padding-right: 20px;
-    margin: 0 auto;
-    width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+  width: 100%;
 
-    @include minMedia($mob) {
-      width: 320px;
-    }
+  @include minMedia($mob) {
+    width: 320px;
+  }
 
-    @include minMedia($tab){
-        width: 768px;
-        padding-left: 32px;
-        padding-right: 32px;
-    }
+  @include minMedia($tab) {
+    width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
 
-    @include minMedia($desk){
-        width: 1280px;
-    } 
+  @include minMedia($desk) {
+    width: 1280px;
+  }
 }
 
 .header-list {
@@ -142,194 +192,218 @@
 }
 
 .header-list__button.current::after {
-    content: " ";
-    position: absolute;
-    top: 17px;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 3px;
-    background-color: var(--secondary-accent-color);
+  content: ' ';
+  position: absolute;
+  top: 17px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--secondary-accent-color);
 }
 
 .header-list__button {
-    background-color: inherit;
-    position: relative;
-    font-weight: 500;
-    font-size: 10px;
-    line-height: 1.17;
-    align-items: center;
-    text-align: center;
-    text-transform: uppercase;
-    color: var(--header-white-color);
-    border: inherit;
-    transition: color var(--main-effect);
+  background-color: inherit;
+  position: relative;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.17;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--header-white-color);
+  border: inherit;
+  transition: color var(--main-effect);
 
-        @include minMedia($tab){
-            font-size: 12px;
-        }
+  @include minMedia($tab) {
+    font-size: 12px;
+  }
 
-          &:hover,
-          &:focus {
-              color: #FF6B01;
-          }
+  &:hover,
+  &:focus {
+    color: #ff6b01;
+  }
 }
 
 .header-input {
-    width: 100%;
-    background-color: inherit;
-    border-bottom: 1px solid var(--header-white-color);
-    color: var(--header-white-color);
-    padding-bottom: 4px;
-    padding-left: 1px;
-    outline: none;
-    position: relative;
-    transition: var(--main-effect);
-    &:hover,
-    &:focus {
-        border-bottom: 1px solid var(--primary-accent-color);
-        box-shadow: 0px 4px 4px rgba(245, 124, 50, 0.12), 0px 4px 4px rgba(245, 124, 50, 0.12),
-        1px 4px 6px rgba(245, 124, 50, 0.12);
-    }
+  width: 100%;
+  background-color: inherit;
+  border-bottom: 1px solid var(--header-white-color);
+  color: var(--header-white-color);
+  padding-bottom: 4px;
+  padding-left: 1px;
+  outline: none;
+  position: relative;
+  transition: var(--main-effect);
+  &:hover,
+  &:focus {
+    border-bottom: 1px solid var(--primary-accent-color);
+    box-shadow: 0px 4px 4px rgba(245, 124, 50, 0.12),
+      0px 4px 4px rgba(245, 124, 50, 0.12), 1px 4px 6px rgba(245, 124, 50, 0.12);
+  }
 }
 
 .is-hidden {
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .header-wrapper {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 62px;
-    @include minMedia($tab) {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 62px;
+  @include minMedia($tab) {
     margin-bottom: 41px;
-}
+  }
 }
 
 .switch-lang {
-    position: absolute;
-    top: 50px;
-    
-    background-color: transparent;
-    color: white;
-    
-    @include minMedia($tab) {
-        top: 75px;
-        left: 0;
-    }
+  position: absolute;
+  top: 50px;
 
+  background-color: transparent;
+  color: white;
 
-&:active, &:focus {
+  @include minMedia($tab) {
+    top: 75px;
+    left: 0;
+  }
+
+  &:active,
+  &:focus {
     background-color: #000;
-}
+  }
 }
 
 .header-logo-text__link {
-    display: none;
+  display: none;
 
-    @include minMedia($tab){
+  @include minMedia($tab) {
     display: block;
     font-weight: 500;
     font-size: 30px;
     line-height: 1.17;
     color: var(--header-white-color);
     transition: var(--main-effect);
-    }
+  }
 }
 
 .header-logo__list {
-transition: var(--main-effect);
+  transition: var(--main-effect);
 
-&:hover .header-logo__icon {
-        stroke: var(--primary-accent-color);
-}
+  &:hover .header-logo__icon {
+    stroke: var(--primary-accent-color);
+  }
 
-&:hover .header-logo-text__link {
+  &:hover .header-logo-text__link {
     color: var(--primary-accent-color);
-
-}}
+  }
+}
 
 .header-navigation {
-    display: flex;
+  display: flex;
 }
 
 .header-logo__list {
-    @extend %list;
-    align-items: center;
-    display: flex;
-    height: 35px;
-    margin-bottom: 0;
-    padding-left: 0;
+  @extend %list;
+  align-items: center;
+  display: flex;
+  height: 35px;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+  25% {
+    -webkit-transform: rotate3d(0, 0, 1, 90deg);
+    transform: rotate3d(0, 0, 1, 90deg);
+  }
+  50% {
+    -webkit-transform: rotate3d(0, 0, 1, 180deg);
+    transform: rotate3d(0, 0, 1, 180deg);
+  }
+  75% {
+    -webkit-transform: rotate3d(0, 0, 1, 270deg);
+    transform: rotate3d(0, 0, 1, 270deg);
+  }
+  100% {
+    -webkit-transform: rotate3d(0, 0, 1, 360deg);
+    transform: rotate3d(0, 0, 1, 360deg);
+  }
 }
 
 .header-logo__icon {
-    margin-right: 12px;
-    stroke: var(--header-white-color);
-    transition: var(--main-effect);
-    
-    &:hover {
-        stroke: var(--primary-accent-color);
-    }
+  margin-right: 12px;
+  stroke: var(--header-white-color);
+  transition: var(--main-effect);
+  -webkit-animation: rotate 5s normal linear infinite;
+  animation: rotate 5s normal linear infinite;
+  &:hover {
+    stroke: var(--primary-accent-color);
+  }
 }
 
 .search-form {
-    display: flex;
-    position: relative;
-    width: 280px;
-    display: block;
-    margin: 0 auto;
-    box-sizing: border-box;
-    @include minMedia($tab){
-        width: 336px;
-    }
-    @include minMedia($desk){
-        width: 394px;
-    }     
+  display: flex;
+  position: relative;
+  width: 280px;
+  display: block;
+  margin: 0 auto;
+  box-sizing: border-box;
+  @include minMedia($tab) {
+    width: 336px;
+  }
+  @include minMedia($desk) {
+    width: 394px;
+  }
 }
 
 .search-form::placeholder {
-    font-size: 14px;
-    line-height: 1.14;
-    display: flex;
-    align-items: center;
-    color: var(--primary-lighttext-color);
+  font-size: 14px;
+  line-height: 1.14;
+  display: flex;
+  align-items: center;
+  color: var(--primary-lighttext-color);
 }
 
 .input__icon {
-    position: absolute;
-    top: 6px;
-    right: 0;
-    border: none;
-    stroke: var(--header-white-color);
-    cursor: pointer;
-    transition: stroke var(--main-effect);
-    &:hover,
-    &:focus {
-        stroke: var(--primary-accent-color);
-    }
+  position: absolute;
+  top: 6px;
+  right: 0;
+  border: none;
+  stroke: var(--header-white-color);
+  cursor: pointer;
+  transition: stroke var(--main-effect);
+  &:hover,
+  &:focus {
+    stroke: var(--primary-accent-color);
+  }
 }
 
 .button-search {
-    border: 0;
-    padding: 0;
+  border: 0;
+  padding: 0;
 }
 
 .library-button__list {
-    @extend %list;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    @include minMedia($tab){
+  @extend %list;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  @include minMedia($tab) {
     gap: 32px;
-    }
-    @include minMedia($desk){
+  }
+  @include minMedia($desk) {
     gap: 16px;
-}
+  }
 }
 .library-btn {
     font-family: inherit;
@@ -357,17 +431,17 @@ transition: var(--main-effect);
   }
   transition: var(--main-effect);
 
-&:hover {
-    box-shadow: 0 0px 30px rgb(255, 107, 1, .5);
+  &:hover {
+    box-shadow: 0 0px 30px rgb(255, 107, 1, 0.5);
     border-color: var(--primary-accent-color);
     color: var(--primary-accent-color);
-}
+  }
 
-&:focus-within {
+  &:focus-within {
     background-color: var(--primary-accent-color);
     color: var(--primary-lighttext-color);
-    border-color: var(--primary-accent-color)
-}
+    border-color: var(--primary-accent-color);
+  }
 }
 
 .library-btn.active {
@@ -375,20 +449,20 @@ transition: var(--main-effect);
 }
 
 .darktheme__button {
-    position: relative;
-    font-size: 20px;
-    padding: 0;
-    background-color: transparent;
-    width: 30px;
-    height: 30px;
-    transition: transform var(--main-effect);
-    
-    &:hover {
-        transform: rotate(-20deg) scale(1.25);
-    }
-        @include minMedia($tab) {
-            font-size: 30px;
-    }
+  position: relative;
+  font-size: 20px;
+  padding: 0;
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  transition: transform var(--main-effect);
+
+  &:hover {
+    transform: rotate(-20deg) scale(1.25);
+  }
+  @include minMedia($tab) {
+    font-size: 30px;
+  }
 }
 
 // .darktheme__icon {
