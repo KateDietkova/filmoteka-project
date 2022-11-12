@@ -10,3 +10,4 @@ import './js/theme';
 import './js/modal-login';
 import './js/translation/translate';
 import './js/scroll-up';
+import './js/scrollShow';
