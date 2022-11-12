@@ -21,6 +21,7 @@ function getLangFromStorage() {
   } else {
     lang = select.value;
   }
+  return lang;
 }
 
 function onChangeTranslate() {

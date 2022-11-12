@@ -1,106 +1,123 @@
 .modal-film__backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
 
-    padding: 20px;
-    width: 100vw;
-    height: 100vh;
-    overflow-y: scroll;
+  padding: 20px;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
 
-    background-color: rgba(0, 0, 0, 0.25);
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transition: opacity var(--main-effect), visibility var(--main-effect);
+  background-color: rgba(0, 0, 0, 0.25);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity var(--main-effect), visibility var(--main-effect);
 
-    @include minMedia($desk) {
+  @include minMedia($desk) {
     align-items: center;
-    }
+  }
 }
 
 .is-hidden {
-    opacity: 0;
-    pointer-events: none;
-    visibility: hidden;
-    transition: all var(--main-effect);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: all var(--main-effect);
+
+  background-color: rgba(0, 0, 0, 0.25);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity var(--main-effect), visibility var(--main-effect);
 }
 
 .modal-film__modal {
-    width: 280px;
-    padding: 48px 20px 40px 20px;
-    position: absolute;
-    margin: 0 auto;
-    
-    @include minMedia($tab) {
-        width: 704px;
-        padding: 40px 72px 40px 36px;
-    }
-    
-    @include minMedia($desk) {
-        width: 806px;
-        padding-left: 12px;
-        padding-right: 12px;
-    }
+  width: 280px;
+  padding: 48px 20px 40px 20px;
+  position: absolute;
+  margin: 0 auto;
 
-    opacity: 1;
-    visibility: visible;
+  @include minMedia($tab) {
+    width: 704px;
+    padding: 40px 72px 40px 36px;
+  }
 
-    transition: transform var(--main-effect),
-    opacity var(--main-effect),
+  @include minMedia($desk) {
+    width: 806px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  opacity: 1;
+  visibility: visible;
+
+  transition: transform var(--main-effect), opacity var(--main-effect),
     visibility var(--main-effect);
 
-    background-color: #fff;
+  background-color: #fff;
 
-    .darkTheme & {
-        background-color: #1a1a1a;
-    }
+  .darkTheme & {
+    background-color: #1a1a1a;
+  }
 
-    .modal-film__backdrop.is-hidden & {
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        transform: scale(0.5);
-    }
+  .modal-film__backdrop.is-hidden & {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: scale(0.5);
+  }
+
+  .modal-film__backdrop.is-hidden & {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: scale(0.5);
+  }
 }
 
 .modal-film__button-close {
-    position: absolute;
-    top: 8px;
-    right: 8px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
 
-    @include centeredFlex;
-    width: 30px;
-    height: 30px;
-    padding: 0;
+  @include centeredFlex;
+  width: 30px;
+  height: 30px;
+  padding: 0;
 
-    color: #000000;
-    border: none;
-    background-color: transparent;
+  color: #000000;
+  border: none;
+  background-color: transparent;
 
-    transition: transform var(--main-effect), color var(--main-effect), border-color var(--main-effect);
+  transition: transform var(--main-effect), color var(--main-effect),
+    border-color var(--main-effect);
 
-    .darkTheme & {
-        color: #fff;
-    }
+  .darkTheme & {
+    color: #fff;
+  }
 
-    &:hover,
-    &:focus {
-        transform: rotate(180deg) translate(2px, 2px);
-        color: #FF6B01;
-    }
+  &:hover,
+  &:focus {
+    transform: rotate(180deg) translate(2px, 2px);
+    color: #ff6b01;
+  }
+  &:hover,
+  &:focus {
+    transform: rotate(180deg);
+    translate: 1px 1px;
+    color: #ff6b01;
+  }
 }
 
 .modal-film__button-close-icon {
-    width: 14px;
-    height: 14px;
-    stroke: currentColor;
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
 }
 
-.modal-container {
-    
+.modal-container {  
     @include minMedia($tab) {
         display: flex;
         }
@@ -128,91 +145,94 @@
 }
 
 .modal-film__title {
-    margin-bottom: 16px;
-    font-family: var(--font-general);
-    font-weight: 500;
-    font-size: 20px;
-    line-height: calc(23 / 20);
-    color: var(--primary-darktext-color);
+  margin-bottom: 16px;
+  font-family: var(--font-general);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: calc(23 / 20);
+  color: var(--primary-darktext-color);
 
-    @include minMedia($desk) {
-            font-size: 30px;
-            line-height: calc(35 / 30);
-        }
+  @include minMedia($desk) {
+    font-size: 30px;
+    line-height: calc(35 / 30);
+  }
 }
 
 .modal-film__features {
-    margin-bottom: 16px;
-    font-family: var(--font-general);
-    font-weight: 500;
-    font-size: 12px;
-    line-height: calc(16 / 12);
-    color: var(--primary-darktext-color);
-    border-spacing: 0 4px;
+  margin-bottom: 16px;
+  font-family: var(--font-general);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(16 / 12);
+  color: var(--primary-darktext-color);
+  border-spacing: 0 4px;
 }
 
 .modal-film__feature {
-    padding: 0 40px 0 0;
+    width: 108px;
     color: #8C8C8C;
 
     @include minMedia($desk) {
-        padding-right: 85px;
+        width: 152px;
     }
-
-    &-value {
-            padding: 0;
-        }
 }
 
 .modal-film__value-vote, .modal-film__value-votes {
     display: inline-block;
-    padding-top: 1px;
+    padding: 1px 4px 0;
     text-align: center;
     align-items: center;
-    width: 36px;
+    min-width: 36px;
     height: 16px;
     border-radius: 5px;
     line-height: calc(14 / 12);
 }
 
 .modal-film__value-vote {
-    color: #fff;
-    background-color: #FF6B01;
+  color: #fff;
+  background-color: #ff6b01;
 }
 
 .modal-film__value-votes {
-    color: #000;
-    background-color: #F7F7F7;
+  color: #000;
+  background-color: #f7f7f7;
+
+  color: var(--primary-lighttext-color);
+  background-color: #ff6b01;
+}
+
+.modal-film__value-votes {
+  background-color: #f7f7f7;
 }
 
 .modal-film__article {
-    margin-bottom: 20px;
-    font-family: var(--font-general);
-    font-weight: 500;
-    font-size: 12px;
-    line-height: calc(20 / 12);
-    color: var(--primary-darktext-color);
+  margin-bottom: 20px;
+  font-family: var(--font-general);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(20 / 12);
+  color: var(--primary-darktext-color);
 
-    &-title {
-        margin-bottom: 8px;
-        font-size: 12px;
-        font-weight: 500;
-        line-height: calc(16 / 12);
-    }
+  &-title {
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: calc(16 / 12);
+  }
 }
 
 .modal-film__buttons {
-    @include centeredFlex;
+  @include centeredFlex;
 
-    @include minMedia($desk) {
-        justify-content: start;
-        margin-left: 8px;
-    }
+  @include minMedia($desk) {
+    justify-content: start;
+    margin-left: 8px;
+  }
 }
 
 .modal-film__button {
     @include centeredFlex;
-    width: 110px;
+    min-width: 110px;
 
     font-family: var(--font-general);
     text-transform: uppercase;
@@ -227,44 +247,45 @@
     transition: all var(--main-effect);
 
     .darkTheme & {
-        background-color: #1a1a1a;
+      background-color: #1a1a1a;
     }
 
     @include minMedia($tab) {
-        width: 125px;
+        min-width: 125px;
     }
 
     @include minMedia($desk) {
-        width: 136px;
+        min-width: 136px;
     }
 
     &:hover {
-        box-shadow: 0 0px 15px rgb(255, 107, 1, .5);
-        border-color: #FF6B01;
-        color: #FF6B01;
+      box-shadow: 0 0px 15px rgb(255, 107, 1, 0.5);
+      border-color: #ff6b01;
+      color: #ff6b01;
     }
 
     &:focus-within {
-        background-color: #FF6B01;
-        color: #fff;
-        border-color: #FF6B01
+      background-color: #ff6b01;
+      color: #fff;
+      border-color: #ff6b01;
     }
 
     &-watched {
-        padding: 6px 27px 4px 27px;
-        margin-right: 20px;
+      padding: 6px 27px 4px 27px;
+      margin-right: 20px;
 
-        @include minMedia($tab) {
-            padding: 13px 9px 11px 9px;
-            margin-right: 15px;
-        }
+      @include minMedia($tab) {
+        padding: 13px 9px 11px 9px;
+        margin-right: 15px;
+      }
     }
 
     &-queue {
-        padding: 14px 0 12px 0;
+      padding: 14px 0 12px 0;
 
-        @include minMedia($tab) {
-                padding: 13px 7px 11px 7px;
-            }
+      @include minMedia($tab) {
+        padding: 13px 7px 11px 7px;
+      }
     }
 }
+
