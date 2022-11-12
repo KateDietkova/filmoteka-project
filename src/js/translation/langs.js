@@ -125,8 +125,28 @@ export const translations = {
     de: 'Willkommen',
   },
   goodbye: {
-    en: 'You signed out',
-    uk: 'Ви вийшли з аккаунту',
-    de: 'Sie sind ausgeloggt',
+    en: 'You signed out. Come back soon 😊',
+    uk: 'Ви вийшли з аккаунту. Повертайтесь скоріш 😊',
+    de: 'Sie sind ausgeloggt. Kommen Sie wieder zurück 😊',
+  },
+  trends: {
+    en: 'Today Trends',
+    uk: 'Тренди дня',
+    de: 'Trends des Tages',
+  },
+  rating: {
+    en: 'Rating',
+    uk: 'Рейтінг',
+    de: 'Bewertung',
+  },
+  nomovies: {
+    en: 'Sorry, there are no movies matching your search query. Please try again',
+    uk: 'На жаль, немає фільмів, які відповідають вашому пошуковому запиту. Будь ласка спробуйте ще раз',
+    de: 'Leider, gibt es keine Filme, die Ihrer Suchanfrage entsprechen. Versuchen Sie bitte noch Mal',
+  },
+  emptyfield: {
+    en: 'Please, enter your search request',
+    uk: 'Будь ласка, введіть пошуковий запит',
+    de: 'Bitte geben Sie Ihre Suchanfrage ein',
   },
 };
