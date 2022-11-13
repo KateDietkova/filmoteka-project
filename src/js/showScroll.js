@@ -2,7 +2,7 @@ const header = document.querySelector('.header');
 const body = document.querySelector('body');
 
 let lastScroll = 0;
-const defaultOfSet = 200;
+const defaultOfSet = 230;
 
 // отримання значення прокрутки
 const scrollPosition = () =>
@@ -18,9 +18,6 @@ function showScroll() {
     body.classList.add('fixed');
   } else if (scrollPosition() > lastScroll && containHide()) {
     //scroll up
-    header.classList.remove('hide');
-  } else if (scrollPosition() === 0) {
-    body.classList.remove('fixed');
     header.classList.remove('hide');
   }
 
