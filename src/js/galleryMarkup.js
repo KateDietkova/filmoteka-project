@@ -68,7 +68,6 @@ export function getDate(date) {
     const { movies, allGenres } = await getMoviesWithAllGenres(pageNum);
     gallery.innerHTML = galleryMarkup(movies, allGenres);
   } catch (error) {
-    console.log('Error', error);
     return;
   }
 }
