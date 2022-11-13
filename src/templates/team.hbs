@@ -9,16 +9,17 @@
     <ul class='team__list'>
       {{#each this}}
         <li class='team__item'>
-          <div class='team__card'>
             <a target="_blank" href="{{github-link}}"><img
               class='team__image'
               src='{{avatars}}'
               alt="{{name}}"
             />
             </a>
-                <p  class='team__name'>{{name}}</p>
+            <div class="team__card">
+                    <p  class='team__name'>{{name}}</p>
                 <p  class='team__position'>{{position}}</p>
-                </div>
+            </div>
+                
         </li>
       {{/each}}
     </ul>

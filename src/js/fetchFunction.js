@@ -4,6 +4,7 @@ import { getLangFromStorage } from './translation/translate';
 import Pagination from 'tui-pagination';
 import { containerSearch } from './pagination';
 import { options, container } from './pagination';
+import { translations } from './translation/langs';
 
 export let instanceSearch = new Pagination(containerSearch, options);
 
@@ -39,14 +40,15 @@ export async function getFilmByKeywords(queryVal, pageNum) {
     })
     .catch(error => {
       movieErrorWrapper.classList.remove('visually-hidden');
-      Notiflix.Notify.failure(
-        'Sorry, there are no movies matching your search query. Please try again.'
-      );
+      Notiflix.Notify.failure(translations.nomovies[lang]);
     });
 }
 
 function activeSearchPagination(totalItems) {
-  if (containerSearch.classList.contains('visually-hidden') && totalItems > 20) {
+  if (
+    containerSearch.classList.contains('visually-hidden') &&
+    totalItems > 20
+  ) {
     container.classList.add('visually-hidden');
     containerSearch.classList.remove('visually-hidden');
   }

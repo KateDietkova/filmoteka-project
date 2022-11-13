@@ -35,6 +35,7 @@ const singUpBtn = document.querySelector('[data-modal-signup]');
 const emailInput = document.querySelector('#email');
 const passwordInput = document.querySelector('#password');
 
+
 window.addEventListener('load', onLoadCheckStat);
 
 function onLoadCheckStat() {
