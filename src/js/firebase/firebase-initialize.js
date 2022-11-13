@@ -7,6 +7,9 @@ import {
   getAuth,
   signInWithPopup,
   GoogleAuthProvider,
+  onAuthStateChanged,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth';
 
@@ -27,10 +30,15 @@ auth.languageCode = lang;
 
 const authBtn = document.querySelector('[data-modal-google-auth]');
 const logOutBtn = document.querySelector('[data-logout]');
+const loginBtn = document.querySelector('[data-modal-login]');
+const singUpBtn = document.querySelector('[data-modal-signup]');
+const emailInput = document.querySelector('#email');
+const passwordInput = document.querySelector('#password');
+
 
 window.addEventListener('load', onLoadCheckStat);
 
-export function onLoadCheckStat() {
+function onLoadCheckStat() {
   const libraryItem = document.querySelector('[data-library-item]');
   const logOutItem = document.querySelector('[data-logout-item');
   const logInItem = document.querySelector('[data-login-item');
@@ -39,26 +47,26 @@ export function onLoadCheckStat() {
     logInItem.classList.add('visually-hidden');
     libraryItem.classList.remove('visually-hidden');
     logOutItem.classList.remove('visually-hidden');
-    logOutBtn.addEventListener('click', authHandler);
+    logOutBtn.addEventListener('click', googleAuthHandler);
+    logOutBtn.addEventListener('click', logout);
   } else {
     libraryItem.classList.add('visually-hidden');
     logOutItem.classList.add('visually-hidden');
-    authBtn.addEventListener('click', authHandler);
+    authBtn.addEventListener('click', googleAuthHandler);
+    singUpBtn.addEventListener('click', createAccount);
+    loginBtn.addEventListener('click', loginEmailPasword);
     logInItem.classList.remove('visually-hidden');
   }
 }
 
-async function authHandler(e) {
+async function googleAuthHandler(e) {
   if (localStorage.getItem('actions') === 'logged-in') {
-    signOut(auth);
-    Notify.info(translations.goodbye[lang]);
-    localStorage.removeItem('actions');
-    window.location.href = './index.html';
+    logout();
   } else {
     document.querySelector('[data-loginmodal]').classList.add('is-hidden');
 
     try {
-      signInWithPopup(auth, provider).then(res => {
+      await signInWithPopup(auth, provider).then(res => {
         Notify.success(
           `${translations.welcome[lang]}, ${res.user.displayName}`
         );
@@ -70,3 +78,61 @@ async function authHandler(e) {
     }
   }
 }
+
+async function createAccount(e) {
+  e.preventDefault();
+  const loginEmail = emailInput.value;
+  const loginPassword = passwordInput.value;
+  console.log(loginEmail);
+  console.log(loginPassword);
+  try {
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      loginEmail,
+      loginPassword
+    );
+    Notify.info(`Successful account creation`);
+    console.log(userCredential.user);
+  } catch (error) {
+    if (error.code ==='auth/email-already-in-use') {
+         Notify.info('That email adress is already in use');
+      }
+    if (error.code ==='auth/invalid-email') {
+         Notify.info('That email adress or password is invalid');
+      }
+
+    console.log(error);
+  }
+}
+
+async function loginEmailPasword(e) {
+  e.preventDefault();
+  const loginEmail = emailInput.value;
+  const loginPassword = passwordInput.value;
+  try {
+    await signInWithEmailAndPassword(auth, loginEmail, loginPassword).then(
+      res => {
+        document.querySelector('[data-loginmodal]').classList.add('is-hidden');
+        localStorage.setItem('actions', 'logged-in');
+        window.location.href = './library.html';
+      }
+    );
+  } catch (error) {
+    if (error.code ==='auth/invalid-email') {
+         Notify.info('That email adress or password is invalid');
+    }
+    if (error.code ==='auth/user-not-found') {
+         Notify.info('This email has not been created.');
+    }
+    console.log(error);
+  }
+}
+
+async function logout() {
+  await signOut(auth);
+  Notify.info(`You signed out`);
+  localStorage.removeItem('actions');
+  window.location.href = './index.html';
+}
+
+
