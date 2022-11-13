@@ -5,8 +5,9 @@ import { translateTexts } from './translation/translate';
 import { getDate } from './galleryMarkup';
 // import WatchTrailer from './movie-trailer';
 import movieTrailer from './movie-trailer';
-
 import { scrollController } from './scrollController';
+import { translations } from './translation/langs';
+import { getLangFromStorage } from './translation/translate';
 
 const refs = {
   movieList: document.querySelector('.movie-list'),
@@ -14,6 +15,9 @@ const refs = {
   closeModalBtn: document.querySelector('[data-modal-close]'),
   modalContainer: document.querySelector('.modal-container'),
 };
+
+
+const lang = getLangFromStorage();
 
 let dataObj = {};
 export const STORAGE_KEY_WATCHED = 'watched-films';
@@ -121,10 +125,10 @@ function isInSavedFilm(key, button) {
       return;
     });
     if (findId && button.classList.contains('modal-film__button-watched')) {
-      button.textContent = 'Delete from Watched';
+      button.textContent = translations.removewatched[lang];
     }
     if (findId && button.classList.contains('modal-film__button-queue')) {
-      button.textContent = 'Delete from Queue';
+      button.textContent = translations.removequeue[lang];
     }
   }
 }
@@ -135,7 +139,7 @@ function onAddToWatched() {
   if (savedWatchedFilms) {
     watchedFilms = JSON.parse(savedWatchedFilms);
   }
-  if (addToWatchedBtn.textContent === 'Delete from Watched') {
+  if (addToWatchedBtn.textContent === translations.removewatched[lang]) {
     let indexFilmObj;
     console.log(watchedFilms);
     watchedFilms.filter((film, index) => {
@@ -147,10 +151,10 @@ function onAddToWatched() {
     });
     watchedFilms.splice(indexFilmObj, 1);
     localStorage.setItem(STORAGE_KEY_WATCHED, JSON.stringify(watchedFilms));
-    addToWatchedBtn.textContent = 'Add to Watched';
+    addToWatchedBtn.textContent = translations.addwatched[lang];
     return;
   }
-  addToWatchedBtn.textContent = 'Delete from Watched';
+  addToWatchedBtn.textContent = translations.removewatched[lang];
   watchedFilms.push(dataObj);
   localStorage.setItem(STORAGE_KEY_WATCHED, JSON.stringify(watchedFilms));
 }
@@ -161,7 +165,8 @@ function onAddToQueue() {
   if (savedQueueFilms) {
     queueFilms = JSON.parse(savedQueueFilms);
   }
-  if (addToQueueBtn.textContent === 'Delete from Queue') {
+
+  if (addToQueueBtn.textContent === translations.removequeue[lang]) {
     let indexFilmObj;
     console.log(queueFilms);
     queueFilms.filter((film, index) => {
@@ -173,10 +178,12 @@ function onAddToQueue() {
     });
     queueFilms.splice(indexFilmObj, 1);
     localStorage.setItem(STORAGE_KEY_QUEUE, JSON.stringify(queueFilms));
-    addToQueueBtn.textContent = 'Add to Queue';
+
+    addToQueueBtn.textContent = translations.addqueue[lang];
     return;
   }
-  addToQueueBtn.textContent = 'Delete from Queue';
+  addToQueueBtn.textContent = translations.removequeue[lang];
+
 
   queueFilms.push(dataObj);
   localStorage.setItem(STORAGE_KEY_QUEUE, JSON.stringify(queueFilms));
