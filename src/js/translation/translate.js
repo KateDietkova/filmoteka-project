@@ -44,6 +44,14 @@ function translatePlaceholder() {
     const headerInput = document.querySelector('.header-input');
     headerInput.placeholder = translations.search[lang];
   }
+  if (document.querySelector('.header-input')) {
+    const emailInput = document.querySelector('.email-input');
+    emailInput.placeholder = translations.email[lang];
+  }
+  if (document.querySelector('.header-input')) {
+    const passwordInput = document.querySelector('.password-input');
+    passwordInput.placeholder = translations.password[lang];
+  }
 }
 
 function updateStorage() {
