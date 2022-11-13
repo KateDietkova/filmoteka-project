@@ -10,40 +10,24 @@
       <div class="modal__field">
         <label for="email"></label>
         <div class="modal__input-wrap">
-          <input
-            type="email"
-            name="user-email"
-            id="email"
-            class="modal__input"
-            placeholder="Email"
-            required="required"
-          />
+          <input type="email" name="user-email" id="email" class="modal__input" placeholder="Email"
+            required="required" />
         </div>
       </div>
       <div class="modal__field">
         <label for="tel"></label>
         <div class="modal__input-wrap">
-          <input
-            type="tel"
-            name="user-tel"
-            id="tel"
-            class="modal__input"
-            placeholder="Password"
-            required="required"
-          />
+          <input type="tel" name="user-tel" id="password" class="modal__input" placeholder="Password"
+            required="required" />
         </div>
       </div>
-      <button type="submit" class="button modal-login__button lng-login">
+      <button type="submit" class="button modal-login__button lng-login" data-modal-login>
         Log In
       </button>
-      <button type="submit" class="button modal-login__button lng-signin">
+      <button type="submit" class="button modal-login__button lng-signin" data-modal-signup>
         Sign Up
       </button>
-      <button
-        type="button"
-        class="button modal-login__button lng-login"
-        data-modal-google-auth
-      >
+      <button type="button" class="button modal-login__button lng-login" data-modal-google-auth>
         Google Authorise
       </button>
     </form>
