@@ -16,7 +16,9 @@ const refs = {
   modalContainer: document.querySelector('.modal-container'),
 };
 
+
 const lang = getLangFromStorage();
+
 let dataObj = {};
 export const STORAGE_KEY_WATCHED = 'watched-films';
 export const STORAGE_KEY_QUEUE = 'queue-films';
@@ -163,6 +165,7 @@ function onAddToQueue() {
   if (savedQueueFilms) {
     queueFilms = JSON.parse(savedQueueFilms);
   }
+
   if (addToQueueBtn.textContent === translations.removequeue[lang]) {
     let indexFilmObj;
     console.log(queueFilms);
@@ -175,10 +178,12 @@ function onAddToQueue() {
     });
     queueFilms.splice(indexFilmObj, 1);
     localStorage.setItem(STORAGE_KEY_QUEUE, JSON.stringify(queueFilms));
+
     addToQueueBtn.textContent = translations.addqueue[lang];
     return;
   }
   addToQueueBtn.textContent = translations.removequeue[lang];
+
 
   queueFilms.push(dataObj);
   localStorage.setItem(STORAGE_KEY_QUEUE, JSON.stringify(queueFilms));
