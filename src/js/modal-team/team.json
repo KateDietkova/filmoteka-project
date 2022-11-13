@@ -1,61 +1,68 @@
-[   {
-     "name": "Катя",
-     "position": "Team lead",
-     "avatars": "https://avatars.githubusercontent.com/u/38350154?v=4",
+[
+  {
+    "name": "Катя",
+    "position": "Team lead",
+    "avatars": "https://avatars.githubusercontent.com/u/38350154?v=4",
     "github-link": "https://github.com/KateDietkova"
-    },
-    {
-      "name": "Юля",
-      "position": "Scrum-master",
-      "avatars": "https://avatars.githubusercontent.com/u/92719550?v=4",
-      "github-link": "https://github.com/YuliiaMakhovska"
-    },
-    {
-      "name": "Максим",
-      "position": "Front-end",
-      "avatars": "https://avatars.githubusercontent.com/u/99914800?v=4",
-      "github-link": "https://github.com/MaxGaid"
-    },{
-      "name": "Валерія",
-      "position": "Front-end",
-      "avatars": "https://avatars.githubusercontent.com/u/99216072?v=4",
-      "github-link": "https://github.com/ValeriiaMezentseva"
-      },
-      {
-        "name": "Павел",
-        "position": "Front-end",
-        "avatars": "https://avatars.githubusercontent.com/u/69019724?v=4",
-        "github-link": "https://github.com/pavel13595"
-      },
-      {
-        "name": "Юліка",
-        "position": "Front-end",
-        "avatars": "https://avatars.githubusercontent.com/u/95138792?v=4",
-        "github-link": "https://github.com/yulikafsd"
-      },{
-        "name": "Віктор",
-        "position": "Front-end",
-        "avatars": "https://avatars.githubusercontent.com/u/77990236?v=4",
-        "github-link": "https://github.com/Viktor-Pozhydaiev"
-        },{
-          "name": "Антон",
-          "position": "Front-end",
-          "avatars": "https://avatars.githubusercontent.com/u/91492704?s=96&v=4",
-          "github-link": "https://github.com/ToshaUA "
-        },{
-          "name": "Роман",
-          "position": "Front-end",
-          "avatars": "https://avatars.githubusercontent.com/u/92758017?s=400&u=58426014bb7cd1ca0bbd42f4599f430f58d5fce5&v=4",
-          "github-link": "https://github.com/Roman-Moskalenko"
-        },{
-          "name": "Мілєна",
-          "position": "Front-end",
-          "avatars": "https://avatars.githubusercontent.com/u/81996837?v=4",
-          "github-link": "https://github.com/milenadiamonds1"
-        },{
-          "name": "Anton",
-          "position": "Front-end",
-          "avatars": "https://avatars.githubusercontent.com/u/92736982?v=4",
-          "github-link": "https://github.com/AntonMaydan"
-        }] 
-      
+  },
+  {
+    "name": "Юля",
+    "position": "Scrum-master",
+    "avatars": "https://avatars.githubusercontent.com/u/92719550?v=4",
+    "github-link": "https://github.com/YuliiaMakhovska"
+  },
+  {
+    "name": "Максим",
+    "position": "Front-end",
+    "avatars": "https://avatars.githubusercontent.com/u/99914800?v=4",
+    "github-link": "https://github.com/MaxGaid"
+  },
+  {
+    "name": "Валерія",
+    "position": "Front-end",
+    "avatars": "https://avatars.githubusercontent.com/u/99216072?v=4",
+    "github-link": "https://github.com/ValeriiaMezentseva"
+  },
+  {
+    "name": "Павел",
+    "position": "Front-end",
+    "avatars": "https://avatars.githubusercontent.com/u/69019724?v=4",
+    "github-link": "https://github.com/pavel13595"
+  },
+  {
+    "name": "Юліка",
+    "position": "Front-end",
+    "avatars": "https://avatars.githubusercontent.com/u/95138792?v=4",
+    "github-link": "https://github.com/yulikafsd"
+  },
+  {
+    "name": "Віктор",
+    "position": "Front-end",
+    "avatars": "https://avatars.githubusercontent.com/u/77990236?v=4",
+    "github-link": "https://github.com/Viktor-Pozhydaiev"
+  },
+  {
+    "name": "Антон",
+    "position": "Front-end",
+    "avatars": "https://avatars.githubusercontent.com/u/91492704?s=400&u=acb9e885169085470c1669ac64cf6931cb408f41&v=4",
+    "github-link": "https://github.com/ToshaUA "
+  },
+  {
+    "name": "Роман",
+    "position": "Front-end",
+    "avatars": "https://avatars.githubusercontent.com/u/92758017?s=400&u=58426014bb7cd1ca0bbd42f4599f430f58d5fce5&v=4",
+    "github-link": "https://github.com/Roman-Moskalenko"
+  },
+  {
+    "name": "Мілєна",
+    "position": "Front-end",
+    "avatars": "https://avatars.githubusercontent.com/u/81996837?v=4",
+    "github-link": "https://github.com/milenadiamonds1"
+  },
+  {
+    "name": "Anton",
+    "position": "Front-end",
+    "avatars": "https://avatars.githubusercontent.com/u/92736982?v=4",
+    "github-link": "https://github.com/AntonMaydan"
+  }
+]
