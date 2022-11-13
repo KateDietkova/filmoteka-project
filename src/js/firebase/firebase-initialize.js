@@ -90,8 +90,16 @@ async function createAccount(e) {
       loginEmail,
       loginPassword
     );
+    Notify.info(`Successful account creation`);
     console.log(userCredential.user);
   } catch (error) {
+    if (error.code ==='auth/email-already-in-use') {
+         Notify.info('That email adress is already in use');
+      }
+    if (error.code ==='auth/invalid-email') {
+         Notify.info('That email adress or password is invalid');
+      }
+
     console.log(error);
   }
 }
@@ -104,14 +112,17 @@ async function loginEmailPasword(e) {
     await signInWithEmailAndPassword(auth, loginEmail, loginPassword).then(
       res => {
         document.querySelector('[data-loginmodal]').classList.add('is-hidden');
-        Notify.success(
-          `${translations.welcome[lang]}, ${res.user.displayName}`
-        );
         localStorage.setItem('actions', 'logged-in');
         window.location.href = './library.html';
       }
     );
   } catch (error) {
+    if (error.code ==='auth/invalid-email') {
+         Notify.info('That email adress or password is invalid');
+    }
+    if (error.code ==='auth/user-not-found') {
+         Notify.info('This email has not been created.');
+    }
     console.log(error);
   }
 }
