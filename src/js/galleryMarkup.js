@@ -6,7 +6,7 @@ import { scrollToTop } from './scroll-up';
 import Loading from './loader.js';
 
 let pageNum = 1;
-// let instance;
+
 
 const gallery = document.querySelector('.js-trend-film');
 
@@ -23,6 +23,7 @@ Loading.pulse('Loading...', {
 });
 
 addMoviesToGallery(pageNum);
+
 instance.on('afterMove', onClickPage);
 
 function onClickPage(eventData) {
@@ -36,7 +37,7 @@ function onClickPage(eventData) {
 export function galleryMarkup(movies, allGenres) {
   return movies
     .map(({ poster_path, title, genre_ids, release_date, id }) => {
-      return `<li class="films-card" data-id=${id}>
+      return `<li class="films-card" data-id=${id}  data-aos="fade-up">
                     <img
                         class="projects-list__img"
                         src='${getPosterFilm(poster_path)}'
@@ -61,7 +62,7 @@ export function getDate(date) {
   return year;
 }
 
-async function addMoviesToGallery(pageNum) {
+ async function addMoviesToGallery(pageNum) {
   try {
     Loading.remove();
     const { movies, allGenres } = await getMoviesWithAllGenres(pageNum);
@@ -71,3 +72,5 @@ async function addMoviesToGallery(pageNum) {
     return;
   }
 }
+
+
