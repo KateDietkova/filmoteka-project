@@ -5,6 +5,8 @@ import { getAllGenres } from './getGenres';
 import Loading from './loader.js';
 import { instanceSearch } from './fetchFunction';
 import { scrollToTop } from './scroll-up';
+import { translations } from './translation/langs';
+import { getLangFromStorage } from './translation/translate';
 
 const refs = {
   searchForm: document.querySelector('.search-form'),
@@ -13,6 +15,7 @@ const refs = {
   button: document.querySelector('.button-search'),
 };
 
+let lang = getLangFromStorage();
 let queryVal = '';
 let pageNum = 1;
 
@@ -28,7 +31,7 @@ function onSubmitForm(evt) {
   evt.preventDefault();
   clearForm();
   if (evt.currentTarget.elements.searchQuery.value.trim() === '') {
-    return Notiflix.Notify.warning('Field cannot be emply');
+    return Notiflix.Notify.warning(translations.emptyfield[lang]);
   }
 
   Loading.pulse('Loading...', {
