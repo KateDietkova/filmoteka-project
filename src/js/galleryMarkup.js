@@ -37,8 +37,8 @@ function onClickPage(eventData) {
 export function galleryMarkup(movies, allGenres) {
   return movies
     .map(({ poster_path, title, genre_ids, release_date, id }) => {
-      return `<a href="#" class="link-film-card">
-                <li class="films-card" data-id=${id}  data-aos="fade-up">
+      return `<li class="films-card" data-id=${id}  data-aos="fade-up">
+                <a href="#" class="link-film-card">
                     <img
                         class="projects-list__img"
                         src='${getPosterFilm(poster_path)}'
@@ -53,8 +53,8 @@ export function galleryMarkup(movies, allGenres) {
                             )} | ${getDate(release_date)}</p>
                         </div>
                     </div>
-                  </li>
-                </a>`;
+                  </a>
+                </li>`;
     })
     .join('');
 }
