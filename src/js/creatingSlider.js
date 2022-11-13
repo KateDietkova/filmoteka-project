@@ -41,10 +41,22 @@ async function trendToSlider() {
   return fetch(URL)
     .then(response => response.json())
     .then(({ results }) => {
-      return results;
+      const failmsInfo = ratingToFixed(results);
+      return failmsInfo;
     })
     .then(renderSliderFilms)
     .catch(error => {
+      console.log(error);
       sliderContainer.innerHTML = `<img src=${noposter} alt='No poster' loading='lazy'>`;
     });
+}
+
+function ratingToFixed(filmsDay) {
+  const filmsDayInfo = filmsDay.map(
+    ({ id, poster_path, title, name, vote_average }) => {
+      let voteFixed = parseFloat(vote_average.toFixed(1));
+      return { id, poster_path, title, name, voteFixed };
+    }
+  );
+  return filmsDayInfo;
 }
