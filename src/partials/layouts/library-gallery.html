@@ -22,3 +22,72 @@
     <div id="tui-pagination-container-search" class="tui-pagination pagination-box visually-hidden"></div>
   </div>
 </section>
+
+
+
+
+<div class="backdrop is-hidden" data-signupmodal>
+  <div class="modal signup-modal">
+    <button type="button" class="modal-close__button" data-signupmodal-close>
+      <svg width="30" height="30">
+        <use
+          href="/src/images/svg/icons.svg#close-modal-btn"
+          class="modal-close__icon"
+        ></use>
+      </svg>
+    </button>
+
+    <p class="modal__title">Create your account</p>
+      <form action="#" class="modal__form" id="form-sign-in">
+        <div class="modal__field">
+          <label class="form-name" for="email"> Mail </label>
+          <input
+            type="email"
+            name="user-email"
+            class="modal__input"
+            id="user-email"
+            placeholder="Email"
+            required="required"
+          />
+          <svg class="form-icon" width="15" height="12">
+            <use href="./images/svg/icons.svg#icon-email"></use>
+          </svg>
+        </div>
+        <div class="modal__field">
+          <label class="form-name" for="password">
+            Password
+          </label>
+          <input
+            type="tel"
+            name="user-tel"
+            id="tel"
+            class="modal__input"
+            placeholder="Password"
+            required="required"
+          />
+          <svg class="form-icon" width="15" height="12">
+            <use href="./images/svg/icons.svg#icon-password"></use>
+          </svg>
+        </div>
+          <button
+            type="submit"
+            class="button modal-login__button lng-login"
+            id="btn-register"
+          >
+            Register
+          </button>
+          <p class="sign-up-text">or</p>
+          <button
+            type="button"
+            class="button modal-login__button lng-login"
+            id="btn-open-register"
+          >
+            Sign In
+          </button>
+      </form>
+    </div>
+  </div>
+
+
+  </div>
+</div>
