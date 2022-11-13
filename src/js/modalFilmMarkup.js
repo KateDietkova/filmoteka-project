@@ -3,7 +3,6 @@ import { getPosterFilm } from './getPosterFilm';
 import { getFilmInfoById } from './getFilmInfoById';
 import { translateTexts } from './translation/translate';
 import { getDate } from './galleryMarkup';
-// import WatchTrailer from './movie-trailer';
 import movieTrailer from './movie-trailer';
 import { scrollController } from './scrollController';
 import { translations } from './translation/langs';
@@ -27,7 +26,6 @@ let queueFilms = [];
 let addToWatchedBtn;
 let addToQueueBtn;
 
-let trailerBtn;
 
 refs.movieList.addEventListener('click', onClickShowModal);
 
@@ -102,8 +100,6 @@ async function showModal(event) {
   addToWatchedBtn = document.querySelector('.modal-film__button-watched');
   addToQueueBtn = document.querySelector('.modal-film__button-queue');
 
-  // trailerBtn = document.querySelector('.js-trailer-btn');
-  // trailerBtn.addEventListener('click', getMovieTrailer);
 
   isInSavedFilm(STORAGE_KEY_WATCHED, addToWatchedBtn);
   isInSavedFilm(STORAGE_KEY_QUEUE, addToQueueBtn);
