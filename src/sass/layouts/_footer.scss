@@ -19,6 +19,8 @@
   margin-left: 10px;
   margin-right: 10px;
   animation: heartbeat 1s infinite;
+  position: relative;
+  z-index: 0;
 }
 .mob-fix {
   @include maxMedia(767px) {
