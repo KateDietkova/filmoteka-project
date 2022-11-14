@@ -40,7 +40,6 @@ function getTeamInfo(e) {
 
   function closeModalBtn() {
     modalContent.close();
-
     btnCloseRef.removeEventListener('click', closeModalBtn);
   }
 }

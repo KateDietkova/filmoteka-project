@@ -8,14 +8,12 @@ import movieTrailer from './movie-trailer';
 
 import { scrollController } from './scrollController';
 
-
 const refs = {
   movieList: document.querySelector('.movie-list'),
   modal: document.querySelector('[data-modal]'),
   closeModalBtn: document.querySelector('[data-modal-close]'),
   modalContainer: document.querySelector('.modal-container'),
 };
-
 
 let dataObj = {};
 export const STORAGE_KEY_WATCHED = 'watched-films';
@@ -26,7 +24,6 @@ let addToWatchedBtn;
 let addToQueueBtn;
 
 let trailerBtn;
-
 
 refs.movieList.addEventListener('click', onClickShowModal);
 
@@ -53,7 +50,7 @@ async function showModal(event) {
     vote_average,
     vote_count,
     release_date,
-    id
+    id,
   } = await getFilmInfoById(filmId);
 
   const genresName = genres.map(({ name }) => name).join(', ');
@@ -74,7 +71,7 @@ async function showModal(event) {
     sliceVoteAverage,
     vote_count,
     releaseDate,
-    id
+    id,
   };
 
   // проверить, есть ли постер, и если нет, поставить заглушку
@@ -101,10 +98,8 @@ async function showModal(event) {
   addToWatchedBtn = document.querySelector('.modal-film__button-watched');
   addToQueueBtn = document.querySelector('.modal-film__button-queue');
 
-
   // trailerBtn = document.querySelector('.js-trailer-btn');
   // trailerBtn.addEventListener('click', getMovieTrailer);
-
 
   isInSavedFilm(STORAGE_KEY_WATCHED, addToWatchedBtn);
   isInSavedFilm(STORAGE_KEY_QUEUE, addToQueueBtn);
@@ -112,8 +107,6 @@ async function showModal(event) {
   addToWatchedBtn.addEventListener('click', onAddToWatched);
   addToQueueBtn.addEventListener('click', onAddToQueue);
 }
-
-
 
 function isInSavedFilm(key, button) {
   const savedFilms = localStorage.getItem(key);
@@ -164,27 +157,26 @@ function onAddToWatched() {
 
 function onAddToQueue() {
   console.log(dataObj);
-   const savedQueueFilms = localStorage.getItem(STORAGE_KEY_QUEUE);
-   if (savedQueueFilms) {
-     queueFilms = JSON.parse(savedQueueFilms);
-   }
-   if (addToQueueBtn.textContent === 'Delete from Queue') {
-     let indexFilmObj;
-     console.log(queueFilms);
-     queueFilms.filter((film, index) => {
-       console.log('Compare', film.filmId, dataObj.filmId);
-       if (film.filmId === dataObj.filmId) {
-         indexFilmObj = index;
-       }
-       return film.filmId === dataObj.filmId;
-     });
-     queueFilms.splice(indexFilmObj, 1);
-     localStorage.setItem(STORAGE_KEY_QUEUE, JSON.stringify(queueFilms));
-     addToQueueBtn.textContent = 'Add to Queue';
-     return;
-   }
-   addToQueueBtn.textContent = 'Delete from Queue';
-
+  const savedQueueFilms = localStorage.getItem(STORAGE_KEY_QUEUE);
+  if (savedQueueFilms) {
+    queueFilms = JSON.parse(savedQueueFilms);
+  }
+  if (addToQueueBtn.textContent === 'Delete from Queue') {
+    let indexFilmObj;
+    console.log(queueFilms);
+    queueFilms.filter((film, index) => {
+      console.log('Compare', film.filmId, dataObj.filmId);
+      if (film.filmId === dataObj.filmId) {
+        indexFilmObj = index;
+      }
+      return film.filmId === dataObj.filmId;
+    });
+    queueFilms.splice(indexFilmObj, 1);
+    localStorage.setItem(STORAGE_KEY_QUEUE, JSON.stringify(queueFilms));
+    addToQueueBtn.textContent = 'Add to Queue';
+    return;
+  }
+  addToQueueBtn.textContent = 'Delete from Queue';
 
   queueFilms.push(dataObj);
   localStorage.setItem(STORAGE_KEY_QUEUE, JSON.stringify(queueFilms));

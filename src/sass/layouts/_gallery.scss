@@ -1,8 +1,11 @@
 .movie-gallery {
-  padding-top: 20px;
+  padding-top: 250px;
   padding-bottom: 40px;
   @include minMedia($tab) {
-    padding-top: 60px;
+    padding-top: 290px;
+  }
+  @include minMedia($preDesk) {
+    padding: 60px;
   }
 }
 .movie-list {

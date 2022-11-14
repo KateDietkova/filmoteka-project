@@ -1,4 +1,7 @@
 .header {
+  position: fixed;
+  z-index: 3;
+  transition: transform 0.5s linear;
   background-image: linear-gradient(
       to right,
       rgba(0, 0, 0, 0.56),
@@ -7,16 +10,14 @@
     url(/src/images/header/header-mob-1x.jpg);
   background-repeat: no-repeat;
   background-color: var(--primary-darktext-color);
-  z-index: 3;
   background-position: top;
   background-size: cover;
   width: 100%;
   height: 230px;
-  transition: transform 1s linear;
   padding-bottom: 97px;
   padding-top: 46px;
   margin: 0 auto;
-  position: relative;
+  // position: relative;
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
@@ -61,11 +62,8 @@
     }
   }
 }
-.fixed {
-  padding-top: 230px;
-}
+
 .header.hide {
-  position: fixed;
   transform: translateY(-230px);
 }
 @media screen and (min-width: 769px) {
