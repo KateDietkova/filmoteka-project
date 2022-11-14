@@ -1,5 +1,5 @@
 <div class="backdrop is-hidden" data-loginmodal>
-  <div class="modal">
+  <div class="modal modal-login">
     <button type="button" class="modal-close__button" data-loginmodal-close>
       <svg width="30" height="30">
         <use
@@ -8,55 +8,126 @@
         ></use>
       </svg>
     </button>
-    <p class="modal__title lng-logintitle">Log In</p>
-    <form action="#" class="modal__form">
+    <p class="modal__title lng-login">Log in</p>
+    <form action="#" class="modal__form" id="form-sign-in">
       <div class="modal__field">
-        <label for="email"></label>
+        <label for="email">Email</label>
         <div class="modal__input-wrap">
           <input
             type="email"
             name="user-email"
             id="email"
-            class="modal__input email-input"
-            placeholder="Email"
+            class="modal__input"
             required="required"
           />
+          <svg class="form-icon" width="15" height="12">
+            <use href="./images/svg/icons.svg#icon-email" class="login-icon"></use>
+          </svg>
         </div>
       </div>
       <div class="modal__field">
-        <label for="tel"></label>
+        <label for="tel">Password</label>
         <div class="modal__input-wrap">
           <input
             type="tel"
             name="user-tel"
-            id="password"
-            class="modal__input password-input"
-            placeholder="Password"
+            id="tel"
+            class="modal__input"
             required="required"
           />
+          <svg class="form-icon" width="15" height="12">
+            <use href="./images/svg/icons.svg#icon-lock" class="login-icon"></use>
+          </svg>
         </div>
       </div>
-      <button
-        type="submit"
-        class="button modal-login__button lng-loginmodal"
-        data-modal-login
-      >
+      <button type="submit" class="button modal-login__button lng-login" id="log-in-btn">
         Log In
       </button>
+      <p class="sign-up-text">Don't have an account?</p>
       <button
         type="submit"
-        class="button modal-login__button lng-signin"
-        data-modal-signup
-      >
-        Sign Up
+        class="button modal-login__button lng-signup"
+        id="sign-up-btn"> Sign Up
       </button>
+      <p class="or-text">or</p>
       <button
         type="button"
-        class="button modal-login__button lng-authorise"
+        class="button modal-login__button lng-login"
         data-modal-google-auth
       >
         Google Authorise
       </button>
     </form>
+  </div>
+</div>
+
+
+
+<!-- //signup// -->
+
+<div class="backdrop is-hidden" data-signupmodal>
+  <div class="modal signup-modal">
+    <button type="button" class="modal-close__button" data-signupmodal-close>
+      <svg width="30" height="30">
+        <use
+          href="/src/images/svg/icons.svg#close-modal-btn"
+          class="modal-close__icon"
+        ></use>
+      </svg>
+    </button>
+
+    <p class="modal__title signup-title ">Create your account</p>
+      <form action="#" class="modal__form" id="form-sign-up">
+        <div class="modal__field">
+          <label class="form-name" for="email"> Email </label>
+          <div class="modal__input-wrap">
+          <input
+            type="email"
+            name="user-email"
+            class="modal__input"
+            id="email"
+            required="required"
+          />
+          <svg class="form-icon" width="15" height="12">
+            <use href="./images/svg/icons.svg#icon-email" class="login-icon"></use>
+          </svg>
+          </div>
+        </div>
+        <div class="modal__field">
+          <label class="form-name" for="password">
+            Password
+          </label>
+          <div class="modal__input-wrap">
+          <input
+            type="tel"
+            name="user-tel"
+            id="tel"
+            class="modal__input"
+            required="required"
+          />
+          <svg class="form-icon" width="15" height="12">
+            <use href="./images/svg/icons.svg#icon-lock" class="login-icon"></use>
+          </svg>
+          </div>
+        </div>
+          <button
+            type="button"
+            class="button modal-login__button"
+            id="btn-register"
+            required="required"
+          >
+            Register
+          </button>
+          <p class="or-text">or</p>
+          <button
+            type="button"
+            class="button modal-login__button"
+            id="sign-in-btn"
+            required="required"
+          >Sign In
+          </button>
+      </form>
+    </div>
+  </div>
   </div>
 </div>
