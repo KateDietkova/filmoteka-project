@@ -8,6 +8,6 @@ export async function getFilmInfoById(filmId) {
     const film = await axios.get(URL);
     return film.data;
   } catch (error) {
-    console.log(error);
+    return;
   }
 }

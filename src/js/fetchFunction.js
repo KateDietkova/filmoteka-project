@@ -35,7 +35,6 @@ export async function getFilmByKeywords(queryVal, pageNum) {
       instanceSearch.setTotalItems(searchInfo.total_results);
       activeSearchPagination(searchInfo.total_results);
       hideSliderDuringSearch();
-      console.log(res.data);
       return res.data.results;
     })
     .catch(error => {

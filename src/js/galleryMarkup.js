@@ -10,11 +10,9 @@ let pageNum = 1;
 
 const gallery = document.querySelector('.js-trend-film');
 
-// const paginnationBox = document.querySelector('.tui-pagination');
 
 async function getMoviesWithAllGenres(pageNum) {
-  const { movies, responseInfo } = await getMovie(pageNum);
-  console.log(movies);
+  const { movies } = await getMovie(pageNum);
   const allGenres = await getAllGenres();
   return { movies, allGenres };
 }

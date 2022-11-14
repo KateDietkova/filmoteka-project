@@ -1,3 +1,4 @@
+import './js/notiflixInit';
 import './js/getTrendFilm';
 import './js/getGenres';
 import './js/getFilmByKeywords';

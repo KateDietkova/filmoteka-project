@@ -57,7 +57,6 @@ function clearForm() {
 
 async function getMovieWithAllGenres(queryVal, page) {
   const movieInfo = await getFilmByKeywords(queryVal, page);
-  console.log(movieInfo);
   const allGenres = await getAllGenres();
   return { movieInfo, allGenres };
 }
@@ -69,10 +68,8 @@ async function addMoviesToGallery(queryVal, page) {
       queryVal,
       page
     );
-    console.log(movieInfo);
     refs.cardFilm.innerHTML = galleryMarkup(movieInfo, allGenres);
   } catch (error) {
-    console.log('Some error:', error);
     return;
   }
 }
