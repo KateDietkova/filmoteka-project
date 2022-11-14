@@ -7,7 +7,11 @@ import movieTrailer from './movie-trailer';
 import { scrollController } from './scrollController';
 import { translations } from './translation/langs';
 import { getLangFromStorage } from './translation/translate';
-import { STORAGE_KEY_WATCHED, STORAGE_KEY_QUEUE, getFilms } from './localStorage';
+import {
+  STORAGE_KEY_WATCHED,
+  STORAGE_KEY_QUEUE,
+  getFilms,
+} from './localStorage';
 
 const refs = {
   movieList: document.querySelector('.movie-list'),
@@ -26,7 +30,6 @@ let queueFilms = [];
 let addToWatchedBtn;
 let addToQueueBtn;
 
-
 refs.movieList.addEventListener('click', onClickShowModal);
 
 export default function onClickShowModal(event) {
@@ -42,7 +45,6 @@ async function showModal(event) {
   const filmId = event.target.closest('li[data-id]').dataset.id;
 
   const {
-    backdrop_path,
     poster_path,
     genres,
     original_title,
@@ -62,7 +64,6 @@ async function showModal(event) {
 
   dataObj = {
     filmId,
-    backdrop_path,
     genresName,
     poster_path,
     original_title,
@@ -99,6 +100,7 @@ async function showModal(event) {
   addToWatchedBtn = document.querySelector('.modal-film__button-watched');
   addToQueueBtn = document.querySelector('.modal-film__button-queue');
 
+  changeButtonWidth();
 
   isInSavedFilm(STORAGE_KEY_WATCHED, addToWatchedBtn);
   isInSavedFilm(STORAGE_KEY_QUEUE, addToQueueBtn);
@@ -131,6 +133,19 @@ function isInSavedFilm(key, button) {
 function updateLibrary(sevedMovie) {
   if (refs.libraryGallery) {
     getFilms(sevedMovie);
+  }
+}
+
+function changeButtonWidth() {
+  const mediaQuery = window.matchMedia('(min-width: 1280px)');
+
+  if (lang === 'de' && mediaQuery.matches) {
+    addToWatchedBtn.style.width = '185px';
+    addToQueueBtn.style.width = '185px';
+  }
+  if (lang === 'uk' && mediaQuery.matches) {
+    addToWatchedBtn.style.width = '165px';
+    addToQueueBtn.style.width = '165px';
   }
 }
 
