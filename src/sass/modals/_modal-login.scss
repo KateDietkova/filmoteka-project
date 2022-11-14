@@ -55,12 +55,12 @@
   visibility: visible;
 
   transition: transform var(--main-effect), opacity var(--main-effect),
-            visibility var(--main-effect);
+    visibility var(--main-effect);
 
   background-color: #fff;
 
   .darkTheme & {
-    background-color: #1a1a1a;
+    background-color: #696060;
   }
 
   .backdrop.is-hidden & {
@@ -119,16 +119,21 @@
   letter-spacing: 0.1em;
   color: var(--primary-darktext-color);
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
+}
+
+.signup-title {
+  margin-bottom: 10px;
+  font-size: 35px;
 }
 
 .modal__input {
   width: 100%;
   height: 40px;
-  border: 1px solid var(--primary-accent-color);
+  background-color: #dcdcdc;
   border-radius: 4px;
   box-sizing: border-box;
-  padding-left: 20px;
+  padding-left: 36px;
   padding-bottom: 12px;
   padding-top: 12px;
   font-weight: 400;
@@ -139,17 +144,30 @@
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.modal__input:hover,
 .modal__input:focus {
-  border-color: var(--primary-accent-color);
+  box-shadow: 0 0px 30px rgb(255, 107, 1, 0.5);
+  background-color: #fff;
+  border: 1px solid var(--primary-accent-color);
 }
 
 .modal__field {
   display: flex;
   flex-direction: column;
+  position: relative;
 
   &:not(:last-child) {
-     margin-bottom: 10px;
+    margin-bottom: 10px;
   }
+}
+
+.form-icon {
+  position: absolute;
+  left: 14px;
+  transform: translateY(50%);
+
+  width: 18px;
+  height: 18px;
 }
 
 .modal__field label {
@@ -158,7 +176,6 @@
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.01em;
-  color: var(--header-hover-color);
 }
 
 .modal-login__button {
@@ -189,7 +206,7 @@
     padding: 13px 0 11px 0;
   }
   transition: var(--main-effect);
-  
+
   .darkTheme & {
     border: 1px solid var(--header-white-color);
     color: var(--header-white-color);
@@ -206,10 +223,21 @@
     color: var(--primary-lighttext-color);
     border-color: var(--primary-accent-color);
   }
-  
-
 }
 
 .modal__input-wrap {
   position: relative;
+}
+
+.sign-up-text {
+  font-weight: 700;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+.or-text {
+  font-weight: 700;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

@@ -25,6 +25,7 @@ export async function getFilmByKeywords(queryVal, pageNum) {
     })
     .then(res => {
       if (!res.data.total_results) {
+        activeSearchPagination(res.data.total_results);
         throw new Error();
       }
       if (!movieErrorWrapper.classList.contains('visually-hidden')) {
