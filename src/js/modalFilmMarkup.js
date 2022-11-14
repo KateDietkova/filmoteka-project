@@ -3,31 +3,30 @@ import { getPosterFilm } from './getPosterFilm';
 import { getFilmInfoById } from './getFilmInfoById';
 import { translateTexts } from './translation/translate';
 import { getDate } from './galleryMarkup';
-// import WatchTrailer from './movie-trailer';
 import movieTrailer from './movie-trailer';
 import { scrollController } from './scrollController';
 import { translations } from './translation/langs';
 import { getLangFromStorage } from './translation/translate';
+import { STORAGE_KEY_WATCHED, STORAGE_KEY_QUEUE, getFilms } from './localStorage';
 
 const refs = {
   movieList: document.querySelector('.movie-list'),
   modal: document.querySelector('[data-modal]'),
   closeModalBtn: document.querySelector('[data-modal-close]'),
   modalContainer: document.querySelector('.modal-container'),
+  libraryGallery: document.querySelector('.js-library'),
 };
 
 
 const lang = getLangFromStorage();
 
 let dataObj = {};
-export const STORAGE_KEY_WATCHED = 'watched-films';
-export const STORAGE_KEY_QUEUE = 'queue-films';
+
 let watchedFilms = [];
 let queueFilms = [];
 let addToWatchedBtn;
 let addToQueueBtn;
 
-let trailerBtn;
 
 refs.movieList.addEventListener('click', onClickShowModal);
 
@@ -102,8 +101,6 @@ async function showModal(event) {
   addToWatchedBtn = document.querySelector('.modal-film__button-watched');
   addToQueueBtn = document.querySelector('.modal-film__button-queue');
 
-  // trailerBtn = document.querySelector('.js-trailer-btn');
-  // trailerBtn.addEventListener('click', getMovieTrailer);
 
   isInSavedFilm(STORAGE_KEY_WATCHED, addToWatchedBtn);
   isInSavedFilm(STORAGE_KEY_QUEUE, addToQueueBtn);
@@ -133,6 +130,12 @@ function isInSavedFilm(key, button) {
   }
 }
 
+function updateLibrary(sevedMovie) {
+  if (refs.libraryGallery) {
+    getFilms(sevedMovie);
+  }
+}
+
 function onAddToWatched() {
   console.log(addToWatchedBtn.textContent);
   const savedWatchedFilms = localStorage.getItem(STORAGE_KEY_WATCHED);
@@ -150,6 +153,7 @@ function onAddToWatched() {
       return film.filmId === dataObj.filmId;
     });
     watchedFilms.splice(indexFilmObj, 1);
+    updateLibrary(watchedFilms);
     localStorage.setItem(STORAGE_KEY_WATCHED, JSON.stringify(watchedFilms));
     addToWatchedBtn.textContent = translations.addwatched[lang];
     return;
@@ -177,6 +181,7 @@ function onAddToQueue() {
       return film.filmId === dataObj.filmId;
     });
     queueFilms.splice(indexFilmObj, 1);
+    updateLibrary(queueFilms);
     localStorage.setItem(STORAGE_KEY_QUEUE, JSON.stringify(queueFilms));
 
     addToQueueBtn.textContent = translations.addqueue[lang];

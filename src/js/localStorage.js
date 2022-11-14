@@ -1,4 +1,3 @@
-import { STORAGE_KEY_WATCHED, STORAGE_KEY_QUEUE } from './modalFilmMarkup';
 import { getPosterFilm } from './getPosterFilm';
 import Loading from './loader.js';
 
@@ -10,12 +9,15 @@ const refs = {
 };
 let getWatchedFilmsArr;
 let getQueueFilmsArr;
+export const STORAGE_KEY_WATCHED = 'watched-films';
+export const STORAGE_KEY_QUEUE = 'queue-films';
 
 addListenerToLibraryBtn();
 onGetFromLocalStorageWatchedFilms();
 
 function onGetFromLocalStorageWatchedFilms() {
   hideLibraryImgNotFound();
+  addBtnActiveClassToWatched();
   Loading.pulse('Loading...', {
     svgColor: '#FF6B08',
   });
@@ -32,7 +34,7 @@ function onGetFromLocalStorageWatchedFilms() {
 
 function onGetFromLocalStorageQueueFilms() {
   hideLibraryImgNotFound();
-  removeBtnActiveClass();
+  addBtnActiveClassToQueue();
   Loading.pulse('Loading...', {
     svgColor: '#FF6B08',
   });
@@ -98,8 +100,18 @@ function addLibraryGallery(dataFilm) {
   }
 }
 
-function removeBtnActiveClass() {
-  refs.watchedFilmsLibraryBtn.classList.remove('active');
+function addBtnActiveClassToQueue() {
+  if (refs.watchedFilmsLibraryBtn || refs.queueFilmsLibraryBtn) {
+    refs.watchedFilmsLibraryBtn.classList.remove('active');
+    refs.queueFilmsLibraryBtn.classList.add('active');
+  }
+}
+
+function addBtnActiveClassToWatched() {
+  if (refs.watchedFilmsLibraryBtn || refs.queueFilmsLibraryBtn) {
+    refs.queueFilmsLibraryBtn.classList.remove('active');
+    refs.watchedFilmsLibraryBtn.classList.add('active');
+  }
 }
 
 function showLibraryImgNotFound(imgWrapper) {
@@ -109,7 +121,7 @@ function showLibraryImgNotFound(imgWrapper) {
   }
 }
 
-function getFilms(savedMovies) {
+export function getFilms(savedMovies) {
   if (savedMovies.length) {
     console.log(savedMovies);
 
