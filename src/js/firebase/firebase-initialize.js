@@ -7,7 +7,6 @@ import {
   getAuth,
   signInWithPopup,
   GoogleAuthProvider,
-  onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
@@ -34,7 +33,6 @@ const loginBtn = document.querySelector('[data-modal-login]');
 const singUpBtn = document.querySelector('[data-modal-signup]');
 const emailInput = document.querySelector('#email');
 const passwordInput = document.querySelector('#password');
-
 
 window.addEventListener('load', onLoadCheckStat);
 
@@ -91,15 +89,15 @@ async function createAccount(e) {
       loginEmail,
       loginPassword
     );
-    Notify.info(`Successful account creation`);
+    Notify.info(`${translations.accountcreated[lang]}`);
     console.log(userCredential.user);
   } catch (error) {
-    if (error.code ==='auth/email-already-in-use') {
-         Notify.info('That email adress is already in use');
-      }
-    if (error.code ==='auth/invalid-email') {
-         Notify.info('That email adress or password is invalid');
-      }
+    if (error.code === 'auth/email-already-in-use') {
+      Notify.info(`${translations.emailinuse[lang]}`);
+    }
+    if (error.code === 'auth/invalid-email') {
+      Notify.info(`${translations.invaliddata[lang]}`);
+    }
 
     console.log(error);
   }
@@ -118,11 +116,11 @@ async function loginEmailPasword(e) {
       }
     );
   } catch (error) {
-    if (error.code ==='auth/invalid-email') {
-         Notify.info('That email adress or password is invalid');
+    if (error.code === 'auth/invalid-email') {
+      Notify.info(`${translations.invaliddata[lang]}`);
     }
-    if (error.code ==='auth/user-not-found') {
-         Notify.info('This email has not been created.');
+    if (error.code === 'auth/user-not-found') {
+      Notify.info(`${translations.usernotfound[lang]}`);
     }
     console.log(error);
   }
@@ -134,5 +132,3 @@ async function logout() {
   localStorage.removeItem('actions');
   window.location.href = './index.html';
 }
-
-

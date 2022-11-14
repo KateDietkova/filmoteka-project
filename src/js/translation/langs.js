@@ -9,13 +9,23 @@ export const translations = {
     uk: 'Бібліотека',
     de: 'Bibliothek',
   },
-  login: {
+  loginbutton: {
+    en: 'Log in',
+    uk: 'Увійти',
+    de: 'Einloggen',
+  },
+  logintitle: {
+    en: 'Log in',
+    uk: 'Увійти',
+    de: 'Einloggen',
+  },
+  loginmodal: {
     en: 'Log in',
     uk: 'Увійти',
     de: 'Einloggen',
   },
   signin: {
-    en: 'Sign in',
+    en: 'Sign up',
     uk: 'Зареєструватись',
     de: 'Anmelden',
   },
@@ -23,6 +33,21 @@ export const translations = {
     en: 'Log out',
     uk: 'Вийти',
     de: 'Ausloggen',
+  },
+  authorise: {
+    en: 'Google Authorise',
+    uk: 'Увійти з Google',
+    de: 'Google autorisieren ',
+  },
+  email: {
+    en: 'Email',
+    uk: 'Електронна адреса',
+    de: 'Email ',
+  },
+  password: {
+    en: 'Password',
+    uk: 'Пароль',
+    de: 'Passwort ',
   },
   search: {
     en: 'Movie search',
@@ -128,6 +153,26 @@ export const translations = {
     en: 'You signed out. Come back soon 😊',
     uk: 'Ви вийшли з аккаунту. Повертайтесь скоріш 😊',
     de: 'Sie sind ausgeloggt. Kommen Sie wieder zurück 😊',
+  },
+  accountcreated: {
+    en: 'You created a new account. You can now use your data to log in',
+    uk: 'Ви створили новий акаунт. Скористуйтесь своїми даними для входу',
+    de: 'Sie haben ein neues Konto erstellt. Sie können sich nun mit Ihren Daten anmelden',
+  },
+  emailinuse: {
+    en: 'This email is already in use',
+    uk: 'Ця електронна адреса вже використовується',
+    de: 'Diese E-Mail-Adresse wird schon verwendet',
+  },
+  invaliddata: {
+    en: 'That email adress or password is invalid',
+    uk: 'Ця електронна адреса або пароль недійсні',
+    de: 'Diese E-Mail-Adresse oder Passwot ist ungültig',
+  },
+  usernotfound: {
+    en: 'No user with this email address was found',
+    uk: 'Користувача з такою електронною аресою не знайдено',
+    de: 'Es wurde kein Benutzer mit dieser E-Mail-Adresse gefunden',
   },
   trends: {
     en: `Today's Trends`,
