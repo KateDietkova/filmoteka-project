@@ -72,7 +72,7 @@
   -webkit-animation: coup 3s;
   animation: coup 3s;
 }
-@-webkit-keyframes coup {
+@keyframes coup {
   0% {
     -webkit-transform: translateY(-200px);
     transform: translateY(-200px);
