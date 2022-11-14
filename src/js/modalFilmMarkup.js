@@ -60,7 +60,6 @@ async function showModal(event) {
   const slicePopularity = parseFloat(popularity.toFixed(1));
   const sliceVoteAverage = parseFloat(vote_average.toFixed(1));
   const releaseDate = getDate(release_date);
-  console.log(genresName);
 
   dataObj = {
     filmId,
@@ -137,16 +136,13 @@ function updateLibrary(sevedMovie) {
 }
 
 function onAddToWatched() {
-  console.log(addToWatchedBtn.textContent);
   const savedWatchedFilms = localStorage.getItem(STORAGE_KEY_WATCHED);
   if (savedWatchedFilms) {
     watchedFilms = JSON.parse(savedWatchedFilms);
   }
   if (addToWatchedBtn.textContent === translations.removewatched[lang]) {
     let indexFilmObj;
-    console.log(watchedFilms);
     watchedFilms.filter((film, index) => {
-      console.log('Compare', film.filmId, dataObj.filmId);
       if (film.filmId === dataObj.filmId) {
         indexFilmObj = index;
       }
@@ -164,7 +160,6 @@ function onAddToWatched() {
 }
 
 function onAddToQueue() {
-  console.log(dataObj);
   const savedQueueFilms = localStorage.getItem(STORAGE_KEY_QUEUE);
   if (savedQueueFilms) {
     queueFilms = JSON.parse(savedQueueFilms);
@@ -172,9 +167,7 @@ function onAddToQueue() {
 
   if (addToQueueBtn.textContent === translations.removequeue[lang]) {
     let indexFilmObj;
-    console.log(queueFilms);
     queueFilms.filter((film, index) => {
-      console.log('Compare', film.filmId, dataObj.filmId);
       if (film.filmId === dataObj.filmId) {
         indexFilmObj = index;
       }

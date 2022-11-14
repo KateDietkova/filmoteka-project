@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { translations } from '../translation/langs';
 import { getLangFromStorage } from '../translation/translate';
-import { Notify } from 'notiflix';
+import Notiflix from 'notiflix';
 
 import {
   getAuth,
@@ -65,14 +65,14 @@ async function googleAuthHandler(e) {
 
     try {
       await signInWithPopup(auth, provider).then(res => {
-        Notify.success(
+        Notiflix.Notify.success(
           `${translations.welcome[lang]}, ${res.user.displayName}`
         );
         localStorage.setItem('actions', 'logged-in');
         window.location.href = './library.html';
       });
     } catch (error) {
-      console.log(error);
+      return;
     }
   }
 }
@@ -81,25 +81,21 @@ async function createAccount(e) {
   e.preventDefault();
   const loginEmail = emailInput.value;
   const loginPassword = passwordInput.value;
-  console.log(loginEmail);
-  console.log(loginPassword);
   try {
     const userCredential = await createUserWithEmailAndPassword(
       auth,
       loginEmail,
       loginPassword
     );
-    Notify.info(`${translations.accountcreated[lang]}`);
-    console.log(userCredential.user);
+    Notiflix.Notify.info(`${translations.accountcreated[lang]}`);
   } catch (error) {
     if (error.code === 'auth/email-already-in-use') {
-      Notify.info(`${translations.emailinuse[lang]}`);
+      Notiflix.Notify.info(`${translations.emailinuse[lang]}`);
     }
     if (error.code === 'auth/invalid-email') {
-      Notify.info(`${translations.invaliddata[lang]}`);
+      Notiflix.Notify.info(`${translations.invaliddata[lang]}`);
     }
 
-    console.log(error);
   }
 }
 
@@ -117,18 +113,18 @@ async function loginEmailPasword(e) {
     );
   } catch (error) {
     if (error.code === 'auth/invalid-email') {
-      Notify.info(`${translations.invaliddata[lang]}`);
+      Notiflix.Notify.info(`${translations.invaliddata[lang]}`);
     }
     if (error.code === 'auth/user-not-found') {
-      Notify.info(`${translations.usernotfound[lang]}`);
+      Notiflix.Notify.info(`${translations.usernotfound[lang]}`);
     }
-    console.log(error);
+    return;
   }
 }
 
 async function logout() {
   await signOut(auth);
-  Notify.info(`You signed out`);
+  Notiflix.Notify.info(`You signed out`);
   localStorage.removeItem('actions');
   window.location.href = './index.html';
 }

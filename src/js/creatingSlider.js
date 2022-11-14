@@ -46,8 +46,8 @@ async function trendToSlider() {
     })
     .then(renderSliderFilms)
     .catch(error => {
-      console.log(error);
       sliderContainer.innerHTML = `<img src=${noposter} alt='No poster' loading='lazy'>`;
+      return;
     });
 }
 

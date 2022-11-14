@@ -123,7 +123,6 @@ function showLibraryImgNotFound(imgWrapper) {
 
 export function getFilms(savedMovies) {
   if (savedMovies.length) {
-    console.log(savedMovies);
 
     addLibraryGallery(savedMovies);
     return;
