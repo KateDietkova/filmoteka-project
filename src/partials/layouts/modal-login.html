@@ -8,7 +8,7 @@
         ></use>
       </svg>
     </button>
-    <p class="modal__title lng-login">Log in</p>
+    <p class="modal__title lng-logintitle">Log in</p>
     <form action="#" class="modal__form" id="form-sign-in">
       <div class="modal__field">
         <label for="email">Email</label>
@@ -17,7 +17,8 @@
             type="email"
             name="user-email"
             id="email"
-            class="modal__input"
+            class="modal__input email-input"
+            placeholder="Email"
             required="required"
           />
           <svg class="form-icon" width="15" height="12">
@@ -31,28 +32,31 @@
           <input
             type="tel"
             name="user-tel"
-            id="tel"
-            class="modal__input"
+            id="password"
+            class="modal__input password-input"
             required="required"
+            placeholder="Password"
+          
           />
           <svg class="form-icon" width="15" height="12">
             <use href="./images/svg/icons.svg#icon-lock" class="login-icon"></use>
           </svg>
         </div>
       </div>
-      <button type="submit" class="button modal-login__button lng-login" id="log-in-btn">
+      <button type="submit" class="button modal-login__button lng-loginmodal" data-modal-login id="log-in-btn">
         Log In
       </button>
       <p class="sign-up-text">Don't have an account?</p>
       <button
         type="submit"
-        class="button modal-login__button lng-signup"
-        id="sign-up-btn"> Sign Up
+        class="button modal-login__button lng-signin"
+        id="sign-up-btn"
+        data-modal-signup> Sign Up
       </button>
       <p class="or-text">or</p>
       <button
         type="button"
-        class="button modal-login__button lng-login"
+        class="button modal-login__button lng-authorise"
         data-modal-google-auth
       >
         Google Authorise
@@ -84,9 +88,10 @@
           <input
             type="email"
             name="user-email"
-            class="modal__input"
+            class="modal__input email-input"
             id="email"
             required="required"
+            placeholder="Email"
           />
           <svg class="form-icon" width="15" height="12">
             <use href="./images/svg/icons.svg#icon-email" class="login-icon"></use>
@@ -101,9 +106,10 @@
           <input
             type="tel"
             name="user-tel"
-            id="tel"
-            class="modal__input"
+            id="password"
+            class="modal__input password-input"
             required="required"
+            placeholder="Password"
           />
           <svg class="form-icon" width="15" height="12">
             <use href="./images/svg/icons.svg#icon-lock" class="login-icon"></use>
@@ -115,13 +121,14 @@
             class="button modal-login__button"
             id="btn-register"
             required="required"
+            data-modal-login
           >
             Register
           </button>
           <p class="or-text">or</p>
           <button
             type="button"
-            class="button modal-login__button"
+            class="button modal-login__button lng-signin"
             id="sign-in-btn"
             required="required"
           >Sign In

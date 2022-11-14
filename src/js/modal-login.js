@@ -1,44 +1,38 @@
-const refs = {
-  openModalBtn:document.querySelector('[data-modal-open]'),
-  formSignIn: document.querySelector('#form-sign-in'),
-  formSignUp: document.querySelector('#form-sign-up'),
-  logInBtn: document.querySelector('#log-in-btn'),
-  signInBtn: document.querySelector('#sign-in-btn'),
-  signUpBtn: document.querySelector('#sign-up-btn'),
-  closeModalBtn: document.querySelector('[data-loginmodal-close]'),
-  closeSignUpBtn: document.querySelector('[data-signupmodal-close]'),
-  modal: document.querySelector('[data-loginmodal]'),
-  signUpModal: document.querySelector("[data-signupmodal]"),
+const openModalBtn = document.querySelector('[data-modal-open]');
+const closeModalBtn = document.querySelector('[data-loginmodal-close]');
+const closeSignUpBtn = document.querySelector('[data-signupmodal-close]');
+const modal = document.querySelector('[data-loginmodal]');
+const signUpModal = document.querySelector("[data-signupmodal]");
+const signUpBtn = document.querySelector('#sign-up-btn');
+const signInBtn = document.querySelector('#sign-in-btn');
 
+if (openModalBtn) {
+  openModalBtn.addEventListener('click', openModal);
 }
 
-if (refs.openModalBtn) {
-  refs.openModalBtn.addEventListener('click', openModal);
-}
-
-if (refs.closeModalBtn) {
-  refs.closeModalBtn.addEventListener('click', closeModal);
-  refs.closeSignUpBtn.addEventListener('click', closeModal);
+if (closeModalBtn) {
+  closeModalBtn.addEventListener('click', closeModal);
+  closeSignUpBtn.addEventListener('click', closeModal);
 } 
 
 function openModal() {
-  refs.modal.classList.remove('is-hidden');
-  refs.signUpModal.classList.add('is-hidden');
-  if (refs.signUpBtn) {
-    refs.signUpBtn.addEventListener('click', openSignUpModal)
+  modal.classList.remove('is-hidden');
+  signUpModal.classList.add('is-hidden');
+  if (signUpBtn) {
+    signUpBtn.addEventListener('click', openSignUpModal)
   }
 }
 
 function closeModal() {
-  refs.modal.classList.add('is-hidden');
-  refs.signUpModal.classList.add('is-hidden');
+  modal.classList.add('is-hidden');
+  signUpModal.classList.add('is-hidden');
 }
 
 
 function openSignUpModal() {
-refs.signUpModal.classList.remove('is-hidden');
-refs.modal.classList.add('is-hidden');
-  if (refs.signInBtn) {
-    refs.signInBtn.addEventListener('click', openModal);
+signUpModal.classList.remove('is-hidden');
+modal.classList.add('is-hidden');
+  if (signInBtn) {
+    signInBtn.addEventListener('click', openModal);
   }
 }
