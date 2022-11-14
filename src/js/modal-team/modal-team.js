@@ -16,7 +16,7 @@ function openModal(e) {
     Loading.remove();
     getTeamInfo(team);
   } catch (error) {
-    console.error('Sorry modal not working' + error);
+    return;
   }
 }
 

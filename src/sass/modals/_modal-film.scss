@@ -151,8 +151,6 @@
 
 .modal-film__poster {
   margin-bottom: 20px;
-  // width: 240px;
-  // height: 357px;
   height: 100%;
   border-radius: 5px;
   object-fit: cover;
@@ -160,15 +158,13 @@
   width: 100%;
 
   @include minMedia($tab) {
-    // width: 264px;
-    // height: 374px;
+    height: 374px;
     margin-bottom: 0;
     margin-right: 67px;
   }
 
   @include minMedia($desk) {
-    // width: 375px;
-    // height: 478px;
+    height: 100%;
     margin-right: 16px;
   }
 }
@@ -186,6 +182,16 @@
   border-radius: 5px;
   opacity: 0.5;
   transition: opacity var(--main-effect), background-color var(--main-effect);
+
+  @include minMedia($tab) {
+    height: 374px;
+  }
+
+  @include minMedia($desk) {
+    height: 100%;
+  }
+
+
 }
 .modal__trailer-wrapper:hover.modal__trailer-wrapper {
   opacity: 1;

@@ -31,7 +31,6 @@
   }
 
   @include minMedia($desk) {
-    // bottom: 100px;
     right: 40px;
     border: 4px solid var(--primary-darktext-color);
   }
