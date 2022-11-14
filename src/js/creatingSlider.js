@@ -2,13 +2,14 @@ import Glide from '@glidejs/glide';
 import filmsCardsToSlider from '../templates/filmsCardsToSlider.hbs';
 import getPosterFilm from './getPosterFilm';
 import noposter from '../images/filmsPoster/noposter.jpg';
-
+import onClickShowModal from './modalFilmMarkup';
 let sliderContainer;
 let glide;
 
 function selectBoxForSlider() {
   if (document.querySelector('.slider__container')) {
     sliderContainer = document.querySelector('.slider__container');
+    sliderContainer.addEventListener('click', onClickShowModal);
   }
 }
 
@@ -37,7 +38,7 @@ function renderSliderFilms(e) {
 }
 
 async function trendToSlider() {
-  const URL = `https://api.themoviedb.org/3/trending/tv/day?api_key=579a7483bae7d6a5a25eb4c1ddded2cf`;
+  const URL = `https://api.themoviedb.org/3/trending/movie/day?api_key=579a7483bae7d6a5a25eb4c1ddded2cf`;
   return fetch(URL)
     .then(response => response.json())
     .then(({ results }) => {

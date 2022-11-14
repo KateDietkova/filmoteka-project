@@ -16,7 +16,6 @@ const refs = {
   modalContainer: document.querySelector('.modal-container'),
 };
 
-
 const lang = getLangFromStorage();
 
 let dataObj = {};
@@ -31,7 +30,7 @@ let trailerBtn;
 
 refs.movieList.addEventListener('click', onClickShowModal);
 
-function onClickShowModal(event) {
+export default function onClickShowModal(event) {
   event.preventDefault();
   if (event.target === event.currentTarget) {
     return;
@@ -183,7 +182,6 @@ function onAddToQueue() {
     return;
   }
   addToQueueBtn.textContent = translations.removequeue[lang];
-
 
   queueFilms.push(dataObj);
   localStorage.setItem(STORAGE_KEY_QUEUE, JSON.stringify(queueFilms));
