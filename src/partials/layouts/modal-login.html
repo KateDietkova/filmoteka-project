@@ -53,7 +53,6 @@
         id="sign-up-btn"
         data-modal-signup> Sign Up
       </button>
-      <p class="or-text">or</p>
       <button
         type="button"
         class="button modal-login__button lng-authorise"
@@ -66,75 +65,3 @@
 </div>
 
 
-
-<!-- //signup// -->
-
-<div class="backdrop is-hidden" data-signupmodal>
-  <div class="modal signup-modal">
-    <button type="button" class="modal-close__button" data-signupmodal-close>
-      <svg width="30" height="30">
-        <use
-          href="/src/images/svg/icons.svg#close-modal-btn"
-          class="modal-close__icon"
-        ></use>
-      </svg>
-    </button>
-
-    <p class="modal__title signup-title ">Create your account</p>
-      <form action="#" class="modal__form" id="form-sign-up">
-        <div class="modal__field">
-          <label class="form-name" for="email"> Email </label>
-          <div class="modal__input-wrap">
-          <input
-            type="email"
-            name="user-email"
-            class="modal__input email-input"
-            id="email"
-            required="required"
-            placeholder="Email"
-          />
-          <svg class="form-icon" width="15" height="12">
-            <use href="./images/svg/icons.svg#icon-email" class="login-icon"></use>
-          </svg>
-          </div>
-        </div>
-        <div class="modal__field">
-          <label class="form-name" for="password">
-            Password
-          </label>
-          <div class="modal__input-wrap">
-          <input
-            type="tel"
-            name="user-tel"
-            id="password"
-            class="modal__input password-input"
-            required="required"
-            placeholder="Password"
-          />
-          <svg class="form-icon" width="15" height="12">
-            <use href="./images/svg/icons.svg#icon-lock" class="login-icon"></use>
-          </svg>
-          </div>
-        </div>
-          <button
-            type="button"
-            class="button modal-login__button"
-            id="btn-register"
-            required="required"
-            data-modal-login
-          >
-            Register
-          </button>
-          <p class="or-text">or</p>
-          <button
-            type="button"
-            class="button modal-login__button lng-signin"
-            id="sign-in-btn"
-            required="required"
-          >Sign In
-          </button>
-      </form>
-    </div>
-  </div>
-  </div>
-</div>
