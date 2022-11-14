@@ -322,6 +322,7 @@
 .modal-film__button {
   @include centeredFlex;
   min-width: 110px;
+  height: 52px;
 
   font-family: var(--font-general);
   text-transform: uppercase;
@@ -341,10 +342,12 @@
 
   @include minMedia($tab) {
     min-width: 125px;
+    height: 52px;
   }
 
   @include minMedia($desk) {
     min-width: 136px;
+    height: 48px;
   }
 
   &:hover {
